@@ -5,4 +5,7 @@ database/*
 
 
 storage/*
-public/*
+public/uploads/*
+public/uploadsbk/*
+public/.well-known/*
+public/logs/*
