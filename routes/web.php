@@ -123,7 +123,7 @@ Route::group(['prefix' => 'auth', 'middleware' => 'auth:web'], function () {
         Route::get('/list_all', 'Auth\AvisoController@list')->name('auth.aviso.list');
         Route::get('/partialViewPostulante/{id}', 'Auth\AvisoController@partialViewPostulantes')->name('auth.aviso.postulantes');
 
-        Route::get('/partialViewPostulante2/{id}', 'Auth\AvisoController@partialViewPostulantes2')->name('auth.aviso.postulantes2');
+        Route::get('/partialViewAviso/{id}', 'Auth\AvisoController@partialViewAviso')->name('auth.aviso.postulantes2');
 
         Route::get('/ajax_list', 'Auth\AvisoController@partialViewPostulantesEstudiantes')->name('auth.aviso.ajax_list');
 

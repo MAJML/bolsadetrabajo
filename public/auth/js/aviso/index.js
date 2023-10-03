@@ -58,7 +58,7 @@ $(function(){
             {
                 data: null,
                 defaultContent:
-                    "<button type='button' class='btn btn-success p-3 btn-xs btn-seguimiento' title='Ver Seguimiento'><i class='fa fa-file'></i></button>",
+                    "<button type='button' class='btn btn-success p-3 btn-xs btn-seguimiento' title='Ver Seguimiento'><i class='fa fa-eye'></i></button>",
                 "orderable": false,
                 "searchable": false,
                 "width": "26px"
@@ -114,7 +114,7 @@ $(function(){
     }
 
     function invocarModalView2(id){
-        invocarModal(`/auth/aviso/partialViewPostulante2/${id ? id : 0}`, function ($modal) {
+        invocarModal(`/auth/aviso/partialViewAviso/${id ? id : 0}`, function ($modal) {
             if ($modal.attr("data-reload") === "true") $dataTableAviso.ajax.reload(null, false);
         });
     }

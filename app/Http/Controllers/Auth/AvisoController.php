@@ -33,9 +33,23 @@ class AvisoController extends Controller
         return view('auth.aviso._Postulantes', ['id' => $id]);
     }
 
-    public function partialViewPostulantes2($id)
+    // codigo hecho por marco
+    public function partialViewAviso($id)
     {
-        return view('auth.aviso._Seguimiento', ['id' => $id]);
+        $aviso = Aviso::select('avisos.titulo', 
+        'avisos.descripcion' ,
+        'avisos.direccion', 
+        'avisos.salario', 
+        'avisos.created_at as publicado', 
+        'distritos.nombre as distrito', 
+        'areas.nombre as area', 
+        'empresas.nombre_comercial as nombre_empresa')
+        ->join('empresas','empresas.id','=','avisos.empresa_id')    
+        ->join('distritos', 'distritos.id', '=', 'avisos.distrito_id')
+        ->leftjoin('areas', 'areas.id', '=', 'avisos.solicita_carrera')
+        ->where('avisos.id', $id)
+        ->get();
+        return view('auth.aviso._Aviso', ['id' => $id, 'aviso' => $aviso]);
     }
 
     // codigo hecho por marco
