@@ -26,9 +26,10 @@ class AppServiceProvider extends ServiceProvider
     {
         if (\App::environment('production')) {
             \URL::forceScheme('https');
+            $this->app['request']->server->set('HTTPS','on');
         }
         Schema::defaultStringLength(200);
         \Carbon\Carbon::setLocale('es');
-        $this->app['request']->server->set('HTTPS','on');
+        
     }
 }
