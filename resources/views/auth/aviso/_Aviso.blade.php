@@ -63,7 +63,6 @@
                 </div>
             
                 <div class="modal-body">
-                    <input type="hidden" id="id" name="id" value="{{ $id }}">
                     <div class="row">
                         <div class="col-md-8">
                             <div class="card-body p-5">

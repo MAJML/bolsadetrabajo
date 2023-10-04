@@ -58,7 +58,15 @@ $(function(){
             {
                 data: null,
                 defaultContent:
-                    "<button type='button' class='btn btn-success p-3 btn-xs btn-seguimiento' title='Ver Seguimiento'><i class='fa fa-eye'></i></button>",
+                    "<button type='button' class='btn btn-success p-3 btn-xs btn-seguimiento' title='Ver Aviso'><i class='fa fa-eye'></i></button>",
+                "orderable": false,
+                "searchable": false,
+                "width": "26px"
+            },
+            {
+                data: null,
+                defaultContent:
+                    "<button type='button' class='btn-primary p-3 btn-xs btn-editar' title='Editar Aviso'><i class='fa fa-edit'></i></button>",
                 "orderable": false,
                 "searchable": false,
                 "width": "26px"
@@ -92,6 +100,11 @@ $(function(){
         invocarModalView2(id)
     });
 
+    $table.on("click", ".btn-editar", function () {
+        const id = $dataTableAviso.row($(this).parents("tr")).data().id;
+        invocarModalViewEditar(id)
+    });
+
     $table.on("click", ".btn-update", function () {
         const id = $dataTableAviso.row($(this).parents("tr")).data().id;
         invocarModalView(id);
@@ -115,6 +128,12 @@ $(function(){
 
     function invocarModalView2(id){
         invocarModal(`/auth/aviso/partialViewAviso/${id ? id : 0}`, function ($modal) {
+            if ($modal.attr("data-reload") === "true") $dataTableAviso.ajax.reload(null, false);
+        });
+    }
+
+    function invocarModalViewEditar(id){
+        invocarModal(`/auth/aviso/partialViewEditarAviso/${id ? id : 0}`, function ($modal) {
             if ($modal.attr("data-reload") === "true") $dataTableAviso.ajax.reload(null, false);
         });
     }

@@ -3,13 +3,18 @@
 namespace BolsaTrabajo\Http\Controllers\Auth;
 
 use BolsaTrabajo\AlumnoAviso;
+use BolsaTrabajo\Grado_academico;
+use BolsaTrabajo\Area;
 use BolsaTrabajo\Aviso;
 use BolsaTrabajo\Empresa;
+use BolsaTrabajo\Distrito;
 use BolsaTrabajo\Estudiante_aviso;
 use BolsaTrabajo\Intermediacion_seguimiento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use BolsaTrabajo\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class AvisoController extends Controller
 {
@@ -49,9 +54,46 @@ class AvisoController extends Controller
         ->leftjoin('areas', 'areas.id', '=', 'avisos.solicita_carrera')
         ->where('avisos.id', $id)
         ->get();
-        return view('auth.aviso._Aviso', ['id' => $id, 'aviso' => $aviso]);
+        return view('auth.aviso._Aviso', ['aviso' => $aviso]);
     }
-
+    // codigo hecho por marco
+    public function partialViewEditarAviso($id)
+    {
+        $aviso = Aviso::find($id);   
+        $distrito = Distrito::all();
+        $areas = Area::all();
+        $grado = Grado_academico::all();
+        return view('auth.aviso._EditarAviso', ['id' => $id, 'aviso' => $aviso, 'distrito' => $distrito, 'areas' => $areas, 'grado' => $grado ]);
+    }
+    // codigo hecho por marco
+    public function update(Request $request)
+    {
+        $status = false;
+        $validator = Validator::make($request->all(), [
+            'titulo' => 'required',
+            'distrito_id' => 'required',
+            'vacantes' => 'required',
+            'descripcion' => 'required',
+            'salario' => 'required',
+            'periodo_vigencia' => 'required',
+            'solicita_carrera' => 'required',
+            'solicita_grado_a' => 'required'
+        ]);
+        if (!$validator->fails()){
+            $entity = Aviso::find($request->id);
+            $entity->titulo = $request->titulo;
+            $entity->distrito_id = $request->distrito_id;
+            $entity->descripcion = $request->descripcion;
+            $entity->salario = $request->salario;
+            $entity->vacantes = $request->vacantes;
+            $entity->solicita_carrera = $request->solicita_carrera;
+            $entity->solicita_grado_a = $request->solicita_grado_a;
+            $entity->ciclo_cursa = $request->ciclo_cursa;
+            $entity->periodo_vigencia = $request->periodo_vigencia;
+            if($entity->save()) $status = true;            
+        }
+        return response()->json(['Success' => $status, 'Errors' => $validator->errors()]);
+    }
     // codigo hecho por marco
     public function partialViewPostulantesEstudiantes2(Request $request)
     {

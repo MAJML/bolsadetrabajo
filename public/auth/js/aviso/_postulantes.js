@@ -63,43 +63,6 @@ $(function(){
         ]
     });
 
-
-
-    const $table2 = $("#tablePostulanteEstudiante");
-
-    const $dataTablePostulante2 = $table2.DataTable({
-        columnDefs: [{
-            "defaultContent": "-",
-            "targets": "_all"
-        }],
-        "stripeClasses": ['odd-row', 'even-row'],
-        "lengthChange": true,
-        "lengthMenu": [[50,100,200,500,-1],[50,100,200,500,"Todo"]],
-        "info": false,
-        //"buttons": [],
-        "ajax": {
-            url: "/auth/aviso/ajax_list",
-            // url: "/auth/alumno/list_all",
-            data: function (s) {
-                s.id = $("#id").val();
-            }
-        },
-        "columns": [
-            { 
-                title: "#", data: "id", className: "text-center"
-            },
-            { title: "Nombre    ", data: "nombres", className: "text-center" },
-            { title: "DNI", data: "dni", className: "text-center" },
-            { title: "Telefono", data: "telefono", className: "text-center" },
-            { title: "Grado Academico", data: "grado_academico", className: "text-center" },
-            { title: "Estado", data: "estado", className: "text-center" },
-            { title: "Correo", data: "correo", className: "text-center" },
-            { title: "Fecha de Registro", data: "fecha_registro", className: "text-center" }
-        ]
-    });
-
-
-
     const $table3 = $("#tableSeguimientosInter");
 
     const $dataTablePostulante3 = $table3.DataTable({

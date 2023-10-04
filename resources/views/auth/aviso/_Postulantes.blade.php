@@ -56,7 +56,7 @@ button {
     <div class="modal-dialog modal-md">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Listado de Postulante</h5>
+                <h5 class="modal-title">Listado de Candidatos</h5>
                 <button type="button" class="close" data-dismiss="modal">
                     <span aria-hidden="true">×</span>
                 </button>
@@ -65,69 +65,9 @@ button {
             <div class="modal-body">
                 {{-- {{ $datito }} --}}
                 <input type="hidden" id="id" name="id" value="{{ $id }}">
-                <h4 class="text-center">Listado por Sistema</h4>
                 <div class="row">
                     <div class="col-md-12">
                         <table id="tablePostulante" class="table table-bordered table-striped display nowrap margin-top-10 dataTable no-footer"></table>
-                    </div>
-                </div>
-
-                <br><hr><hr><br>
-                <h4 class="text-center">Listado Manual</h4>
-                <button id="open">
-                    Registrar Postulante para esta Oferta Laboral
-                </button>
-                <div id="modal_container" class="modal-container">
-                    <div class="modal1">
-                      <h4 class="mb-5">Registrar Postulante para este Oferta Laboral</h4>
-                    <form action="{{ route('auth.aviso.store_estudiante_aviso') }}" method="post">
-                        @csrf
-                        <div class="form-group row">
-                            <input type="hidden" id="id_estudiante_aviso" name="id_estudiante_aviso" value="{{ $id }}">
-                            <div class="col-md-12 mt-2">
-                                <input type="text" autocomplete="off" class="form-control" name="nombres_apellido" placeholder="Nombres y Apellidos del postulante" required>
-                            </div>
-                            <div class="col-md-12 mt-2">
-                                <input type="text" autocomplete="off" class="form-control" name="dni" minlength="8" maxlength="8" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  placeholder="DNI" required>
-                            </div>
-                            <div class="col-md-12 mt-2">
-                                <input type="text" autocomplete="off" class="form-control" name="celular" minlength="9" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  placeholder="Numero de celular" required>
-                            </div>
-                            <div class="col-md-12 mt-2">
-                                <input type="email" autocomplete="off" class="form-control" name="correo" placeholder="Correo Electronico" required>
-                            </div>
-                            <div class="col-md-12 mt-2">
-                                <select name="grado_academico" class="form-control" id="" required>
-                                    <option value="">Grado Académico</option>
-                                    <option value="Estudiante">Estudiante</option>
-                                    <option value="Egresado">Egresado</option>
-                                    <option value="Titulado">Titulado</option>
-                                </select>
-                            </div>
-                            <div class="col-md-12 mt-2">
-                                <select name="estado" class="form-control" id="" required>
-                                    <option value="">Estado</option>
-                                    <option value="Postulante">Postulante</option>
-                                    <option value="Evaluado">Evaluado</option>
-                                    <option value="Aceptado">Aceptado</option>
-                                    <option value="Descartado">Descartado</option>
-                                </select>
-                            </div>
-                        </div>     
-                        <div class="form-group row">
-                            <a href="javascript:void(0)" id="close" class="btn btn-secondary">Cerrar</a>
-                            <button type="submit" class="btn btn-success mx-5">Registrar</button>
-                        </div>                   
-                    </form>
-
-                      
-
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <table id="tablePostulanteEstudiante" class="table table-bordered table-striped display nowrap margin-top-10 dataTable no-footer"></table>
                     </div>
                 </div>
             </div>

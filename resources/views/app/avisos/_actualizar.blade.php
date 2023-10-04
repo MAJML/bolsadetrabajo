@@ -76,7 +76,6 @@
                                 @endforeach
                             </select>
                         </div>
-
                     </div>
 
                     <div class="form-group row">
@@ -156,8 +155,7 @@
                 }else{
                     $(".option_data").html("Grado Académico que solicita")
                 }
-                console.log("este es el valor del select : ", valor)
-                
+                /* console.log("este es el valor del select : ", valor) */
             }
         }
         inputs_validation()
