@@ -78,7 +78,8 @@ body {
 #informacionProductos.nav li a {
   padding: 15px;
   display: inline-block;
-  background-color: #34495e;
+  /* background-color: #34495e; */
+  background-color: #2777c6;
   color: #fff;
   text-decoration: none;
   border: 1px solid transparent;
@@ -1385,7 +1386,7 @@ header .notifications-menu ul.dropdown-menu li ul li a i {
     transform: translate(0, 0);
   }
   .main-nav .navbar {
-    background-color: #363d4a;
+    background-color: #364a36;
   }
 }
 

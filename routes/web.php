@@ -140,6 +140,10 @@ Route::group(['prefix' => 'auth', 'middleware' => 'auth:web'], function () {
         
     });
 
+    Route::group(['prefix' => 'avisoPostulacion'], function () {
+        Route::get('/', 'Auth\AvisoPostulacionController@index')->name('auth.avisoPostulacion');
+    });
+
     Route::post('store_estudiante_aviso', 'Auth\AvisoController@store_estudiante_aviso')->name('auth.aviso.store_estudiante_aviso');
 
     Route::post('store_seguimiento', 'Auth\AvisoController@store_seguimiento')->name('auth.aviso.store_seguimiento');

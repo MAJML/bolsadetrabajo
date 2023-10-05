@@ -17,6 +17,43 @@
 
 <body>
 
+<style>
+/* CAMBIAR THEME DE SISTEMA */
+.content-wrapper:before {
+    background: #1c4c75;
+}
+.main-nav {
+    background-color: #1c4c75;
+}
+.active-item-here{
+    color: #1c4c75;
+}
+.table thead {
+    background-color: #1c4c75;
+}
+.btn-secondary {
+    color: #fff;
+    background-color: #2ecc71;
+    border-color: #2ecc71;
+}
+.btn-secondary:hover {
+    color: #fff;
+    background-color: #1cb65c;
+    border-color: #1cb65c;
+}
+div.dataTables_wrapper div.dataTables_filter input{
+    width: 400px !important;
+}
+.modal.modal-fill .modal-dialog .modal-header{
+    background-color: #1c4c75;
+}
+.modal.modal-fill{
+    background: rgba(135, 189, 236, 0.305); !important;
+}
+header{
+    padding-top: 5px;
+}
+</style>
 <div class="wrapper">
 
     <div id="loading">
@@ -98,12 +135,15 @@
                             <i class="fa fa-users mr-5"></i> <span>Estudiantes</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('auth.aviso') }}"><span class="active-item-here"></span>
-                            <i class="fa fa-photo mr-5"></i> <span>Avisos</span>
-                        </a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="active-item-here"></span><i class="fa fa-photo mr-5"></i> <span>Avisos</span></a>
+                        <ul class="dropdown-menu multilevel scale-up-left">
+                            <li class="nav-item"><a class="nav-link" href="{{ route('auth.aviso') }}">Listado Avisos</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('auth.avisoPostulacion') }}">Avisos por Alumno Postulado</a></li>
+                        </ul>
                     </li>
-                    {{-- <li class="nav-item dropdown">
+{{--                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="active-item-here"></span> <i class="fa fa-cog mr-5"></i> <span>Ajustes</span></a>
                         <ul class="dropdown-menu multilevel scale-up-left">
@@ -123,7 +163,7 @@
     @yield('contenido')
 
     <footer class="main-footer">
-        &copy; <?php echo date('Y') ?> Powered by <a href="http://www.navegap.com" target="_blank">NavegaP</a>. Todos los derechos reservados.
+        &copy; <?php echo date('Y') ?> Powered by <a href="#" target="_blank">AgencyDesing</a>. Actualizado por Marco Antonio.
     </footer>
 
 </div>
