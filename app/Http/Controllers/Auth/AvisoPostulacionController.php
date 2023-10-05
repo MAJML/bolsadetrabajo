@@ -3,6 +3,7 @@
 namespace BolsaTrabajo\Http\Controllers\Auth;
 
 use BolsaTrabajo\AlumnoAviso;
+use BolsaTrabajo\Alumno;
 use BolsaTrabajo\Grado_academico;
 use BolsaTrabajo\Estado;
 use BolsaTrabajo\Area;
@@ -25,14 +26,28 @@ class AvisoPostulacionController extends Controller
         return view('auth.aviso-postulacion.index', ['Empresas' => Empresa::all()]);
     }
 
-    public function list(Request $request)
+    public function list()
     {
-        return response()->json(['data' => Aviso::whereHas('empresas', function ($q) { $q->where('deleted_at',  null);})
-        ->whereHas('empresas', function ($q) use ($request) { if($request->empresa_filter_id != null && $request->empresa_filter_id != ""){ $q->where('id', $request->empresa_filter_id ); }})
-        ->with('empresas')->with('provincias')->with('areas')
-        ->with('modalidades')->with('horarios')->with('provincias')
-        ->with('distritos')->orderBy('id')->get()
-        ]);
+        $alumno = Alumno::select('alumnos.id', 
+        'alumnos.created_at as fecha_postulacion',
+        'alumnos.nombres', 
+        'alumnos.apellidos', 
+        'alumnos.dni', 
+        'alumnos.email', 
+        'alumnos.telefono',
+        'avisos.titulo',
+        'empresas.ruc',
+        'empresas.nombre_comercial',
+        'estados.nombre as estado')
+        ->join('alumno_avisos', 'alumno_avisos.alumno_id', '=', 'alumnos.id')
+        ->join('avisos', 'avisos.id', '=', 'alumno_avisos.aviso_id')
+        ->join('empresas', 'empresas.id', '=', 'avisos.empresa_id')
+        ->join('estados', 'estados.id', '=', 'alumno_avisos.estado_id')
+        ->where('alumnos.deleted_at', NULL)
+        ->where('avisos.deleted_at', NULL)
+        ->distinct()
+        ->get();
+        return response()->json(['data' => $alumno]);
     }
 
     public function partialViewPostulantes($id)
