@@ -91,7 +91,7 @@
                             
                             <div class="form-group row">
                                 <div class="col-md-6">
-                                    <select name="solicita_carrera" id="solicita_carrera" class="form-input" required="">
+                                    <select name="solicita_carrera" id="" class="form-input" required="">
                                         <option value="" hidden="">Carrera que Solicita</option>
                                         @foreach($areas as $q)
                                             <option value="{{ $q->id }}" {{ $aviso != null && $aviso->solicita_carrera == $q->id ? "selected" : "" }}>{{ $q->nombre }}</option>

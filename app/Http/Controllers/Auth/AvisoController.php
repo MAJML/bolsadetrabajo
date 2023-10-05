@@ -4,6 +4,7 @@ namespace BolsaTrabajo\Http\Controllers\Auth;
 
 use BolsaTrabajo\AlumnoAviso;
 use BolsaTrabajo\Grado_academico;
+use BolsaTrabajo\Estado;
 use BolsaTrabajo\Area;
 use BolsaTrabajo\Aviso;
 use BolsaTrabajo\Empresa;
@@ -15,6 +16,7 @@ use Illuminate\Support\Facades\Validator;
 use BolsaTrabajo\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 class AvisoController extends Controller
 {
@@ -108,6 +110,34 @@ class AvisoController extends Controller
     public function list_postulantes(Request $request)
     {
         return response()->json(['data' => AlumnoAviso::with('alumnos')->with('estados')->where('aviso_id', $request->id)->get() ]);
+    }
+
+    public function partialEditarEstados($idalumno, $idaviso)
+    {
+        $estado = Estado::all();
+        $alumno_avisos = AlumnoAviso::where('alumno_id', $idalumno)->where('aviso_id', $idaviso)->get();
+        return view('auth.aviso._EditarEstado', ['alumno_avisos' => $alumno_avisos, 'idalumno' => $idalumno, 'idaviso' => $idaviso, 'estado' => $estado]);
+    }
+
+    public function updateEstado(Request $request)
+    {
+        $status = false;
+        $validator = Validator::make($request->all(), [
+            'idalumno' => 'required',
+            'idaviso' => 'required',
+            'idestado' => 'required'
+        ]);
+        if (!$validator->fails()){
+            $affectedRows = DB::table('alumno_avisos')
+                ->where('alumno_id', $request->idalumno)
+                ->where('aviso_id', $request->idaviso)
+                ->update(['estado_id' => $request->idestado]);
+    
+            if ($affectedRows > 0) {
+                $status = true;
+            }           
+        }
+        return response()->json(['Success' => $status, 'Errors' => $validator->errors()]);
     }
 
     public function delete(Request $request)

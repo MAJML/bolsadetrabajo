@@ -63,7 +63,6 @@ button {
             </div>
         
             <div class="modal-body">
-                {{-- {{ $datito }} --}}
                 <input type="hidden" id="id" name="id" value="{{ $id }}">
                 <div class="row">
                     <div class="col-md-12">
@@ -79,4 +78,3 @@ button {
 
 
 <script type="text/javascript" src="{{ asset('auth/js/aviso/_postulantes.js') }}"></script>
-

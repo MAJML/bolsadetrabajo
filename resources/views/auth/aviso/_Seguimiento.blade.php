@@ -89,9 +89,7 @@
                                 <button type="submit" class="btn btn-success mx-5">Registrar</button>
                             </div>                   
                         </form>
-    
                           
-    
                         </div>
                     </div>
     
@@ -105,7 +103,6 @@
     
         </div>
     </div>
-    
     
     
     <script type="text/javascript" src="{{ asset('auth/js/aviso/_postulantes.js') }}"></script>

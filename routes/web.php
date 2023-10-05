@@ -123,6 +123,9 @@ Route::group(['prefix' => 'auth', 'middleware' => 'auth:web'], function () {
         Route::get('/list_all', 'Auth\AvisoController@list')->name('auth.aviso.list');
         Route::get('/partialViewPostulante/{id}', 'Auth\AvisoController@partialViewPostulantes')->name('auth.aviso.postulantes');
 
+        Route::get('/partialViewEditarEstado/{idalumno}/{idaviso}', 'Auth\AvisoController@partialEditarEstados')->name('auth.aviso.partialEditarEstado');
+        Route::post('/updateEstado', 'Auth\AvisoController@updateEstado')->name('auth.aviso.updateEstado');
+
         Route::get('/partialViewAviso/{id}', 'Auth\AvisoController@partialViewAviso')->name('auth.aviso.postulantes2');
 
         Route::get('/partialViewEditarAviso/{id}', 'Auth\AvisoController@partialViewEditarAviso')->name('auth.aviso.partialViewEditarAviso');
