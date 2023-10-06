@@ -50,7 +50,7 @@
                         <div class="col-md-6 mt-2">
                             <select name="estado" class="form-input" id="estado" required>
                                 <option value="{{ $Experiencia != null ? $Experiencia->estado : "" }}" selected hidden>{{ $Experiencia != null ? $Experiencia->estado : "Estado" }}</option>
-                                <option value="En Curso">En Curso</option>
+                                <option value="Hasta la actualidad">Hasta la actualidad</option>
                                 <option value="Culminado">Culminado</option>
                             </select>
                         </div>                      

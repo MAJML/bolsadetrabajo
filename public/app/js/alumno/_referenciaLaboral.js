@@ -17,7 +17,7 @@ function inputs_validation(){
     $("#inicio_curso").hide();
     $("#fin_curso").hide();
     var txt = $('#estado').val()
-    if(txt == "En Curso"){
+    if(txt == "Hasta la actualidad"){
         $("#inicio_curso").show();     
         $("#fin_curso").attr('required', false)
         $("#inicio_curso").attr('required', true);

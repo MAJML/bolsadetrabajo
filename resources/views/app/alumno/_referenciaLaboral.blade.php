@@ -24,7 +24,7 @@
                         <div class="col-md-6 mt-3">
                             <select name="estado" id="estado" class="form-input" required>
                                 <option value="{{ $Referencia != null ? $Referencia->estado : "" }}" selected hidden>{{ $Referencia != null ? $Referencia->estado : "Estado" }}</option>
-                                <option value="En Curso">En Curso</option>
+                                <option value="Hasta la actualidad">Hasta la actualidad</option>
                                 <option value="Culminado">Culminado</option>
                             </select>
                         </div>

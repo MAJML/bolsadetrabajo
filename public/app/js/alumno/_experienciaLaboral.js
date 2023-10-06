@@ -31,7 +31,7 @@ function inputs_validation(){
     $("#inicio_laburo").hide();
     $("#fin_laburo").hide();
     var txt = $('#estado').val()
-    if(txt == "En Curso"){
+    if(txt == "Hasta la actualidad"){
         $("#inicio_laburo").show();     
         $("#fin_laburo").attr('required', false)
         $("#inicio_laburo").attr('required', true);
