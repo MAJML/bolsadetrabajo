@@ -20,7 +20,7 @@ function inputs_validation(){
     if(txt == "En Curso"){
         $("#inicio_curso").show();     
         $("#fin_curso").attr('required', false)
-        $("#inicio_curso").attr('required', false);
+        $("#inicio_curso").attr('required', true);
     }
     else if(txt == "Culminado"){
         $("#inicio_curso").show();

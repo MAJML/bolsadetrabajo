@@ -48,10 +48,10 @@
                             </select>
                         </div>                        
                         <div class="col-md-6 mt-2">
-                            <input type="text" name="inicio_laburo" class="form-input" value="{{ $Experiencia != null ? $Experiencia->inicio_laburo : "" }}" placeholder="Inicio del Laburo" onfocus="(this.type = 'month')" onblur="(this.type='text')" required>                          
+                            <input type="text" name="inicio_laburo" class="form-input" value="{{ $Experiencia != null ? $Experiencia->inicio_laburo : "" }}" placeholder="Inicio del Laburo" onfocus="(this.type = 'month')" onblur="(this.type='text')" >                          
                         </div>
                         <div class="col-md-6 mt-2">
-                            <input type="text" name="fin_laburo" class="form-input" value="{{ $Experiencia != null ? $Experiencia->fin_laburo : "" }}" placeholder="Fin del Laburo" onfocus="(this.type = 'month')" onblur="(this.type='text')" required>
+                            <input type="text" name="fin_laburo" class="form-input" value="{{ $Experiencia != null ? $Experiencia->fin_laburo : "" }}" placeholder="Fin del Laburo" onfocus="(this.type = 'month')" onblur="(this.type='text')" >
                         </div>
                     </div>
                     {{-- textarea oulto no funciona xd --}}
