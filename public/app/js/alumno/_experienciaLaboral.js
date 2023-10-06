@@ -17,7 +17,30 @@ $(function(){
         });
     });
 
-
     //OnSuccessRegistroExperienciaLaboral = (data) => onSuccessForm(data, $form, $modal);
     //OnFailureRegistroExperienciaLaboral = () => onFailureForm();
 });
+
+
+$(document).on('change', '#estado', function(event) {
+    inputs_validation()
+});
+
+
+function inputs_validation(){
+    $("#inicio_laburo").hide();
+    $("#fin_laburo").hide();
+    var txt = $('#estado').val()
+    if(txt == "En Curso"){
+        $("#inicio_laburo").show();     
+        $("#fin_laburo").attr('required', false)
+        $("#inicio_laburo").attr('required', true);
+    }
+    else if(txt == "Culminado"){
+        $("#inicio_laburo").show();
+        $("#fin_laburo").show();
+        $("#inicio_laburo").attr('required', true)
+        $("#fin_laburo").attr('required', true);
+    }
+}
+inputs_validation()

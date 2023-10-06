@@ -46,12 +46,19 @@
                                 <option value="Transporte (inluyendo aviación civil; ferrocarriles; transporte por carretera)">Transporte (inluyendo aviación civil; ferrocarriles; transportepor carretera)</option>
                                 <option value="Transporte marítimo; puertos; pesca; transporte interior">Transporte marítimo; puertos; pesca; transporte interior</option>
                             </select>
-                        </div>                        
+                        </div>  
                         <div class="col-md-6 mt-2">
-                            <input type="text" name="inicio_laburo" class="form-input" value="{{ $Experiencia != null ? $Experiencia->inicio_laburo : "" }}" placeholder="Inicio del Laburo" onfocus="(this.type = 'month')" onblur="(this.type='text')" >                          
+                            <select name="estado" class="form-input" id="estado" required>
+                                <option value="" hidden>Estado</option>
+                                <option value="En Curso">En Curso</option>
+                                <option value="Culminado">Culminado</option>
+                            </select>
+                        </div>                      
+                        <div class="col-md-6 mt-2">
+                            <input type="text" id="inicio_laburo" name="inicio_laburo" class="form-input" value="{{ $Experiencia != null ? $Experiencia->inicio_laburo : "" }}" placeholder="Inicio del Laburo" onfocus="(this.type = 'month')" onblur="(this.type='text')" >                          
                         </div>
                         <div class="col-md-6 mt-2">
-                            <input type="text" name="fin_laburo" class="form-input" value="{{ $Experiencia != null ? $Experiencia->fin_laburo : "" }}" placeholder="Fin del Laburo" onfocus="(this.type = 'month')" onblur="(this.type='text')" >
+                            <input type="text" id="fin_laburo" name="fin_laburo" class="form-input" value="{{ $Experiencia != null ? $Experiencia->fin_laburo : "" }}" placeholder="Fin del Laburo" onfocus="(this.type = 'month')" onblur="(this.type='text')" >
                         </div>
                     </div>
                     {{-- textarea oulto no funciona xd --}}

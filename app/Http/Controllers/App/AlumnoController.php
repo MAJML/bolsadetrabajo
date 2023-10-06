@@ -276,6 +276,7 @@ class AlumnoController extends Controller
             $Entity->sector = $request->sector;
             // $Entity->descripcion = $request->descripcion;
             $Entity->descripcion = $request->descrip;
+            $Entity->estado = $request->estado;
             $Entity->inicio_laburo= $request->inicio_laburo;
             $Entity->fin_laburo= $request->fin_laburo;
 

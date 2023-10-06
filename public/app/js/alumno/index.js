@@ -141,13 +141,24 @@ $(function(){
         actionAjax("/alumno/perfil/experiencias", null, "GET", function(data){
             console.log("esta es la dat de las experiencias laborales : ", data)
             $.each(data.data, function(i, v){
+                if(v.estado == null || v.estado== ""){
+                    etd = ""
+                }else{
+                    etd ="<p><b>Estado:</b> "+v.estado+"</p>"
+                }
+                if(v.fin_laburo == null || v.fin_laburo == ""){
+                    badas = ""
+                }else{
+                    badas = "<p><b>Fin del Laburo:</b>"+v.fin_laburo+"</p>"
+                }
                 $html += '<div class="info-content">'+
                 '<p><b>Puesto:</b> '+v.puesto+'</p>'+
                 '<p><b>Empresa:</b> '+v.empresa+'</p>'+
                 '<p><b>Sector:</b> '+v.sector+'</p>'+
-                '<p><b>Funciones desempeñadas:</b> <br> '+v.descripcion+'</p>'+
+                etd+
                 '<p><b>Inicio del Laburo:</b> '+v.inicio_laburo+'</p>'+
-                '<p><b>Fin del Laburo:</b> '+v.fin_laburo+'</p>'+
+                badas+
+                '<p><b>Funciones desempeñadas:</b> <br> '+v.descripcion+'</p>'+
                 '<ul class="btns-content">'+
                 '<button type="button" class="btn btn-primary btn-xs" title="Editar" data-info-id="'+v.id+'"><i class="fa fa-pencil"></i></button>'+
                 '<button type="button" class="btn btn-danger btn-xs" title="Eliminar" data-info-id="'+v.id+'"><i class="fa fa-trash"></i></button>'+
@@ -171,7 +182,7 @@ $(function(){
                 if(v.estado == null || v.estado== ""){
                     etd = ""
                 }else{
-                    etd ="<p><b>Estado:</b>"+v.estado+"</p>"
+                    etd ="<p><b>Estado:</b> "+v.estado+"</p>"
                 }
                 $html += '<div class="info-content">'+
                 '<p><b>Nombre del Curso:</b> '+v.name_curso+'</p>'+

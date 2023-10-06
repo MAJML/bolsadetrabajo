@@ -175,13 +175,18 @@
                                                 <p><b>Puesto:</b> {{ $q->puesto }}</p>
                                                 <p><b>Empresa:</b> {{ $q->empresa }}</p>
                                                 <p><b>Sector:</b> {{ $q->sector }}</p>
+                                                @if ($q->estado != null || $q->estado != "")
+                                                <p><b>Estado:</b> {{ $q->estado }}</p>
+                                                @endif
+                                                <p><b>Inicio del Laburo:</b> {{ $q->inicio_laburo }}</p>
+                                                @if ($q->fin_laburo != null || $q->fin_laburo = "")
+                                                <p><b>Fin del Laburo:</b> {{ $q->fin_laburo }}</p>
+                                                @endif
                                                 <p><b>Funciones desempeñadas:</b> <br> 
                                                     @php
                                                        echo $q->descripcion; 
                                                     @endphp
                                                 </p>
-                                                <p><b>Inicio del Laburo:</b> {{ $q->inicio_laburo }}</p>
-                                                <p><b>Fin del Laburo:</b> {{ $q->fin_laburo }}</p>
                                                 <ul class="btns-content">
                                                     <button type="button" class="btn btn-primary btn-xs" title="Editar" data-info-id="{{$q->id}}"><i class="fa fa-pencil"></i></button>
                                                     <button type="button" class="btn btn-danger btn-xs" title="Eliminar" data-info-id="{{$q->id}}"><i class="fa fa-trash"></i></button>
