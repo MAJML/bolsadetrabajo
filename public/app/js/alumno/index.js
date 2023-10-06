@@ -163,11 +163,22 @@ $(function(){
         $referenciaLaboral.html("");
         actionAjax("/alumno/perfil/referencias", null, "GET", function(data){
             $.each(data.data, function(i, v){
+                if(v.fin_curso == null || v.fin_curso == ""){
+                    badas = ""
+                }else{
+                    badas = "<p><b>Fin del Curso:</b>"+v.fin_curso+"</p>"
+                }
+                if(v.estado == null || v.estado== ""){
+                    etd = ""
+                }else{
+                    etd ="<p><b>Estado:</b>"+v.estado+"</p>"
+                }
                 $html += '<div class="info-content">'+
                 '<p><b>Nombre del Curso:</b> '+v.name_curso+'</p>'+
                 '<p><b>Institución:</b> '+v.institucion+'</p>'+
+                etd+
                 '<p><b>Inicio del Curso:</b> '+v.inicio_curso+'</p>'+
-                '<p><b>Fin del Curso:</b> '+v.fin_curso+'</p>'+
+                badas+
                 '<ul class="btns-content">'+
                 '<button type="button" class="btn btn-primary btn-xs" title="Editar" data-info-id="'+v.id+'"><i class="fa fa-pencil"></i></button>'+
                 '<button type="button" class="btn btn-danger btn-xs" title="Eliminar" data-info-id="'+v.id+'"><i class="fa fa-trash"></i></button>'+

@@ -338,6 +338,7 @@ class AlumnoController extends Controller
             $Entity->alumno_id = Auth::guard('alumnos')->user()->id;
             $Entity->name_curso = $request->name_curso;
             $Entity->institucion = $request->institucion;
+            $Entity->estado = $request->estado;
             $Entity->inicio_curso = $request->inicio_curso;
             $Entity->fin_curso = $request->fin_curso;
 

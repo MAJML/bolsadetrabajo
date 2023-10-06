@@ -236,8 +236,13 @@
                                             <div class="info-content">
                                                 <p><b>Nombre del Curso:</b> {{ $item->name_curso }}</p>
                                                 <p><b>Institución:</b> {{ $item->institucion }}</p>
+                                                @if ($item->estado != null || $item->estado != "")
+                                                <p><b>Estado:</b> {{ $item->estado }}</p>
+                                                @endif
                                                 <p><b>Inicio del Curso:</b> {{ $item->inicio_curso }}</p>
+                                                @if ($item->fin_curso != null || $item->fin_curso = "")
                                                 <p><b>Fin del Curso:</b> {{ $item->fin_curso }}</p>
+                                                @endif
                                                 <ul class="btns-content">
                                                     <button type="button" class="btn btn-primary btn-xs" title="Editar" data-info-id="{{$item->id}}"><i class="fa fa-pencil"></i></button>
                                                     <button type="button" class="btn btn-danger btn-xs" title="Eliminar" data-info-id="{{$item->id}}"><i class="fa fa-trash"></i></button>
@@ -344,9 +349,9 @@
     <script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
     {{-- <script type="text/javascript" src="{{ asset('app/plugins/ckeditor/ckeditor.js') }}"></script> --}}
     <script>
-        CKEDITOR.replace( 'presentacion' );
+        /* CKEDITOR.replace( 'presentacion' ); */
         // CKEDITOR.replace( 'perfil_profesional' );
-        CKEDITOR.replace( 'cursos_talleres' );
+        /* CKEDITOR.replace( 'cursos_talleres' ); */
         CKEDITOR.replace( 'habilidades_conoci' );
     </script>
     <script type="text/javascript" src="{{ asset('app/plugins/datepicker/bootstrap-datepicker.js') }}"></script>

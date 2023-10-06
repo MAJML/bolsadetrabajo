@@ -15,17 +15,24 @@
 
                     <div class="row">
 
-                        <div class="col-md-6 mt-3">
+                        <div class="col-md-12 mt-3">
                             <input type="text" value="{{ $Referencia != null ? $Referencia->institucion : "" }}" class="form-input" name="institucion" placeholder="Nombre de la Institución" required>
                         </div>
                         <div class="col-md-6 mt-3">
                             <input type="text" value="{{ $Referencia != null ? $Referencia->name_curso : "" }}" class="form-input" name="name_curso" placeholder="Nombre del Curso" required>
                         </div>
                         <div class="col-md-6 mt-3">
-                            <input type="text" value="{{ $Referencia != null ? $Referencia->inicio_curso : "" }}" class="form-input" name="inicio_curso" placeholder="Inicio del Curso" onfocus="(this.type = 'month')" onblur="(this.type='text')" required>
+                            <select name="estado" id="estado" class="form-input" required>
+                                <option value="{{ $Referencia != null ? $Referencia->estado : "" }}" selected hidden>{{ $Referencia != null ? $Referencia->estado : "Estado" }}</option>
+                                <option value="En Curso">En Curso</option>
+                                <option value="Culminado">Culminado</option>
+                            </select>
                         </div>
                         <div class="col-md-6 mt-3">
-                            <input type="text" value="{{ $Referencia != null ? $Referencia->fin_curso : "" }}" class="form-input" name="fin_curso" placeholder="Fin del Curso" onfocus="(this.type = 'month')" onblur="(this.type='text')" required>
+                            <input type="text" id="inicio_curso" value="{{ $Referencia != null ? $Referencia->inicio_curso : "" }}" class="form-input" name="inicio_curso" placeholder="Inicio del Curso" onfocus="(this.type = 'month')" onblur="(this.type='text')" required>
+                        </div>
+                        <div class="col-md-6 mt-3">
+                            <input type="text" id="fin_curso" value="{{ $Referencia != null ? $Referencia->fin_curso : "" }}" class="form-input" name="fin_curso" placeholder="Fin del Curso" onfocus="(this.type = 'month')" onblur="(this.type='text')" required>
                         </div>
 
 
@@ -41,4 +48,4 @@
     </div>
 </div>
 
-<script type="text/javascript" src="{{ asset('app/js/alumno/_referenciaLaboral.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('app/js/alumno/_referenciaLaboral.js') }}"></script>
