@@ -22,7 +22,7 @@
                         </div>
                         <div class="col-md-6 mt-2">
                             <select name="sector" class="form-input" id="sector" required>
-                                <option value="" hidden>-- Tipo de Sector --</option>
+                                <option value="{{ $Experiencia != null ? $Experiencia->sector : "" }}" selected hidden>{{ $Experiencia != null ? $Experiencia->sector : "-- Tipo de Sector --" }}</option>
                                 <option value="Agricultura; plantaciones, otros sectores rurales ">Agricultura; plantaciones, otros sectores rurales </option>
                                 <option value="Alimentación; bebidas; tabaco">Alimentación; bebidas; tabaco</option>
                                 <option value="Comercio">Comercio</option>
@@ -49,7 +49,7 @@
                         </div>  
                         <div class="col-md-6 mt-2">
                             <select name="estado" class="form-input" id="estado" required>
-                                <option value="" hidden>Estado</option>
+                                <option value="{{ $Experiencia != null ? $Experiencia->estado : "" }}" selected hidden>{{ $Experiencia != null ? $Experiencia->estado : "Estado" }}</option>
                                 <option value="En Curso">En Curso</option>
                                 <option value="Culminado">Culminado</option>
                             </select>
