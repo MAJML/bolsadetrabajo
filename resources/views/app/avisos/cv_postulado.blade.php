@@ -185,7 +185,7 @@
                 </p>    
             </div>
             <div class="datos_experiencia">
-                <p> ( {{ date("m/Y", strtotime($q->inicio_laburo)) }}  -  {{  date("m/Y", strtotime($q->fin_laburo)) }} )</p>         
+                <p> ( {{ date("m/Y", strtotime($q->inicio_laburo)) }}  -  {{ $q->fin_laburo == null || $q->fin_laburo == "" ? $q->estado : date("m/Y", strtotime($q->fin_laburo)) }} )</p>         
             </div>
         </div>
     @endforeach
@@ -223,7 +223,7 @@
                 {{-- {{ strip_tags($q->descripcion) }} --}}
         </div>
         <div class="datos_experiencia">
-            <p> ( {{ date("m/Y", strtotime($q->inicio_curso)) }}  -  {{  date("m/Y", strtotime($q->fin_curso)) }} )</p>         
+            <p> ( {{ date("m/Y", strtotime($q->inicio_curso)) }}  -  {{ $q->fin_curso == null || $q->fin_curso == "" ? $q->estado : date("m/Y", strtotime($q->fin_curso)) }} )</p>         
         </div>
     </div>
     @endforeach

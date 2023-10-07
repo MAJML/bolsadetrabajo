@@ -38,7 +38,7 @@
                         <p><b>Email:</b> {{ $alumno->email }}</p>
                         <p><b>Teléfono:</b> {{ $alumno->telefono }}</p>
                         <p><b>DNI:</b> {{ $alumno->dni }}</p>
-                        <p><b>Dirección:</b> {{ $alumno->direccion }}</p>
+                        {{-- <p><b>Dirección:</b> {{ $alumno->direccion }}</p> --}}
                         <p><b>Provincia:</b> {{ $alumno->provincias != null ? $alumno->provincias->nombre : "-" }}</p>
                         <p><b>Distrito:</b> {{ $alumno->distritos != null ? $alumno->distritos->nombre : "-" }}</p>
 
@@ -54,9 +54,14 @@
                                 <p><b>Puesto:</b> {{ $q->puesto }}</p>
                                 <p><b>Empresa:</b> {{ $q->empresa }}</p>
                                 <p><b>Sector:</b> {{ $q->sector }}</p>
+                                @if ($q->estado != null || $q->estado != "")
+                                <p><b>Estado:</b> {{ $q->estado }}</p>    
+                                @endif
                                 {{-- <p><b>Área:</b> {{ $q->areas != null ? $q->areas->nombre : "-"}}</p> --}}
                                 <p><b>Inicio Laburo:</b> {{ $q->inicio_laburo }}</p>
-                                <p><b>Fin Laburo:</b> {{ $q->fin_laburo }}</p>
+                                @if ($q->fin_laburo != null || $q->fin_laburo != "")
+                                <p><b>Fin Laburo:</b> {{ $q->fin_laburo }}</p>    
+                                @endif
                                 <hr>
                             </div>
                             @endforeach
@@ -70,7 +75,6 @@
                                 @foreach($area as $q)
                                 @php
                                     if($item->area_id == $q->id){
-                        
                                         echo "<p><b>Área:</b> ".$q->nombre." </p>";
                                     }
                                 @endphp
@@ -107,15 +111,20 @@
                                 <div>
                                     <p><b>Nombre del Curso:</b> {{ $q->name_curso }}</p>
                                     <p><b>Institución:</b> {{ $q->institucion }}</p>
+                                    @if ($q->estado != null || $q->estado != "")
+                                    <p><b>Estado:</b> {{ $q->estado }}</p>    
+                                    @endif
                                     <p><b>Inicio del Curso:</b> {{ $q->inicio_curso }}</p>
-                                    <p><b>Fin del Curso:</b> {{ $q->fin_curso }}</p>
+                                    @if ($q->fin_curso != null || $q->fin_curso != "")
+                                    <p><b>Fin del Curso:</b> {{ $q->fin_curso }}</p>    
+                                    @endif
                                     <br>
                                 </div>
                             @endforeach
                         </div>
 
                         <div class="mt-3">
-                            <h5>Habilidades y Conocimientos</h5>
+                            <h5 style="display:{{strlen($alumno->referentes_carrera) >= 1 ? 'block' : 'none'}}">Habilidades y Conocimientos</h5>
                             <p> @php echo $alumno->referentes_carrera @endphp </p>
                             {{-- <p>{{ $alumno->referentes_carrera }}</p> --}}
                         </div>
