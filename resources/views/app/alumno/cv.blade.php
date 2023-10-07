@@ -223,7 +223,7 @@
                 {{-- {{ strip_tags($q->descripcion) }} --}}
         </div>
         <div class="datos_experiencia" style="margin-top:-12px; margin-bottom:20px;">
-            <p style="margin-top:-1px"> ( {{ date("m/Y", strtotime($q->inicio_curso)) }}  -  {{  date("m/Y", strtotime($q->fin_curso)) }} )</p>         
+            <p style="margin-top:-1px"> ( {{ date("m/Y", strtotime($q->inicio_curso)) }}  -  {{ $q->fin_curso == null || $q->fin_curso == "" ? $q->estado : date("m/Y", strtotime($q->fin_curso)) }} )</p>   
         </div>
     </div>
     @endforeach
