@@ -144,10 +144,8 @@
                     @foreach($distritos as $q)
                         @php
                             if($alumno->distrito_id == $q->id){
-                
                                 echo "<b>Distrito:</b> ".$q->nombre." ,";
                             }
-                
                         @endphp
                     @endforeach
                     @endif
@@ -185,7 +183,7 @@
                 </p>    
             </div>
             <div class="datos_experiencia">
-                <p> ( {{ date("m/Y", strtotime($q->inicio_laburo)) }}  -  {{  date("m/Y", strtotime($q->fin_laburo)) }} )</p>         
+                <p> ( {{ date("m/Y", strtotime($q->inicio_laburo)) }}  -  {{ $q->fin_laburo == null || $q->fin_laburo == "" ? $q->estado : date("m/Y", strtotime($q->fin_laburo)) }} )</p>         
             </div>
         </div>
     @endforeach
