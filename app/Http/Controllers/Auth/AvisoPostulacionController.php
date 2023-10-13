@@ -38,11 +38,13 @@ class AvisoPostulacionController extends Controller
         'avisos.titulo',
         'empresas.ruc',
         'empresas.nombre_comercial',
+        'grado_academicos.grado_estado as grado_academico',
         'estados.nombre as estado')
         ->join('alumno_avisos', 'alumno_avisos.alumno_id', '=', 'alumnos.id')
         ->join('avisos', 'avisos.id', '=', 'alumno_avisos.aviso_id')
         ->join('empresas', 'empresas.id', '=', 'avisos.empresa_id')
         ->join('estados', 'estados.id', '=', 'alumno_avisos.estado_id')
+        ->join('grado_academicos','grado_academicos.id','=','alumnos.egresado')
         ->where('alumnos.deleted_at', NULL)
         ->where('avisos.deleted_at', NULL)
         ->distinct()
