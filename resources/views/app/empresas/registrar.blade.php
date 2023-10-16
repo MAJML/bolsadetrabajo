@@ -260,7 +260,7 @@
                                     @endif
                                 </div>
                                 <div class="col-md-6 mt-2">
-                                    <input type="email" name="email_contacto" id="email_contacto"  class="form-input {{ $errors->has('email_contacto') ? ' is-invalid' : '' }}" value="{{ old('email_contacto') }}" placeholder="Correo electrónico del contacto" required>
+                                    <input type="email" name="email_contacto" id="email_contacto"  class="form-input {{ $errors->has('email_contacto') ? ' is-invalid' : '' }}" value="{{ old('email_contacto') }}" placeholder="Correo electrónico del contacto">
                                     @if ($errors->has('email_contacto'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('email_contacto') }}</strong>
