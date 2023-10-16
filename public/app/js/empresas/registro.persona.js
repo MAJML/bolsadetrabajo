@@ -31,7 +31,7 @@ $(document).on("click", ".btn_persona_juridica", function(){
     $("#pagina_web").attr("required", false)
 
     $("#email").attr("hidden", false)
-    $("#email").attr("required", true)
+    $("#email").attr("required", false)
 
     $("#caja_descripcion_item").attr("hidden", true)
 
