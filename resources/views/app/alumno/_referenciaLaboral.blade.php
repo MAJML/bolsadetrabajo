@@ -19,7 +19,7 @@
                             <input type="text" value="{{ $Referencia != null ? $Referencia->institucion : "" }}" class="form-input" name="institucion" placeholder="Nombre de la Institución" required>
                         </div>
                         <div class="col-md-12 mt-3">
-                            <input type="text" value="{{ $Referencia != null ? $Referencia->name_curso : "" }}" class="form-input" name="name_curso" placeholder="Nombre de la carrera, curso, taller, voluntariado, etc." required>
+                            <input type="text" value="{{ $Referencia != null ? $Referencia->name_curso : "" }}" class="form-input" name="name_curso" placeholder="Nombre de la otra carrera, curso, taller, voluntariado, etc." required>
                         </div>
                         <div class="col-md-6 mt-3">
                             <select name="estado" id="estado" class="form-input" required>
