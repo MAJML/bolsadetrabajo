@@ -4,7 +4,7 @@
               data-ajax="true" data-close-modal="true" data-ajax-loading="#loading" data-ajax-success="OnSuccessRegistroReferenciaLaboral" data-ajax-failure="OnFailureRegistroReferenciaLaboral">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">{{ $Referencia != null ? "Modificar" : "Registrar" }} Cursos, Talleres</h5>
+                    <h5 class="modal-title">{{ $Referencia != null ? "Modificar" : "Registrar" }} otra carrera, curso, taller, voluntariado, etc.</h5>
                     <button type="button" class="close" data-dismiss="modal">
                         <span aria-hidden="true">×</span>
                     </button>
@@ -18,8 +18,8 @@
                         <div class="col-md-12 mt-3">
                             <input type="text" value="{{ $Referencia != null ? $Referencia->institucion : "" }}" class="form-input" name="institucion" placeholder="Nombre de la Institución" required>
                         </div>
-                        <div class="col-md-6 mt-3">
-                            <input type="text" value="{{ $Referencia != null ? $Referencia->name_curso : "" }}" class="form-input" name="name_curso" placeholder="Nombre del Curso" required>
+                        <div class="col-md-12 mt-3">
+                            <input type="text" value="{{ $Referencia != null ? $Referencia->name_curso : "" }}" class="form-input" name="name_curso" placeholder="Nombre de la carrera, curso, taller, voluntariado, etc." required>
                         </div>
                         <div class="col-md-6 mt-3">
                             <select name="estado" id="estado" class="form-input" required>
@@ -41,7 +41,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-bold btn-pure btn-primary">{{ $Referencia != null ? "Modificar" : "Registrar" }} Cursos, Talleres</button>
+                    <button type="submit" class="btn btn-bold btn-pure btn-primary">{{ $Referencia != null ? "Modificar" : "Registrar" }} Formación</button>
                 </div>
             </div>
         </form>

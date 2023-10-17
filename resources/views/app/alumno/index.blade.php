@@ -255,7 +255,7 @@
                                             </div>
                                         @endforeach
                                     </div>
-                                    <a href="javascript:void(0)" data-info="agregarReferenciaLaboral">Agregar Curso</a>
+                                    <a href="javascript:void(0)" data-info="agregarReferenciaLaboral">Agregar Formación</a>
                                 </div>
 
                                 {{-- <div class="form-group row">
