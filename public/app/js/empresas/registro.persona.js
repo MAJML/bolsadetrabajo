@@ -196,14 +196,15 @@ function DataSunat(){
             $data = $("#ruc").val();
             actionAjax("/buscar_sunat/"+$data, null, "GET", function(data){
                 respuesta = JSON.parse(data)
-                if(respuesta.error){
-                    $("#razon_social").attr('placeholder', 'No se encontraron datos')
+                /* console.log("esta es la respuesta del ruc : ", respuesta) */
+                if(respuesta.success == true){ 
+                    $("#razon_social").val(respuesta.data['nombre_o_razon_social'])     
+                    $("#direccion").val(respuesta.data['direccion'])   
                 }else{
-                    console.log(JSON.parse(data))
-                    $("#razon_social").val(respuesta.nombre)     
-                    $("#direccion").val(respuesta.direccion)               
+                    swal("Error", "No se encontro este documento", "warning"); 
+                    $("#razon_social").val('')     
+                    $("#direccion").val('')          
                 }
-
             });
         }
     })

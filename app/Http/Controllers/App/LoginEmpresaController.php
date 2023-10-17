@@ -62,41 +62,21 @@ class LoginEmpresaController extends Controller
     }
 
     public function consultar_sunat($data){
-        $token = 'apis-token-1.aTSI1U7KEuT-6bbbCguH-4Y8TI6KS73N';
-        // $ruc = '20553056846';
-        $ruc = $data;
-        
-        // Iniciar llamada a API
         $curl = curl_init();
-        
-        // Buscar ruc sunat
         curl_setopt_array($curl, array(
-          CURLOPT_URL => 'https://api.apis.net.pe/v1/ruc?numero=' . $ruc,
-          CURLOPT_RETURNTRANSFER => true,
-          CURLOPT_ENCODING => '',
-          CURLOPT_MAXREDIRS => 10,
-          CURLOPT_TIMEOUT => 0,
-          CURLOPT_FOLLOWLOCATION => true,
-          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-          CURLOPT_CUSTOMREQUEST => 'GET',
-          CURLOPT_HTTPHEADER => array(
-            'Referer: http://apis.net.pe/api-ruc',
-            'Authorization: Bearer ' . $token
-          ),
+            CURLOPT_URL => "https://my.apidevs.pro/api/ruc/".$data."?api_token=3fcaa8c48f59ff6ee58afff70a360af5fdcc214f512128165cdc050da28ee770",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_SSL_VERIFYPEER => false
         ));
-        
         $response = curl_exec($curl);
-        
+        $err = curl_error($curl);
         curl_close($curl);
-
-        return response()->json($response);
-
-        // Datos de empresas según padron reducido
-        // $empresa = json_decode($response);
-        
-        // echo "<pre>";
-        // print_r($empresa);
-        // echo "<pre>";
+        if ($err) {
+            echo "cURL Error #:" . $err;
+        } else {
+            echo $response;
+        }
         
     }
 
