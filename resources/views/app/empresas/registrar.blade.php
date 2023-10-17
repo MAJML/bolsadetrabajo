@@ -92,7 +92,7 @@
 
                             <div class="form-group row">
                                 <div class="col-md-6 mt-2">
-                                    <input autocomplete="off" type="text" class="form-input" name="" id="dni" minlength="8" maxlength="8" onkeypress="return isNumberKey(event)" placeholder="Escriba su DNI para autocompletar los datos" required>
+                                    <input autocomplete="off" type="text" class="form-input" name="" id="dni" minlength="7" maxlength="9" onkeypress="return isNumberKey(event)" placeholder="Escriba su DNI para autocompletar los datos" required>
                                     <input autocomplete="off" type="text" class="form-input {{ $errors->has('ruc') ? ' is-invalid' : '' }}" value="{{ old('ruc') }}" name="" id="ruc" minlength="11" maxlength="11" onkeypress="return isNumberKey(event)" placeholder="" required>
                                     @if ($errors->has('ruc'))
                                         <span class="invalid-feedback" role="alert">

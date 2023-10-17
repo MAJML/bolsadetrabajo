@@ -167,11 +167,12 @@ function DataReniec(){
             $data = $("#dni").val();
             actionAjax("/buscar_reniec/"+$data, null, "GET", function(data){
                 respuesta = JSON.parse(data)
-                if(respuesta.error){
-                    $("#nombre_comercial").attr('placeholder', 'No se encontraron datos')
+                /* console.log("esto es la respuesta de la data : ", respuesta) */
+                if(respuesta.success == true){
+                    $("#nombre_comercial").val(respuesta.data['nombre_completo'])    
                 }else{
-                    console.log(JSON.parse(data))
-                    $("#nombre_comercial").val(respuesta.nombre)                    
+                    swal("Error", "No se encontro este documento", "warning");
+                    $("#nombre_comercial").val('')            
                 }
 
             });
