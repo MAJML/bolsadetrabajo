@@ -138,7 +138,7 @@ class HomeController extends Controller
             'nombres' => 'required',
             'apellidos' => 'required',
             'telefono' => 'required|digits:9',
-            'dni' => 'required|digits:8|unique:alumnos',
+            'dni' => 'required|min:8|max:12|unique:alumnos',
             'email' => 'required|email',
             'fecha_nacimiento' => 'required|date',
             'provincia_id' => 'required',
