@@ -61,7 +61,7 @@
                                     <a class="nav-link" href="javascript:void(0)" onclick="event.preventDefault();localStorage.setItem('cliente_id','');document.getElementById('logout-form').submit();">
                                         <i class="fa fa-power-off"></i> {{ __('Cerrar Sesión') }}
                                     </a>
-                                    <form id="logout-form" action="{{ Auth::guard('alumnos')->check() ? route('alumno.logout') :  route('empresa.logout') }}" method="POST" style="display: none;">
+                                    <form id="logout-form" action="{{ Auth::guard('alumnos')->check() ? route('alumno.logout') : route('empresa.logout') }}" method="POST" style="display: none;">
                                         @csrf
                                         <input type="text" name="validacion" value="{{ Auth::guard('alumnos')->check() ? Auth::guard('alumnos')->user()->usuario_alumno : Auth::guard('empresasw')->user()->usuario_empresa }}">
                                     </form>

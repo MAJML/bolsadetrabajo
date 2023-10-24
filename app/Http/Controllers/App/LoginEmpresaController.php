@@ -39,6 +39,7 @@ class LoginEmpresaController extends Controller
 
         if ($empresa && Hash::check($credentials['password'], $empresa->password)) {
             Empresa::where('usuario_empresa', $credentials['usuario_empresa'])->update(['online' => 1]);
+            Empresa::where('usuario_empresa', $credentials['usuario_empresa'])->update(['ultima_sesion' => date('y-m-d h:i:s')]);
             Auth::guard($this->getGuard())->login($empresa, $request->has('remember'));
             return $this->handleUserWasAuthenticated($request, null);
         }

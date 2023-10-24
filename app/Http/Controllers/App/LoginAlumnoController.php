@@ -22,6 +22,7 @@ class LoginAlumnoController extends Controller
 
     public function __construct(Alumno $alumno)
     {
+        date_default_timezone_set('America/Lima');
         $this->middleware('guest:alumnos', ['except' => ['logout'] ]);
         $this->alumno = $alumno;
         if(isset($_POST['validacion'])){
@@ -38,6 +39,7 @@ class LoginAlumnoController extends Controller
 
         if ($alumno && Hash::check($credentials['password'], $alumno->password)) {
             Alumno::where('usuario_alumno', $credentials['usuario_alumno'])->update(['online' => 1]);
+            Alumno::where('usuario_alumno', $credentials['usuario_alumno'])->update(['ultima_sesion' => date('y-m-d h:i:s')]);
             Auth::guard($this->getGuard())->login($alumno, $request->has('remember'));
             return $this->handleUserWasAuthenticated($request, null);
         }
