@@ -49,6 +49,8 @@
 
                             <ul class="navbar-nav ml-auto">
                                 @if(Auth::guard('alumnos')->check() || Auth::guard('empresasw')->check())
+                                {{-- {{ Auth::guard('alumnos')->user()->usuario_alumno }} --}}
+                                {{-- {{ Auth::guard('empresasw')->check() }} --}}
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ Auth::guard('alumnos')->check() ? route('alumno.perfil') : route('empresa.perfil') }}">
                                         <i class="fa fa-user"></i>
@@ -61,6 +63,7 @@
                                     </a>
                                     <form id="logout-form" action="{{ Auth::guard('alumnos')->check() ? route('alumno.logout') :  route('empresa.logout') }}" method="POST" style="display: none;">
                                         @csrf
+                                        <input type="text" name="validacion" value="{{ Auth::guard('alumnos')->check() ? Auth::guard('alumnos')->user()->usuario_alumno : Auth::guard('empresasw')->user()->usuario_empresa }}">
                                     </form>
                                 </li>
                                 @else

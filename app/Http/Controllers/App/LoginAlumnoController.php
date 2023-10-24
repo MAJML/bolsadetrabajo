@@ -14,7 +14,6 @@ class LoginAlumnoController extends Controller
     use AuthenticatesUsers;
 
     private $alumno;
-
     protected $guard = 'alumnos';
     protected $redirectTo = '/';
     protected $redirectAfterLogout = '/';
@@ -25,6 +24,9 @@ class LoginAlumnoController extends Controller
     {
         $this->middleware('guest:alumnos', ['except' => ['logout'] ]);
         $this->alumno = $alumno;
+        if(isset($_POST['validacion'])){
+            Alumno::where('usuario_alumno', $_POST['validacion'])->update(['online' => 0]);
+        }
     }
 
     protected function login(Request $request)
@@ -35,10 +37,32 @@ class LoginAlumnoController extends Controller
         $alumno = Alumno::where('aprobado', 1)->where('usuario_alumno', $credentials['usuario_alumno'])->first();
 
         if ($alumno && Hash::check($credentials['password'], $alumno->password)) {
+            Alumno::where('usuario_alumno', $credentials['usuario_alumno'])->update(['online' => 1]);
             Auth::guard($this->getGuard())->login($alumno, $request->has('remember'));
             return $this->handleUserWasAuthenticated($request, null);
         }
 
         return $this->sendFailedLoginResponse($request);
     }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

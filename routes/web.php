@@ -2,17 +2,10 @@
 
 App::setLocale('es');
 
-/* BORRAR CACHE */
-Route::get('/clear-cache', function () {
-    echo Artisan::call('config:clear');
-    echo Artisan::call('config:cache');
-    echo Artisan::call('cache:clear');
-    echo Artisan::call('route:clear');
- });
-
 Route::get('/', 'App\HomeController@index')->name('index');
 //Route::get('/actualizar', 'App\HomeController@actualizar')->name('actualizar');
 Route::get('/filtro_distritos/{id}', 'App\HomeController@filtro_distritos')->name('filtro_distritos');
+Route::get('/offline_alumno/{id}', 'App\LoginAlumnoController@offline');
 
 Route::get('/buscar_reniec/{data}', 'App\LoginEmpresaController@consultar_reniec')->name('buscar_reniec');
 Route::get('/buscar_sunat/{data}', 'App\LoginEmpresaController@consultar_sunat')->name('buscar_sunat');
@@ -92,6 +85,7 @@ Route::post('empresa/registrar', 'App\HomeController@registrar_empresa')->name('
 
 Route::post('alumno/login', 'App\LoginAlumnoController@login')->name('alumno.login.post');
 Route::post('alumno/logout', 'App\LoginAlumnoController@logout')->name('alumno.logout');
+
 
 Route::get('alumno/registrar', 'App\HomeController@crear_alumno')->name('alumno.crear_alumno');
 Route::post('alumno/registrar', 'App\HomeController@registrar_alumno')->name('alumno.registrar_alumno.post');

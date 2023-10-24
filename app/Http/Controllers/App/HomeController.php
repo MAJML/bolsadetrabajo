@@ -133,7 +133,7 @@ class HomeController extends Controller
             'aprobado' => $request->egresado != 0 ? 1 : 0,
             'fecha_nacimiento' => Carbon::createFromFormat("d/m/Y", $request->fecha_nacimiento)->format('Y-m-d')
         ]);
-
+    
         $validator = Validator::make($request->all(), [
             'nombres' => 'required',
             'apellidos' => 'required',

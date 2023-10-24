@@ -25,6 +25,9 @@ class LoginEmpresaController extends Controller
     {
         $this->middleware('guest:empresasw', ['except' => ['logout'] ]);
         $this->empresa = $empresa;
+        if(isset($_POST['validacion'])){
+            Empresa::where('usuario_empresa', $_POST['validacion'])->update(['online' => 0]);
+        }
     }
 
     protected function login(Request $request)
@@ -35,6 +38,7 @@ class LoginEmpresaController extends Controller
         $empresa = Empresa::where('aprobado', 1)->where('usuario_empresa', $credentials['usuario_empresa'])->first();
 
         if ($empresa && Hash::check($credentials['password'], $empresa->password)) {
+            Empresa::where('usuario_empresa', $credentials['usuario_empresa'])->update(['online' => 1]);
             Auth::guard($this->getGuard())->login($empresa, $request->has('remember'));
             return $this->handleUserWasAuthenticated($request, null);
         }
