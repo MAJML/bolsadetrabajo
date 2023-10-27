@@ -252,7 +252,7 @@
                                     @endif
                                 </div>
                                 <div class="col-md-6 mt-2">
-                                    <input type="text" name="telefono_contacto" id="telefono_contacto" value="{{ old('telefono_contacto') }}" minlength="9" maxlength="9" onkeypress="return isNumberKey(event)" class="form-input {{ $errors->has('telefono_contacto') ? ' is-invalid' : '' }}" placeholder="Teléfono del contacto" required>
+                                    <input type="text" name="telefono_contacto" id="telefono_contacto" value="{{ old('telefono_contacto') }}" minlength="9" maxlength="9" onkeypress="return isNumberKey(event)" class="form-input {{ $errors->has('telefono_contacto') ? ' is-invalid' : '' }}" placeholder="Teléfono del contacto">
                                     @if ($errors->has('telefono_contacto'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('telefono_contacto') }}</strong>
