@@ -106,7 +106,7 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-6">
-                                    <input type="email" class="form-input" value="{{ $Empresa->email }}" name="email" id="email" placeholder="Correo electrónico" required>
+                                    <input type="email" class="form-input" value="{{ $Empresa->email }}" name="email" id="email" placeholder="Correo electrónico">
                                     <span data-valmsg-for="email"></span>
                                 </div>
                                 <div class="col-md-6">
@@ -141,7 +141,7 @@
                                     <span data-valmsg-for="telefono_contacto"></span>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="email" name="email_contacto" id="email_contacto"  class="form-input" value="{{ $Empresa->email_contacto }}" placeholder="Correo electrónico del contacto" required>
+                                    <input type="email" name="email_contacto" id="email_contacto"  class="form-input" value="{{ $Empresa->email_contacto }}" placeholder="Correo electrónico del contacto">
                                     <span data-valmsg-for="email_contacto"></span>
                                 </div>
                             </div>
