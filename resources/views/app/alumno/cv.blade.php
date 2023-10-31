@@ -108,6 +108,7 @@
         margin-top: 6px;
         margin-left:24px;
         font-size: 14px;
+        width: 67% !important;
     }
     .txt_area_educacion{
         font-size: 14px;
