@@ -6,7 +6,8 @@
 @endsection
 
 @section('content')
-
+    <!--sweet alert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <div id="main">
 
         <div id="loading-avisos">
@@ -112,6 +113,17 @@
 
     </div>
 
+    <script>
+        Swal.fire({
+            title: "<a href='https://forms.gle/mnBsMA29rWZrwJjQ8' target='blank'><img src='../app/img/evento_bolsa.jpeg' alt=''></a>",
+            width: "800px",
+            padding: "0px",
+            background: "#ffffff00",
+            imageWidth: 700,
+            imageAlt: 'Custom image',
+            showConfirmButton: false
+        })
+    </script>
 @endsection
 
 @section('scripts')
