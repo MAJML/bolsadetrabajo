@@ -70,6 +70,7 @@
         border-bottom: 2px solid rgba(129, 129, 129, 0.363);
     }
     .caja_item_esperiencia{
+        position: relative;
         margin-left: 20px;
         /* display: flex; */
         margin-bottom: 0px; 
@@ -129,11 +130,11 @@
         font-size: 14px;
         margin-left:26px;
     }
-    .fecha_educacion{
+/*     .fecha_educacion{
         position: absolute;
         margin-left: 470px;
         top: 0;
-    }
+    } */
     .caja_curso_x{
         width: 64% !important;
     }
@@ -200,16 +201,19 @@
             <div class="data_experiencia1"><b class="punto_negro_experiencia">.</b>
                 <b class="txt_area_educacion">{{ $q->areas != null ? $q->areas->nombre : "-" }}</b> <br>
                 <b class="txt_area_intitucion">{{ $q->institucion }}</b> <br>
-
+                @if($q->estado == "Estudiante")
+                <span class="txt_estado_estado">{{ $q->estado }} del {{ $q->ciclo }} ciclo</span>
+                @else
+                <span class="txt_estado_estado">{{ $q->estado }}</span>
+                @endif
+            </div><br>
+            <div class="datos_experiencia">
                 @if ($q->estado == "Estudiante")
                     <span class="fecha_educacion"> ( {{ date("m/Y", strtotime($q->estudio_inicio)) }}{{ $q->estado_estudiante != null ? " - ".$q->estado_estudiante : "" }} )</span>
-                    <span class="txt_estado_estado">{{ $q->estado }} del {{ $q->ciclo }} ciclo</span>
                 @else
                     <span class="fecha_educacion"> ( {{ date("m/Y", strtotime($q->estudio_inicio)) }}  -  {{  date("m/Y", strtotime($q->estudio_fin)) }} )</span>
-                    <span class="txt_estado_estado">{{ $q->estado }}</span>
                 @endif
-                
-            </div><br>
+            </div>
         </div>
     </div>
     @endforeach
