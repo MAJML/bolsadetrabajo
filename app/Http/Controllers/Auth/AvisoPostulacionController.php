@@ -29,7 +29,7 @@ class AvisoPostulacionController extends Controller
     public function list()
     {
         $alumno = Alumno::select('alumnos.id', 
-        'alumnos.created_at as fecha_postulacion',
+        'alumno_avisos.created_at as fecha_postulacion',
         'alumnos.nombres', 
         'alumnos.apellidos', 
         'alumnos.dni', 
