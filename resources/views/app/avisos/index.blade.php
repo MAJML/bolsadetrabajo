@@ -7,7 +7,7 @@
 
 @section('content')
     <!--sweet alert-->
-    {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <div id="main">
 
         <div id="loading-avisos">
@@ -113,9 +113,9 @@
 
     </div>
 
-{{--     <script>
+    <script>
         Swal.fire({
-            title: "<a href='https://forms.gle/XtjmcERXvF77xToy5' target='blank'><img src='../app/img/evento2_bolsa.jpeg' alt=''></a>",
+            title: "<a href='https://forms.gle/kNWwaCH48Byp8hWk7' target='blank'><img src='../app/img/evento_21_diciembre.jpeg' alt=''></a>",
             width: "800px",
             padding: "0px",
             background: "#ffffff00",
@@ -123,7 +123,7 @@
             imageAlt: 'Custom image',
             showConfirmButton: false
         })
-    </script> --}}
+    </script>
 @endsection
 
 @section('scripts')
