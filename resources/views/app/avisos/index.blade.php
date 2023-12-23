@@ -113,7 +113,7 @@
 
     </div>
 
-    <script>
+{{--     <script>
         Swal.fire({
             title: "<a href='https://forms.gle/kNWwaCH48Byp8hWk7' target='blank'><img src='../app/img/evento_21_diciembre.jpeg' alt=''></a>",
             width: "800px",
@@ -123,7 +123,7 @@
             imageAlt: 'Custom image',
             showConfirmButton: false
         })
-    </script>
+    </script> --}}
 @endsection
 
 @section('scripts')
