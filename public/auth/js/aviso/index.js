@@ -40,11 +40,11 @@ $(function(){
                 title: "Grado academico requerido",
                 data : null,
                 render: function(data){ 
-                    if(data.solicita_grado_a == 1){
+                    if(data.solicita_grado_a == 0){
                         return "Estudiante"
-                    }else if(data.solicita_grado_a == 2){
+                    }else if(data.solicita_grado_a == 1){
                         return "Egresado"
-                    }else if(data.solicita_grado_a == 3){
+                    }else if(data.solicita_grado_a == 2){
                         return "Titulado"
                     }
                 }
