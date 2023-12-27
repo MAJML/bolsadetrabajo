@@ -24,6 +24,7 @@ $(function(){
             { title: "Nombre", data: "nombres", class: "text-left"},
             { title: "Apellidos", data: "apellidos", class: "text-left"},
             { title: "DNI", data: "dni"},
+            { title: "Carrera del Alumno", data:"carrera"},
             { title: "Grado Académico", data: "grado_academico"},
             { title: "Estado", data: "estado"},
             { title: "Titulo Oferta", data: "titulo", class: "text-left"},

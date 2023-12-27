@@ -36,6 +36,7 @@ class AvisoPostulacionController extends Controller
         'alumnos.email', 
         'alumnos.telefono',
         'avisos.titulo',
+        'areas.nombre as carrera',
         'empresas.ruc',
         'empresas.nombre_comercial',
         'grado_academicos.grado_estado as grado_academico',
@@ -46,6 +47,7 @@ class AvisoPostulacionController extends Controller
         ->join('estados', 'estados.id', '=', 'alumno_avisos.estado_id')
         ->join('grado_academicos','grado_academicos.id','=','alumnos.egresado')
         ->join('distritos','distritos.id','=','alumnos.distrito_id')
+        ->join('areas','areas.id','=','alumnos.area_id')
         ->where('alumnos.deleted_at', NULL)
         ->where('avisos.deleted_at', NULL)
         ->distinct()
