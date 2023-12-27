@@ -27,6 +27,11 @@ class Empresa extends Authenticatable
 
     protected $dates = ['deleted_at'];
 
+    function actividad_economicas()
+    {
+        return $this->belongsTo('\BolsaTrabajo\Actividad_economica', 'actividad_economica_empresa');
+    }
+
     function provincias()
     {
         return $this->belongsTo('\BolsaTrabajo\Provincia', 'provincia_id');

@@ -18,7 +18,21 @@
                 <small>Mantenimiento</small>
             </h1>
         </section>
-
+        
+        <ol class="breadcrumb mb-0 pb-0">
+            <li class="">
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <select name="actividad_eco_filter_id" id="actividad_eco_filter_id" class="form-input">
+                            <option value="">--Todas las Actividades Económicas--</option>
+                            @foreach($actividad_eco as $q)
+                                <option value="{{ $q->id }}">{{ $q->codigo.' | '.$q->descripcion }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+            </li>
+        </ol>
         <section class="content">
             @csrf
             <div class="row">

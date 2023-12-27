@@ -2,6 +2,7 @@ var $dataTableEmpresa, $dataTable;
 $(function(){
 
     const $table = $("#tableEmpresa");
+    const $actividad_eco_filter_id = $("#actividad_eco_filter_id");
 
     $dataTableEmpresa = $table.DataTable({
         "stripeClasses": ['odd-row', 'even-row'],
@@ -10,22 +11,25 @@ $(function(){
         "info": false,
         //"buttons": [],
         "ajax": {
-            url: "/auth/empresa/list_all"
+            url: "/auth/empresa/list_all",
+            data: function(s){
+                if($actividad_eco_filter_id.val() != ""){ s.actividad_eco_filter_id = $actividad_eco_filter_id.val(); }
+            }
         },
         "columns": [
             { title: "ID", data: "id", className: "text-center" },
             { title: "RUC", data: "ruc"},
             { title: "Razón Social", data: "razon_social"},  
+            { title: "Actividad Económica", data: "actividad_economicas.descripcion", render: function(data){ if(data){ return data} return "NO HAY CIIU REGISTRADO"}},
             { title: "Nombre de la Empresa", data: "nombre_comercial", class: "hidden"},
-            { title: "Ciudad", data: "provincias.nombre", class: "hidden", render: function(data){ if(data){ return data} return "-"}},
-            { title: "Distrito", data: "distritos.nombre", class: "hidden", render: function(data){ if(data){ return data} return "-"}},
+            { title: "Ciudad", data: "provincias.nombre", class: "hidden", render: function(data){ if(data){ return data} return "NO HAY CIUDAD REGISTRADO"}},
+            { title: "Distrito", data: "distritos.nombre", class: "hidden", render: function(data){ if(data){ return data} return "NO HAY DISTRITO REGISTRADO"}},
             { title: "Dirección", data: "direccion", class: "hidden"},
             { title: "Teléfono Empresa", data: "telefono", class: "hidden"},
             { title: "E-mail", data: "email"},
             { 
                 title: "Nombre Contacto", data: null,
                 render: function(data){
-                    // console.log(data)
                     if(data){
                         return data.nombre_contacto+" "+ data.apellido_contacto;
                     }
@@ -106,6 +110,10 @@ $(function(){
             }
         ]
     });
+
+    $actividad_eco_filter_id.on("change", function(){
+        $dataTableEmpresa.ajax.reload();
+    })
 
     $table.on("click", ".btn-update", function () {
         const id = $dataTableEmpresa.row($(this).parents("tr")).data().id;
