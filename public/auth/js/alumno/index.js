@@ -17,12 +17,24 @@ $(function() {
             data: "id",
             className: "text-center"
         }, {
-            title: "Fecha de Registro",
+            title: "Año R",
             data: "created_at",
             render: function(data) {
-                return null != data ? moment(data).format("DD-MM-YYYY") : "-";
+                return null != data ? moment(data).format("YYYY") : "-";
             }
         }, {
+            title: "Mes R",
+            data: "created_at",
+            render: function(data) {
+                return null != data ? moment(data).format("MM") : "-";
+            }
+        },{
+            title: "Dia R",
+            data: "created_at",
+            render: function(data) {
+                return null != data ? moment(data).format("DD") : "-";
+            }
+        },{
             title: "CV",
             data: "id",
             render: function(data) {
