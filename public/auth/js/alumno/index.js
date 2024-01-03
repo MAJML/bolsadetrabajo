@@ -87,9 +87,9 @@ $(function() {
             title: "Información",
             data: null,
             render: function(data) {
-                /* console.log(data) */
+                /* console.log(data.educaciones.institucion) */
 
-                if( data.educaciones.institucion == null || data.educaciones.institucion == '' || data.educaciones.area_id == null || data.educaciones.area_id == '' || data.perfil_profesional == null || data.perfil_profesional == '' || data.area_id == null || data.area_id == '' || data.egresado == null || data.egresado == '' || data.provincias == null || data.provincias == '' || data.distritos == null || data.distritos == '' || data.dni == null || data.dni == "" || data.telefono == null || data.telefono == "" || data.email == null || data.email == "" || data.fecha_nacimiento == null || data.fecha_nacimiento == "" || data.educaciones.length <1){ /**|| data.hoja_de_vida === null || data.hoja_de_vida === ""**/ 
+                if( data.perfil_profesional == null || data.perfil_profesional == '' || data.area_id == null || data.area_id == '' || data.egresado == null || data.egresado == '' || data.provincias == null || data.provincias == '' || data.distritos == null || data.distritos == '' || data.dni == null || data.dni == "" || data.telefono == null || data.telefono == "" || data.email == null || data.email == "" || data.fecha_nacimiento == null || data.fecha_nacimiento == "" || data.educaciones.length <1){ /**|| data.hoja_de_vida === null || data.hoja_de_vida === ""**/ 
                     //return "<img src='/auth/image/icon/warning.png' width='25px' title='Falta completar información'>";               
                     return "<p class='badge bg-danger p-5'>Falta</p>";             
                 }else{
