@@ -1,6 +1,5 @@
 $(function(){
-
-    console.log("esta es mi tabla")
+    console.log('esto es el actualizado');
     
     const $table = $("#tableAviso"), $empresa_filter_id = $("#empresa_filter_id");
 
@@ -29,7 +28,7 @@ $(function(){
                 if(data != null)return moment(data).format("DD-MM-YYYY");
                 return "-";
             }},
-            { title: "Nombre comercial de la empresa", data: "empresas.razon_social"},
+            { title: "Nombre comercial de la empresa", data: "empresas.nombre_comercial"},
             { title: "Puesto de Trabajo", data: "titulo"},
             { 
                 title: "Carrera que Solicita",
