@@ -1,5 +1,5 @@
 $(function() {
-    console.log('cargado');
+    console.log('cargado otra vez');
     const $table = $("#tableAlumno"), $dataTableAlumno = $table.DataTable({
         stripeClasses: [ "odd-row", "even-row" ],
         lengthChange: !0,
@@ -87,8 +87,8 @@ $(function() {
             title: "Información",
             data: null,
             render: function(data) {
-                /* console.log(data.educaciones) */
-                if( data.perfil_profesional == null || data.perfil_profesional == '' || data.area_id == null || data.area_id == '' || data.egresado == null || data.egresado == '' || data.provincias == null || data.provincias == '' || data.distritos == null || data.distritos == '' || data.dni == null || data.dni == "" || data.telefono == null || data.telefono == "" || data.email == null || data.email == "" || data.fecha_nacimiento == null || data.fecha_nacimiento == "" || data.educaciones.length <1){ /**|| data.hoja_de_vida === null || data.hoja_de_vida === ""**/ 
+                /* console.log("contando: ",data) */
+                if( data.perfil_profesional == null || data.perfil_profesional == '' || data.area_id == null || data.area_id == '' || data.egresado == null || data.egresado == '' || data.provincia_id == null || data.provincia_id == '' || data.distrito_id == null || data.distrito_id == '' || data.dni == null || data.dni == "" || data.telefono == null || data.telefono == "" || data.email == null || data.email == "" || data.fecha_nacimiento == null || data.fecha_nacimiento == "" || data.educaciones.length <1){ /**|| data.hoja_de_vida === null || data.hoja_de_vida === ""**/ 
                     //return "<img src='/auth/image/icon/warning.png' width='25px' title='Falta completar información'>";               
                     return "<p class='badge bg-danger p-5'>Falta</p>";             
                 }else{
