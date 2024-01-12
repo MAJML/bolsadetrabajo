@@ -25,7 +25,8 @@ $(function(){
             { title: "ID", data: "id", className: "text-center" },
             { title: "Fecha de Registro", data: "created_at", render:function(data) 
             {       
-                if(data != null)return moment(data).format("DD-MM-YYYY");
+                console.log(data);
+                if(data != null)return moment(data).format("YYYY-MM-DD");
                 return "-";
             }},
             { title: "Nombre comercial de la empresa", data: "empresas.nombre_comercial"},
