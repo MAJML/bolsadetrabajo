@@ -31,7 +31,8 @@ class AvisoController extends Controller
         ->whereHas('empresas', function ($q) use ($request) { if($request->empresa_filter_id != null && $request->empresa_filter_id != ""){ $q->where('id', $request->empresa_filter_id ); }})
         ->with('empresas')->with('provincias')->with('areas')
         ->with('modalidades')->with('horarios')->with('provincias')
-        ->with('distritos')->orderBy('id')->get()
+        /* ->with('distritos')->get() */
+        ->with('distritos')->orderBy('created_at', 'DESC')->get()
         ]);
     }
 
