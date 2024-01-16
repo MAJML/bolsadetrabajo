@@ -1,7 +1,7 @@
 <div class="row">
     @foreach($avisos as $q)  
         <div class="col-md-6">
-            {{ $q->empresas->link }} <br>
+            {{-- {{ $q->empresas->link }} <br> --}}
             {{-- <div class="card" data-empresa="{{ $q->empresas != null ? $q->empresas->link : "-" }}" data-info="{{ $q->link }}"> --}}
             <div class="card" data-empresa="{{ $q->empresas != null ? $q->empresas->id : "-" }}" data-info="{{ $q->link }}">
                 <div class="row">
