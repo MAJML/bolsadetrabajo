@@ -72,7 +72,8 @@
                                                    {{-- <p>{{ ($aviso->provincias != null ?$aviso->provincias->nombre : "-").($aviso->distritos != null ? "," .$aviso->distritos->nombre : "-") }} | {{ $q->alumnos->telefono }} | {{ $q->alumnos->email }}</p>    --}}
                                                </div>
                                                <div class="col-md-2 info-alumno">
-                                                   <a href="{{ route('empresa.postulante_informacion', ['empresa' =>  $aviso->empresas->link, 'slug' =>  $aviso->link, 'alumno' => $q->alumnos->usuario_alumno ]) }}" class="text-uppercase">Ver</a>
+                                                   {{-- <a href="{{ route('empresa.postulante_informacion', ['empresa' =>  $aviso->empresas->link, 'slug' =>  $aviso->link, 'alumno' => $q->alumnos->usuario_alumno ]) }}" class="text-uppercase">Ver</a> --}}
+                                                   <a href="{{ route('empresa.postulante_informacion', ['empresa' =>  $aviso->empresas->id, 'slug' =>  $aviso->link, 'alumno' => $q->alumnos->usuario_alumno ]) }}" class="text-uppercase">Ver</a>
                                                </div>
                                            </div>
                                        </div>

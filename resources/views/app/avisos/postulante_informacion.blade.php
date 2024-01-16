@@ -153,13 +153,15 @@
                         </style>
 
                         <div class="mt-3 text-center">
-                            <a class="btn_cv_emp" href="{{ route('empresa.cv_postulante', ['empresa' =>  $aviso->empresas->link, 'slug' =>  $aviso->link, 'alumno' => $postulante->alumno_id ]) }}" target="_blank"> Descargar CV del Postulante</a>
+                            {{-- <a class="btn_cv_emp" href="{{ route('empresa.cv_postulante', ['empresa' =>  $aviso->empresas->link, 'slug' =>  $aviso->link, 'alumno' => $postulante->alumno_id ]) }}" target="_blank"> Descargar CV del Postulante</a> --}}
+                            <a class="btn_cv_emp" href="{{ route('empresa.cv_postulante', ['empresa' =>  $aviso->empresas->id, 'slug' =>  $aviso->link, 'alumno' => $postulante->alumno_id ]) }}" target="_blank"> Descargar CV del Postulante</a>
                         </div>
 
                     </div>
 
                     <div class="card aviso mt-2">
-                        <a href="{{ route('empresa.postulantes', ['empresa' => $aviso->empresas->link, 'slug' => $aviso->link]) }}" class="text-uppercase">Regresar</a>
+                        {{-- <a href="{{ route('empresa.postulantes', ['empresa' => $aviso->empresas->link, 'slug' => $aviso->link]) }}" class="text-uppercase">Regresar</a> --}}
+                        <a href="{{ route('empresa.postulantes', ['empresa' => $aviso->empresas->id, 'slug' => $aviso->link]) }}" class="text-uppercase">Regresar</a>
                     </div>
                 </div>
                 <div class="col-md-2">
