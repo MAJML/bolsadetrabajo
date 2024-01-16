@@ -56,7 +56,7 @@ Route::group(['middleware' => 'auth:empresasw'], function () {
 
         Route::get('/perfil', 'App\EmpresaController@index')->name('empresa.perfil');
         Route::post('/perfil', 'App\EmpresaController@store')->name('empresa.store');
-
+        /* ACA SON LAS RUTAS DE CAMBIO LINK POR ID */
         Route::get('/avisos', 'App\EmpresaController@listar_aviso')->name('empresa.avisos');
         Route::get('/{empresa}/aviso/{slug}', 'App\AvisoController@informacion')->name('empresa.informacion');
         Route::get('/{empresa}/aviso/{slug}/postulantes', 'App\AvisoController@postulantes')->name('empresa.postulantes');
