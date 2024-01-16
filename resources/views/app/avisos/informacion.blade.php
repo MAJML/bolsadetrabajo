@@ -35,7 +35,8 @@
                                 <p> Aceptados <br> <span>{{ count($alumnosAvisos->where('estado_id', \BolsaTrabajo\App::$ESTADO_ACEPTADOS)->pluck('aviso_id')->toArray()) }}</span> </p>
                                 <p> Descartados <br> <span>{{ count($alumnosAvisos->where('estado_id', \BolsaTrabajo\App::$ESTADO_DESCARTADOS)->pluck('aviso_id')->toArray()) }}</span> </p>
                                 <div class="mt-5">
-                                    <a href="{{ route('empresa.postulantes', ['empresa' => $aviso->empresas->link, 'slug' => $aviso->link ])  }}" class="text-uppercase">
+                                    {{-- <a href="{{ route('empresa.postulantes', ['empresa' => $aviso->empresas->link, 'slug' => $aviso->link ])  }}" class="text-uppercase"> --}}
+                                    <a href="{{ route('empresa.postulantes', ['empresa' => $aviso->empresas->id, 'slug' => $aviso->link ])  }}" class="text-uppercase">
                                         Ver Postulantes
                                     </a>
                                 </div>
