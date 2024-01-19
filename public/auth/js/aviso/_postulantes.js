@@ -1,7 +1,7 @@
 $(function(){
 
     //codigo hecho por marco
-    console.log("cargado...");
+    console.log("cargado2...");
     const $table = $("#tablePostulante");
 
     const $dataTablePostulante = $table.DataTable({
@@ -29,7 +29,7 @@ $(function(){
                 return data.nombres + " " + data.apellidos;
             }},{
                 title: "CV",data: "alumnos", className: "text-center", render: function (data){
-                    return "<a href='/auth/alumno/print_cv_pdf/" + data.id + "' class='btn btn-success btn-xs p-1' data-toggle='tooltip' title='CV'><i class='fa fa-address-card'></i></button>";
+                    return "<a target='_blank' href='/auth/alumno/print_cv_pdf/" + data.id + "' class='btn btn-success btn-xs p-1' data-toggle='tooltip' title='CV'><i class='fa fa-address-card'></i></button>";
             }},
             { title: "DNI", data: "alumnos.dni", className: "text-center" },
             { title: "Teléfono", data: "alumnos.telefono", className: "text-center" },

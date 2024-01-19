@@ -57,8 +57,9 @@ class AlumnoController extends Controller
                 'referenciaLaboral' => $ReferenciaLaboral
             );
             $pdf = PDF::loadView('auth.alumno.exports.cv_pdf', $data);
-            // $pdf = PDF::loadView('auth.alumno.exports.print_cv_pdf', $data);
-            return $pdf->download('CV-'.($alumno->nombres.' '.$alumno->apellidos).'.pdf');
+            /* $pdf = PDF::loadView('auth.alumno.exports.print_cv_pdf', $data); */
+            /* return $pdf->download('CV-'.($alumno->nombres.' '.$alumno->apellidos).'.pdf'); */
+            return $pdf->stream('CV-'.($alumno->nombres.' '.$alumno->apellidos).'.pdf');
         }
 
         return redirect()->to('/auth/alumno');
