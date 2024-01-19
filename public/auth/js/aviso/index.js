@@ -25,7 +25,7 @@ $(function(){
             { title: "ID", data: "id", className: "text-center" },
             { title: "Fecha de Registro", data: "created_at", render:function(data) 
             {       
-                console.log(data);
+                /* console.log(data); */
                 if(data != null)return moment(data).format("YYYY-MM-DD");
                 return "-";
             }},
