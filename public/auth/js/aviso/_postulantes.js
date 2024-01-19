@@ -1,7 +1,7 @@
 $(function(){
 
     //codigo hecho por marco
-
+    console.log("cargado...");
     const $table = $("#tablePostulante");
 
     const $dataTablePostulante = $table.DataTable({
@@ -35,11 +35,11 @@ $(function(){
             { title: "Teléfono", data: "alumnos.telefono", className: "text-center" },
             {
                 title: "Grado Acádemico", data: "alumnos", className: "text-center", render: function (data){
-                    if (data.egresado == 1){
+                    if (data.egresado == 0){
                         return "Estudiante";
-                    }else if (data.egresado == 2){
+                    }else if (data.egresado == 1){
                         return "Egresado";
-                    }else if (data.egresado == 3){
+                    }else if (data.egresado == 2){
                         return "Titulado";
                     }
             }},
