@@ -36,7 +36,8 @@ $(function(){
                 "orderable": false,
                 "searchable": false,
                 "width": "26px"
-            },
+            }
+            /* ,
             {
                 data: null,
                 defaultContent:
@@ -44,7 +45,7 @@ $(function(){
                 "orderable": false,
                 "searchable": false,
                 "width": "26px"
-            }
+            } */
         ]
     });
 
