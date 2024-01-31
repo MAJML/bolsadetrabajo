@@ -128,9 +128,8 @@
         
                             <div class="form-group row">
                                 <div class="col-md-12">
-                                    <textarea name="descripcion" id="descripcion" class="form-input" cols="30" rows="10" placeholder="Descripción" style="visibility: hidden; display: none;">
-                                    {{ $aviso != null ? $aviso->descripcion : "" }}
-                                    </textarea>
+                                    <textarea name="descripcion" id="descripcion" class="form-input" cols="30" rows="10" placeholder="Descripción" required>{{$aviso->descripcion}}</textarea>
+                                    <span data-valmsg-for="descripcion"></span>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -155,6 +154,15 @@
 <script type="text/javascript" src="{{ asset('app/plugins/ckeditor/ckeditor.js') }}"></script>
 <script>
     CKEDITOR.replace( 'descripcion' );
+</script>
+<script>
+    $(function(){
+        $(".modal-footer button").on('click', function (e){
+            for (var instanceName in CKEDITOR.instances) {
+                CKEDITOR.instances[instanceName].updateElement();
+            }
+        });
+    })
 </script>
 <script type="text/javascript" src="{{ asset('auth/js/aviso/_Editar.js') }}"></script>
     

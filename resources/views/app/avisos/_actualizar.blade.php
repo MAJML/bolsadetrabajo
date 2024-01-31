@@ -100,7 +100,7 @@
 
                     <div class="form-group row">
                         <div class="col-md-12">
-                            <textarea name="descripcion" id="descripcion" class="form-input" cols="30" rows="10" placeholder="Descripción" required><?php echo $Aviso->descripcion ?></textarea>
+                            <textarea name="descripcion" id="descripcion" class="form-input" cols="30" rows="10" placeholder="Descripción" required>{{$Aviso->descripcion}}</textarea>
                             <span data-valmsg-for="descripcion"></span>
                         </div>
                     </div>
