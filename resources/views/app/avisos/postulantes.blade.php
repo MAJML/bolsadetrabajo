@@ -51,7 +51,7 @@
                                        <div class="card aviso col-md-12">
                                            <div class="row">
                                                <div class="col-md-9">
-                                                   <h5><b>{{ $q->alumnos->nombres." ".$q->alumnos->apellidos != "" ? $q->alumnos->nombres." ".$q->alumnos->apellidos : "" }} |                          
+                                                   <h5><b>{{ ($q->alumnos->nombres != "" ? $q->alumnos->nombres : ""). ($q->alumnos->apellido != "" ? " ".$q->alumnos->apellido->nombre: "") }} |                          
                                                     @foreach ($Grado_academico as $item)
                                                         @if($q->alumnos->egresado == $item->id)
                                                             {{ $item->grado_estado }}
