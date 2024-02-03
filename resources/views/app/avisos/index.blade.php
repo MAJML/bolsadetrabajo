@@ -115,7 +115,7 @@
 
     <script>
         Swal.fire({
-            title: "<a href='' target='blank'><img src='../app/img/evento_31_01_2024.jpg' alt=''></a>",
+            title: "<a href='' target='blank'><img src='../app/img/new_evento_vale.jpeg' alt=''></a>",
             width: "800px",
             padding: "0px",
             background: "#ffffff00",
