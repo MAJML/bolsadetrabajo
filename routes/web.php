@@ -47,6 +47,10 @@ Route::group(['middleware' => 'auth:alumnos'], function () {
     });
 });
 
+/* -------------- MIS POSTULACIONES ----------------*/
+Route::get('/postulaciones', 'App\PostulacionesController@index')->name('alumno.postulaciones');
+/* ------------------------------------ */
+
 Route::get('/{empresa}/aviso/{slug}/postulantes/{alumno}', 'App\AvisoController@donwloadCValumno')->name('empresa.cv_postulante');
 
 Route::get('/alumno/pdf', 'App\AlumnoController@donwloadCValumno');

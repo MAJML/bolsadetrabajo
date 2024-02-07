@@ -1,5 +1,5 @@
 $(function(){
-
+    $('.btn_evento_bolsa').click();
     const $name = $("#name"), $filterSearch = $(".filterSearch");
 
     var $area_id = $("#area_filter_id"), $provincia_id = $("#provincia_filter_id"), $distrito_id = $("#distrito_filter_id"),
