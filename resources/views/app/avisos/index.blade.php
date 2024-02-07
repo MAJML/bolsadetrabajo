@@ -114,13 +114,13 @@
     </div>
  
 
-    <button hidden type="button" class="btn btn-primary btn-lg btn_evento_bolsa-acabdo" data-toggle="modal" data-target="#myModal">
+    <button hidden type="button" class="btn btn-primary btn-lg btn_evento_bolsa" data-toggle="modal" data-target="#myModal">
     </button>
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <a href='' target='blank'><img src='../app/img/new_evento_vale.jpeg' alt=''></a>
+                <a href='' target='blank'><img src='../app/img/banner_neww_vale.jpeg' alt=''></a>
             </div>
         </div>
         </div>
