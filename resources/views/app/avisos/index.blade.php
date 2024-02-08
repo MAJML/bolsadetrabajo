@@ -114,6 +114,18 @@
     </div>
  
 
+    <button hidden type="button" class="btn btn-primary btn-lg btn_evento_bolsa" data-toggle="modal" data-target="#tuto">
+    </button>
+    <div class="modal fade" id="tuto" tabindex="-1" role="dialog" aria-labelledby="tuto">
+        <div class="modal-dialog modal-lg" role="document" >
+        <div class="modal-content" style="background: #0049af;">
+            <div class="modal-body">
+                <a href='https://wa.me/922611913' target='_blank'><img src='../app/img/banner_tutorial.png' alt=''></a>
+            </div>
+        </div>
+        </div>
+    </div>
+
     <button hidden type="button" class="btn btn-primary btn-lg btn_evento_bolsa" data-toggle="modal" data-target="#myModal">
     </button>
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -127,17 +139,7 @@
     </div>
 
 
-    <button hidden type="button" class="btn btn-primary btn-lg btn_evento_bolsa" data-toggle="modal" data-target="#tuto">
-    </button>
-    <div class="modal fade" id="tuto" tabindex="-1" role="dialog" aria-labelledby="tuto">
-        <div class="modal-dialog modal-lg" role="document" >
-        <div class="modal-content" style="background: #0049af;">
-            <div class="modal-body">
-                <a href='https://wa.me/922611913' target='_blank'><img src='../app/img/banner_tutorial.png' alt=''></a>
-            </div>
-        </div>
-        </div>
-    </div>
+
 
 
     <script>
