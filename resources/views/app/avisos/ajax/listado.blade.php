@@ -1,3 +1,9 @@
+<style>
+    .card:hover{
+        border: 1px solid #2a527a8b !important;
+        /* box-shadow: 0px 0px 33px 2px #2a527a8b inset; */
+    }
+</style>
 <div class="row">
     @foreach($avisos as $q)  
         <div class="col-md-6">

@@ -57,7 +57,7 @@
                                         Hola, {{ Auth::guard('alumnos')->check() ? (Auth::guard('alumnos')->user()->nombres." ".Auth::guard('alumnos')->user()->apellidos) : Auth::guard('empresasw')->user()->nombre_comercial }}
                                     </a>
                                 </li>
-                                <li class="nav-item" hidden>
+                                <li class="nav-item">
                                     <a class="nav-link" href="{{route('alumno.postulaciones') }}">
                                         <i class="fa fa-bell"></i> Mis Postulaciones
                                     </a>
