@@ -104,8 +104,8 @@
                 <div id="aviso-informacion hidden"></div>
 
                 <div class="col-md-2 text-center">
-                    <a href="javascript:void(0)">
-                        <img src="{{ asset('app/img/banner-cv.jpg') }}" alt="">
+                    <a href="https://wa.me/922611913?text=Hola 😁,Deseo que me ayuden con mi CV, vengo de la bolsa de trabajo." target="_blank">
+                        <img src="{{ asset('app/img/BANNER_cv_janet.png') }}" alt="">
                     </a>
                 </div>
             </div>
