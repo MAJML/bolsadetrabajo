@@ -131,7 +131,7 @@
         <div class="modal-dialog modal-lg" role="document" >
         <div class="modal-content" style="background: #0049af;">
             <div class="modal-body">
-                <a href='https://wa.me/922611913' target='_blank'><img src='../app/img/banner_tutorial.png' alt=''></a>
+                <a href='https://wa.me/922611913?text=Hola 😁,Deseo que me ayuden con mi CV, vengo de la bolsa de trabajo.' target='_blank'><img src='../app/img/banner_tutorial.png' alt=''></a>
             </div>
         </div>
         </div>
