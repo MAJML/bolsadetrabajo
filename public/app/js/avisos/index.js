@@ -2,7 +2,7 @@ $(function(){
     $('.btn_evento_bolsa').click();
     const $name = $("#name"), $filterSearch = $(".filterSearch");
 
-    var $area_id = $("#area_filter_id"), $provincia_id = $("#provincia_filter_id"), $distrito_id = $("#distrito_filter_id"),
+    var $area_id = $("#area_filter_id"), $provincia_id = $("#provincia_filter_idd"), $distrito_id = $("#distrito_filter_id"),
     $horario_id = $("#horario_filter_id"), $modalidad_id = $("#modalidad_filter_id"), $startDate = moment().startOf('month').format("YYYY-MM-DD"),
     $endDate = moment().endOf('month').format("YYYY-MM-DD");
 

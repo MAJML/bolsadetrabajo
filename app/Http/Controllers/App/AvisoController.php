@@ -37,9 +37,9 @@ class AvisoController extends Controller
                 ->whereHas('empresas', function ($q){ $q->where('deleted_at', null);  })
                 ->where(function ($q) use ($request){ if($request->name){ $q->where('titulo', 'like', '%'.$request->name. '%'); } })
                 ->where(function ($q) use ($Perfil, $request){ if(in_array($Perfil, [App::$PERFIL_EMPRESA])){ $q->where('empresa_id', Auth::guard('empresasw')->user()->id); } })
-                ->where(function ($q) use ($request){ if($request->fecha_inicio){ $q->whereDate('created_at', '>=', $request->fecha_inicio); }})
+                ->where(function ($q) use ($request){ if($request->fecha_inicio){ $q->whereDate('created_at', '>=', $request->fecha_inicio);}})
                 ->where(function ($q) use ($request){ if($request->fecha_final){ $q->whereDate('created_at', '<=', $request->fecha_final);}})
-                ->where(function ($q) use ($request){ if($request->provincia_id){ $q->where('provincia_id', $request->provincia_id);}})
+                /* ->where(function ($q) use ($request){ if($request->provincia_id){ $q->where('provincia_id', $request->provincia_id);}}) */
                 ->where(function ($q) use ($request){ if($request->distrito_id){ $q->where('distrito_id', $request->distrito_id);}})
                 // ->where(function ($q) use ($request){ if($request->horario_id){ $q->where('horario_id', $request->horario_id);}})
                 // ->where(function ($q) use ($request){ if($request->modalidad_id){ $q->where('modalidad_id', $request->modalidad_id);}})

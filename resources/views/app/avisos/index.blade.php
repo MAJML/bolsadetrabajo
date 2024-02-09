@@ -53,8 +53,8 @@
                                     </select>
                                     <label for="area_filter_id">Carrera</label>
                                 </div>
-                                <div class="form-group" hidden>
-                                    <select name="provincia_filter_id" id="provincia_filter_id" class="form-input" required>
+                                <div class="form-group">
+                                    <select name="provincia_filter_idd" id="provincia_filter_idd" class="form-input" required>
                                         <option value=""></option>
                                         @foreach($provincias as $a)
                                             <option value="{{ $a->id }}">{{ $a->nombre }}</option>
@@ -62,7 +62,7 @@
                                     </select>
                                     <label for="provincia_filter_id">Ciudad</label>
                                 </div>
-                                <div class="form-group" hidden>
+                                <div class="form-group">
                                     <select name="distrito_filter_id" id="distrito_filter_id" class="form-input" required>
                                         <option value=""></option>
                                     </select>
