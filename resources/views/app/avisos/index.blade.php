@@ -113,6 +113,17 @@
 
     </div>
  
+    <button hidden type="button" class="btn btn-primary btn-lg btn_evento_bolsa" data-toggle="modal" data-target="#modal3">
+    </button>
+    <div class="modal fade" id="modal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <a href='https://forms.gle/kxF91An5nBd7yEkH9' target='blank'><img src='../app/img/ferreyros_banner.png' alt=''></a>
+            </div>
+        </div>
+        </div>
+    </div>
 
     <button hidden type="button" class="btn btn-primary btn-lg btn_evento_bolsa" data-toggle="modal" data-target="#tuto">
     </button>
@@ -137,7 +148,6 @@
         </div>
         </div>
     </div>
-
 
 
 
