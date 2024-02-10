@@ -105,7 +105,7 @@
 
                 <div class="col-md-2 text-center">
                     <a href="https://wa.me/922611913?text=Hola 😁,Deseo que me ayuden con mi CV, vengo de la bolsa de trabajo." target="_blank">
-                        <img src="{{ asset('app/img/BANNER_cv_janet.png') }}" alt="">
+                        <img src="{{ asset('app/img/banner2_janet.png') }}" alt="">
                     </a>
                 </div>
             </div>
@@ -125,7 +125,7 @@
         </div>
     </div>
 
-    <button hidden type="button" class="btn btn-primary btn-lg btn_evento_bolsa" data-toggle="modal" data-target="#tuto">
+   {{--  <button hidden type="button" class="btn btn-primary btn-lg btn_evento_bolsa" data-toggle="modal" data-target="#tuto">
     </button>
     <div class="modal fade" id="tuto" tabindex="-1" role="dialog" aria-labelledby="tuto">
         <div class="modal-dialog modal-lg" role="document" >
@@ -135,7 +135,7 @@
             </div>
         </div>
         </div>
-    </div>
+    </div> --}}
 
     <button hidden type="button" class="btn btn-primary btn-lg btn_evento_bolsa" data-toggle="modal" data-target="#myModal">
     </button>
