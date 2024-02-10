@@ -104,7 +104,7 @@
                 <div id="aviso-informacion hidden"></div>
 
                 <div class="col-md-2 text-center">
-                    <a href="https://wa.me/922611913?text=Hola 😁,Deseo que me ayuden con mi CV, vengo de la bolsa de trabajo." target="_blank">
+                    <a href="https://wa.me/922611913?text=Hola, Vengo de la Bolsa de trabajo y quiero conocer más sobre los programas de empleabilidad. Información por favor 😊" target="_blank">
                         <img src="{{ asset('app/img/banner2_janet.png') }}" alt="">
                     </a>
                 </div>
@@ -125,7 +125,7 @@
         </div>
     </div>
 
-   {{--  <button hidden type="button" class="btn btn-primary btn-lg btn_evento_bolsa" data-toggle="modal" data-target="#tuto">
+    <button hidden type="button" class="btn btn-primary btn-lg btn_evento_bolsa" data-toggle="modal" data-target="#tuto">
     </button>
     <div class="modal fade" id="tuto" tabindex="-1" role="dialog" aria-labelledby="tuto">
         <div class="modal-dialog modal-lg" role="document" >
@@ -135,7 +135,7 @@
             </div>
         </div>
         </div>
-    </div> --}}
+    </div>
 
     <button hidden type="button" class="btn btn-primary btn-lg btn_evento_bolsa" data-toggle="modal" data-target="#myModal">
     </button>
@@ -143,7 +143,7 @@
         <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <a href='' target='blank'><img src='../app/img/banner_neww_vale.jpeg' alt=''></a>
+                <a href='javascript:void(0)' ><img src='../app/img/banner_insercion.jpg' alt=''></a>
             </div>
         </div>
         </div>

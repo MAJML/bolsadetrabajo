@@ -338,7 +338,7 @@
                     </div>
 
                     <div class="col-md-2 text-center">
-                        <a href="javascript:void(0)">
+                        <a href="https://wa.me/922611913?text=Hola, Vengo de la Bolsa de trabajo y quiero conocer más sobre los programas de empleabilidad. Información por favor 😊" target="_blank">
                             <img src="{{ asset('app/img/banner2_janet.png') }}" alt="">
                         </a>
                     </div>
