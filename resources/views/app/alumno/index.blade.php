@@ -339,7 +339,7 @@
 
                     <div class="col-md-2 text-center">
                         <a href="javascript:void(0)">
-                            <img src="{{ asset('app/img/banner-cv.jpg') }}" alt="">
+                            <img src="{{ asset('app/img/banner2_janet.png') }}" alt="">
                         </a>
                     </div>
                 </div>   
