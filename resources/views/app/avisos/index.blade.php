@@ -6,6 +6,34 @@
 @endsection
 
 @section('content')
+
+    <style>
+        .content_cuadros_banner{
+            background: #0f4eaf !important;
+            width: 100%;
+            padding-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+        }
+        .cajita_cuadro_btn{
+            width: 45%;
+            background: #fff;
+            color: #0049af !important;
+            font-weight: 600 !important;
+            margin: auto;
+            margin-bottom: 30px;
+            border: 1px solid #0049af;
+            border-radius: 30px;
+            text-align: center;
+        }
+        .cajita_cuadro_btn:hover{
+            background: #e6e6e6;
+        }
+    </style>
+
     <!--sweet alert-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <div id="main">
@@ -143,7 +171,29 @@
         <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <a href='javascript:void(0)' ><img src='../app/img/banner_insercion.jpg' alt=''></a>
+                <a href='javascript:void(0)' ><img src='../app/img/banner_insercion_recortado.jpg' alt=''></a><br>
+                <div class="content_cuadros_banner">
+                    <button onclick="window.open('https://forms.gle/kiHhRc8kRjryDS4W8', '_blank');return false;" class="cajita_cuadro_btn">
+                        <span>SEDE CENTRAL 16/02 1:00PM</span><br>
+                        <span>FARMACIAS PERUANAS</span><br>
+                        <span>977 761 677</span>
+                    </button>
+                    <button onclick="window.open('https://forms.gle/9FH6WDSb3Ssk4S9WA', '_blank');return false;" class="cajita_cuadro_btn">
+                        <span>SEDE MENDIOLA 16/02 12:00PM</span><br>
+                        <span>WEBHELLP</span><br>
+                        <span>948 536 558</span>
+                    </button>
+                    <button onclick="window.open('https://forms.gle/3MqsXu44AU35fL1G8', '_blank');return false;" class="cajita_cuadro_btn">
+                        <span>SEDE CENTRAL 19/02 12:00PM</span><br>
+                        <span>MEGABOTIKAS</span><br>
+                        <span>922 762 489</span>
+                    </button>
+                    <button onclick="window.open('https://forms.gle/Xv5E5VkU8nPMeiK48', '_blank');return false;" class="cajita_cuadro_btn">
+                        <span>SEDE BILLINGURSTH 23/02 1:00PM</span><br>
+                        <span>FARMACIAS PERUANAS</span><br>
+                        <span>948 536 664</span>
+                    </button>
+                </div>
             </div>
         </div>
         </div>
