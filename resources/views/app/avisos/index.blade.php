@@ -146,6 +146,9 @@
     <div class="modal fade" id="modal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
             <div class="modal-body">
                 <a href='https://forms.gle/kxF91An5nBd7yEkH9' target='blank'><img src='../app/img/ferreyros_banner.png' alt=''></a>
             </div>
@@ -158,6 +161,9 @@
     <div class="modal fade" id="tuto" tabindex="-1" role="dialog" aria-labelledby="tuto">
         <div class="modal-dialog modal-lg" role="document" >
         <div class="modal-content" style="background: #0049af;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
             <div class="modal-body">
                 <a href='https://wa.me/922611913?text=Hola 😁,Deseo que me ayuden con mi CV, vengo de la bolsa de trabajo.' target='_blank'><img src='../app/img/banner_tutorial.png' alt=''></a>
             </div>
@@ -170,6 +176,9 @@
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
             <div class="modal-body">
                 <a href='javascript:void(0)' ><img src='../app/img/banner_insercion_recortado.jpg' alt=''></a><br>
                 <div class="content_cuadros_banner">
