@@ -42,6 +42,7 @@ class PostulacionesController extends Controller
             'avisos.created_at as fecha_publicacion',
             'avisos.titulo',
             'avisos.salario',
+            'avisos.periodo_vigencia',
             'empresas.nombre_comercial',
             'empresas.ruc',
             'estados.nombre as estado_postulacion')

@@ -55,7 +55,6 @@
                     </div>
                 </div>
                 <div class="col-lg-8 row col-sm-12 col-12">
-
                     @foreach ($postulaciones as $value)
                         <div class="col-lg-6 px-3 col-12 col-sm-12">
                             <div class="row cuadro">
@@ -63,6 +62,12 @@
                                 <div class="col-md-6 not-padding text-right"><a>Postulado el {{ $value->fecha_postulacion }}</a></div>
                                 <div class="col-md-12 not-padding titulo_postulacions">
                                     <p>{{ $value->titulo }}</p>
+                                    @if (strtotime($value->periodo_vigencia) < time())
+                                        <p class="text-danger">En proceso de selección</p>
+                                    @else
+                                        <p class="text-info">Vacantes Abiertas</p>
+                                    @endif
+
                                 </div>
                                 <div class="col-md-6 not-padding text-left">
                                     <small class="text-success">{{ $value->estado_postulacion }}</small>
