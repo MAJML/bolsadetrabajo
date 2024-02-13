@@ -57,11 +57,13 @@
                                         Hola, {{ Auth::guard('alumnos')->check() ? (Auth::guard('alumnos')->user()->nombres." ".Auth::guard('alumnos')->user()->apellidos) : Auth::guard('empresasw')->user()->nombre_comercial }}
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{route('alumno.postulaciones') }}">
-                                        <i class="fa fa-bell"></i> Mis Postulaciones
-                                    </a>
-                                </li>
+                                @if (Auth::guard('alumnos')->check())
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{route('alumno.postulaciones') }}">
+                                            <i class="fa fa-bell"></i> Mis Postulaciones
+                                        </a>
+                                    </li>                                    
+                                @endif
                                 <li class="nav-item">
                                     <a class="nav-link" href="javascript:void(0)" onclick="event.preventDefault();localStorage.setItem('cliente_id','');document.getElementById('logout-form').submit();">
                                         <i class="fa fa-power-off"></i> {{ __('Cerrar Sesión') }}

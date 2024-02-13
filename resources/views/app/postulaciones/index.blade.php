@@ -62,11 +62,18 @@
                                 <div class="col-md-6 not-padding text-right"><a>Postulado el {{ $value->fecha_postulacion }}</a></div>
                                 <div class="col-md-12 not-padding titulo_postulacions">
                                     <p>{{ $value->titulo }}</p>
-                                    @if (strtotime($value->periodo_vigencia) < time())
-                                        <p class="text-danger">En proceso de selección</p>
+
+                                    @if (strtotime(date("Y-m-d", strtotime($value->periodo_vigencia . " +1 month"))) < time())
+                                        <p class="text-danger">Aviso Finalizado</p>
                                     @else
-                                        <p class="text-info">Vacantes Abiertas</p>
+                                        @if (strtotime($value->periodo_vigencia) < time())
+                                            <p class="text-warning">En proceso de selección</p>
+                                        @else
+                                            <p class="text-info">Vacantes Abiertas</p>
+                                        @endif
                                     @endif
+
+
 
                                 </div>
                                 <div class="col-md-6 not-padding text-left">
