@@ -99,8 +99,8 @@
                     </div>
                 </div>
                 <div class="col-md-2 text-center">
-                    <a href="javascript:void(0)">
-                        <img src="{{ asset('app/img/banner-cv.jpg') }}" alt="">
+                    <a href="https://wa.link/rcy85o" target="_blank">
+                        <img src="{{ asset('app/img/banner_empresa.jpeg') }}" alt="">
                     </a>
                 </div>
             </div>
