@@ -30,7 +30,7 @@ $(function(){
             {
                 data: null,
                 render: function(data){
-                   return "<a href='/empresa/"+data.empresas.id+"/aviso/"+data.link+"' style='padding: 5px;font-size: 12px;' class='btn btn-primary btn-xs' data-toggle='tooltip' title='Ver Postulantes'><i class='fa fa-users'></i></button>";
+                   return "<a href='/empresa/"+data.empresas.id+"/aviso/"+data.id+"' style='padding: 5px;font-size: 12px;' class='btn btn-primary btn-xs' data-toggle='tooltip' title='Ver Postulantes'><i class='fa fa-users'></i></button>";
                    /* return "<a href='/empresa/"+data.empresas.link+"/aviso/"+data.link+"' style='padding: 5px;font-size: 12px;' class='btn btn-primary btn-xs' data-toggle='tooltip' title='Ver Postulantes'><i class='fa fa-users'></i></button>"; */
                 },
                 "orderable": false,

@@ -71,7 +71,7 @@ class AvisoController extends Controller
     {
         /* $Aviso = Aviso::where('link', $slug)
             ->whereHas('empresas', function ($q) use ($empresa){ $q->where('link',  $empresa);})->first(); */
-        $Aviso = Aviso::where('link', $slug)
+        $Aviso = Aviso::where('id', $slug)
         ->whereHas('empresas', function ($q) use ($empresa){ $q->where('id',  $empresa);})->first();
 
         $AlumnosAvisos = AlumnoAviso::where('aviso_id', $Aviso->id)->get();
@@ -121,7 +121,7 @@ class AvisoController extends Controller
         $Grado_academico = Grado_academico::all();
         /* $Aviso = Aviso::where('link', $slug)
             ->whereHas('empresas', function ($q) use ($empresa){ $q->where('link',  $empresa);})->first(); */
-        $Aviso = Aviso::where('link', $slug)
+        $Aviso = Aviso::where('id', $slug)
             ->whereHas('empresas', function ($q) use ($empresa){ $q->where('id',  $empresa);})->first();
 
         $AlumnosAvisos = AlumnoAviso::with('alumnos')->where('aviso_id', $Aviso->id)->get();
@@ -140,7 +140,7 @@ class AvisoController extends Controller
     {
         /* $Aviso = Aviso::where('link', $slug)
             ->whereHas('empresas', function ($q) use ($empresa){ $q->where('link',  $empresa);})->first(); */
-        $Aviso = Aviso::where('link', $slug)
+        $Aviso = Aviso::where('id', $slug)
             ->whereHas('empresas', function ($q) use ($empresa){ $q->where('id',  $empresa);})->first();
         
         $Alumno = Alumno::where('usuario_alumno', $alumno)->first();
