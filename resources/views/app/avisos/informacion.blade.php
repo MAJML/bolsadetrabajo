@@ -89,9 +89,15 @@
                     </div>
                 </div>
                 <div class="col-md-2 text-center">
-                    <a href="https://wa.link/rcy85o" target="_blank">
-                        <img src="{{ asset('app/img/banner_empresa.jpeg') }}" alt="">
-                    </a>
+                    @if (Auth::guard('empresasw')->check())
+                        <a href="https://wa.link/rcy85o" target="_blank">
+                            <img src="{{ asset('app/img/banner_empresa.jpeg') }}" alt="">
+                        </a>
+                    @else
+                        <a href="https://wa.me/922611913?text=Hola, Vengo de la Bolsa de trabajo y quiero conocer más sobre los programas de empleabilidad. Información por favor 😊" target="_blank">
+                            <img src="{{ asset('app/img/banner2_janet.png') }}" alt="">
+                        </a>
+                    @endif
                 </div>
             </div>
         </div>

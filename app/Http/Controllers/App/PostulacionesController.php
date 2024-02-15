@@ -52,6 +52,7 @@ class PostulacionesController extends Controller
             ->join('alumnos','alumnos.id','=','alumno_avisos.alumno_id')
             ->where('alumno_avisos.alumno_id', $Alumno->id)
             ->where('avisos.deleted_at', NULL)
+            ->orderBy('fecha_postulacion', 'DESC')
             ->get();
 
         $postulaciones_count = AlumnoAviso::select(
