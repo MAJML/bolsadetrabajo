@@ -74,7 +74,14 @@
                         @if(Auth::guard('alumnos')->user())
                             <button id="postular" type="button" data-info="{{ $aviso->id }}" class="{{ $alumnoAviso ? "postulaste" : "" }}" {{ $alumnoAviso ? "disabled" : "" }}>{{ $alumnoAviso ? "Ya estas postulando" : "Postularme" }}</button>
                         @endif
-                        <a href="{{ Auth::guard('alumnos')->user() ? route('alumno.avisos') : route('empresa.avisos') }}" class="text-uppercase">Regresar</a>
+
+                        @if (Auth::guard('empresasw')->check())
+                            <a href="{{ Auth::guard('alumnos')->user() ? route('alumno.avisos') : route('empresa.avisos') }}" class="text-uppercase">Regresar</a> 
+                        @else
+                            <a href="javascript:void(0);" class="text-uppercase" onclick="regresar()">Regresar</a>
+                        @endif
+
+                        
                     </div>
                 </div>
                 <div class="col-md-2">
@@ -106,4 +113,9 @@
 
 @section('scripts')
     <script type="text/javascript" src="{{ asset('app/js/avisos/informacion.min.js') }}"></script>
+    <script>
+        function regresar(){
+            window.history.back();
+        }
+    </script>
 @endsection
