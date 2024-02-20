@@ -141,7 +141,7 @@
 
     </div>
  
-    <button hidden type="button" class="btn btn-primary btn-lg btn_evento_bolsa" data-toggle="modal" data-target="#modal3">
+    <button hidden type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal3">
     </button>
     <div class="modal fade" id="modal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog modal-lg" role="document">
