@@ -9,29 +9,98 @@
 
     <style>
         .content_cuadros_banner{
-            background: #0f4eaf !important;
+           /*  background: #afaa0f !important; */
             width: 100%;
-            padding-top: 20px;
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: space-evenly;
             align-content: center;
             align-items: center;
         }
-        .cajita_cuadro_btn{
-            width: 45%;
-            background: #fff;
-            color: #0049af !important;
-            font-weight: 600 !important;
-            margin: auto;
+        .content_img_banner_va{
+            width: 38%;
+        }
+        ..content_img_banner_va img{
+            width: 100%;
+        }
+        .content_divs_banner_va{
+            width: 50%;
+        }
+        .content_divs_banner_va .cabezera_vale{
             margin-bottom: 30px;
-            border: 1px solid #0049af;
-            border-radius: 30px;
+        }
+        .container_btn_banne {
+            cursor: pointer;
+            position: relative;
+            width: 90%;
+            height: 100px;
+            margin-bottom: 25px;
+        }
+
+        .content_btn_azul,
+        .content_btn_celeste {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .content_btn_azul {
+            background-color: #094a90;
+            clip-path: polygon(100% 0, 100% 100%, 0% 100%, 12% 50%, 0% 0%);
+        }
+
+        .content_btn_celeste {
+            bottom: -10%;
+            left: 2%;
+            background-color: #22bdff;
+            clip-path: polygon(100% 0, 100% 100%, 0% 100%, 12% 50%, 0% 0%);
             text-align: center;
+            padding: 10px 0px 10px 40px;
+            color: #fff;
+            transition: 0.3s all;
         }
-        .cajita_cuadro_btn:hover{
-            background: #e6e6e6;
+        .content_btn_celeste:hover{
+            background: #1a99cf;
         }
+
+        @media only screen and (max-width: 991px) {
+            .container_btn_banne {
+                position: relative;
+                width: 90%;
+                height: 70px;
+                margin-bottom: 25px;
+            }
+            .content_btn_celeste{
+                font-size:10px;
+            }
+            .content_btn_celeste {
+                bottom: -10%;
+                left: 2%;
+                padding: 10px 0px 10px 17px;
+            }
+        }	
+        @media only screen and (max-width: 448px) {
+            .container_btn_banne {
+                position: relative;
+                width: 100%;
+                height: 100px;
+                margin-bottom: 25px;
+            }
+            .content_btn_celeste{
+                font-size:10px;
+            }
+            .content_btn_celeste {
+                bottom: -10%;
+                left: 2%;
+                padding: 10px 0px 10px 17px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-content: center;
+                align-items: center;
+            }
+        }	
+
     </style>
 
     <!--sweet alert-->
@@ -171,7 +240,7 @@
         </div>
     </div>
 
-    <button hidden type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+    <button hidden type="button" class="btn btn-primary btn-lg btn_evento_bolsa" data-toggle="modal" data-target="#myModal">
     </button>
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog modal-lg" role="document">
@@ -180,28 +249,50 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
-                <a href='javascript:void(0)' ><img src='../app/img/banner_insercion_recortado.jpg' alt=''></a><br>
                 <div class="content_cuadros_banner">
-                    <button onclick="window.open('https://forms.gle/kiHhRc8kRjryDS4W8', '_blank');return false;" class="cajita_cuadro_btn">
-                        <span>SEDE CENTRAL 16/02 1:00PM</span><br>
-                        <span>FARMACIAS PERUANAS</span><br>
-                        <span>977 761 677</span>
-                    </button>
-                    <button onclick="window.open('https://forms.gle/9FH6WDSb3Ssk4S9WA', '_blank');return false;" class="cajita_cuadro_btn">
-                        <span>SEDE MENDIOLA 16/02 12:00PM</span><br>
-                        <span>WEBHELLP</span><br>
-                        <span>948 536 558</span>
-                    </button>
-                    <button onclick="window.open('https://forms.gle/3MqsXu44AU35fL1G8', '_blank');return false;" class="cajita_cuadro_btn">
-                        <span>SEDE CENTRAL 19/02 12:00PM</span><br>
-                        <span>MEGABOTIKAS</span><br>
-                        <span>922 762 489</span>
-                    </button>
-                    <button onclick="window.open('https://forms.gle/Xv5E5VkU8nPMeiK48', '_blank');return false;" class="cajita_cuadro_btn">
-                        <span>SEDE BILLINGURSTH 23/02 1:00PM</span><br>
-                        <span>FARMACIAS PERUANAS</span><br>
-                        <span>948 536 664</span>
-                    </button>
+                    <div class="content_img_banner_va">
+                        <img src="../app/img/banner_valeria_xd.jpeg" alt="">
+                    </div>
+                    <div class="content_divs_banner_va">
+                        <img class="cabezera_vale" src="../app/img/banner_valeria_header.jpeg" alt="">
+
+                        <div class="container_btn_banne" onclick="window.open('https://forms.gle/rSYqfdrMEiQwq3526', '_blank');return false;">
+                            <div class="content_btn_azul"></div>
+                            <div class="content_btn_celeste">
+                                <span>Empresa: BOTICAS Y SALUD</span><br>
+                                <span>SÁBADO 24  de Febrero 1pm</span><br>
+                                <span>Sede Belisario</span>
+                            </div>
+                        </div>
+
+                        <div class="container_btn_banne" onclick="window.open('https://forms.gle/5DiqZfGEPbVM8Sb47', '_blank');return false;">
+                            <div class="content_btn_azul"></div>
+                            <div class="content_btn_celeste">
+                                <span>Empresa: KONECTA</span><br>
+                                <span>MARTES 27 de Febrero 12pm</span><br>
+                                <span>Sede Mendiola</span>
+                            </div>
+                        </div>
+
+                        <div class="container_btn_banne" onclick="window.open('https://forms.gle/HAAEm8XZGow8qsyw6', '_blank');return false;">
+                            <div class="content_btn_azul"></div>
+                            <div class="content_btn_celeste">
+                                <span>Empresa: InkaFarma y Mifarma</span><br>
+                                <span>MARTES 27 de Febrero 12pm</span><br>
+                                <span>Sede SJL 22</span>
+                            </div>
+                        </div>
+
+                        <div class="container_btn_banne" onclick="window.open('https://forms.gle/NbWdPxpACf7L14wV8', '_blank');return false;">
+                            <div class="content_btn_azul"></div>
+                            <div class="content_btn_celeste">
+                                <span>Empresa: Clinica Angloamericana</span><br>
+                                <span>MARTES 27 de Febrero 11:30pm</span><br>
+                                <span>Sede Central</span>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
