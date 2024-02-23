@@ -1,7 +1,6 @@
 $(function(){
-
+    console.log('nueva carga');
     //codigo hecho por marco
-    console.log("cargado2...");
     const $table = $("#tablePostulante");
 
     const $dataTablePostulante = $table.DataTable({
