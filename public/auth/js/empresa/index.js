@@ -19,7 +19,15 @@ $(function(){
         "columns": [
             { title: "ID", data: "id", className: "text-center" },
             { title: "RUC", data: "ruc"},
-            { title: "Razón Social", data: "razon_social"},  
+            { title: "Razón Social", data: null,
+                render: function(data){
+                    if(data.razon_social == null || data.razon_social == ''){
+                        return data.nombre_comercial;
+                    }else{
+                        return data.razon_social;
+                    }
+                }
+            },  
             { title: "Actividad Económica", data: "actividad_economicas.descripcion", render: function(data){ if(data){ return data} return "NO HAY CIIU REGISTRADO"}},
             { title: "Nombre de la Empresa", data: "nombre_comercial", class: "hidden"},
             { title: "Ciudad", data: "provincias.nombre", class: "hidden", render: function(data){ if(data){ return data} return "NO HAY CIUDAD REGISTRADO"}},

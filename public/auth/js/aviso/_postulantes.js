@@ -11,7 +11,7 @@ $(function(){
         }],
         "stripeClasses": ['odd-row', 'even-row'],
         "lengthChange": true,
-        "lengthMenu": [[50,100,200,500,-1],[50,100,200,500,"Todo"]],
+        "lengthMenu": [[10,25,50,100,-1],[10,25,50,100,"Todo"]],
         "info": false,
         //"buttons": [],
         "ajax": {
