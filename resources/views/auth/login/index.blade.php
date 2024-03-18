@@ -20,7 +20,7 @@
           <form method="post" action="{{ route('auth.login.post') }}">
               @csrf
 		  <div class="form-group">
-		    <input type="email" class="form-input {{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" id="email" placeholder="E-mail "
+		    <input type="text" class="form-input {{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" id="email" placeholder="Usuario"
                    value="{{ old('email') }}" required>
               @if ($errors->has('email'))
                   <span class="invalid-feedback" role="alert">
