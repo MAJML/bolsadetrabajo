@@ -107,7 +107,7 @@
                 </div>
                 <hr>
                 <div class="col-12 copyright">
-                    <p>Todos los derechos reservados para Instituto Arzobispo Loayza &copy; <?php echo date('Y') ?> </p>
+                    <p>MAJML - Todos los derechos reservados para Instituto Arzobispo Loayza &copy; <?php echo date('Y') ?> </p>
                 </div>
             </div>
         </div>
