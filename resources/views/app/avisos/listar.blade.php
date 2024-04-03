@@ -55,7 +55,7 @@
                     <table id="tableAviso" class="table table-bordered table-striped display nowrap margin-top-10 dataTable no-footer"></table>
                 </div>
                 <div class="col-md-2 text-center">
-                    <a href="https://wa.link/rcy85o" target="_blank">
+                    <a href="https://wa.link/wyggli" target="_blank">
                         <img src="{{ asset('app/img/banner_empresa.jpeg') }}" alt="">
                     </a>
                 </div>

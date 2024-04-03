@@ -97,7 +97,7 @@
                 </div>
                 <div class="col-md-2 text-center">
                     @if (Auth::guard('empresasw')->check())
-                        <a href="https://wa.link/rcy85o" target="_blank">
+                        <a href="https://wa.link/wyggli" target="_blank">
                             <img src="{{ asset('app/img/banner_empresa.jpeg') }}" alt="">
                         </a>
                     @else
