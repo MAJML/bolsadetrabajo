@@ -74,9 +74,9 @@
                                     </form>
                                 </li>
                                 @else
-                                <li class="nav-item">
+                                {{-- <li class="nav-item">
                                     <a class="nav-link" href="{{ route('auth.login') }}"> <i class="fa fa-user"></i> Administrador</a>
-                                </li>
+                                </li> --}}
                                 @endif
                             </ul>
                         </div>

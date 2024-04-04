@@ -95,7 +95,7 @@ Route::get('alumno/registrar', 'App\HomeController@crear_alumno')->name('alumno.
 Route::post('alumno/registrar', 'App\HomeController@registrar_alumno')->name('alumno.registrar_alumno.post');
 
 /* ADMINISTRADOR */
-
+/*
 Route::group(['prefix' => 'auth', 'middleware' => 'auth:web'], function () {
     Route::get('/home', 'Auth\HomeController@index')->name('auth.index');
 
@@ -200,6 +200,8 @@ Route::group(['prefix' => 'auth', 'middleware' => 'auth:web'], function () {
     });
 
 });
+
+*/
 
 Route::group(['prefix' => 'auth'], function () {
     Route::get('/', 'Auth\LoginController@showLoginForm');
