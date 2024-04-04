@@ -1,4 +1,5 @@
 var $dataTableEmpresa, $dataTable;
+console.log('2');
 $(function(){
 
     const $table = $("#tableEmpresa");
@@ -54,11 +55,11 @@ $(function(){
                 render: function(data){
                     // console.log(data)
                     if(data.tipo_persona == 1){
-                        return "Persona Juridica";
+                        return "PERSONA JURIDICA";
                     }else if(data.tipo_persona == 2){
-                        return "Persona Natural";
+                        return "PERSONA NATURAL";
                     }else if(data.tipo_persona == 3){
-                        return "Persona Natural con Negocio";
+                        return "PERSONA NATURAL CON NEGOCIO";
                     }
                     return "";
                 },

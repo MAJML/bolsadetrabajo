@@ -41,11 +41,11 @@ $(function(){
                 data : null,
                 render: function(data){ 
                     if(data.solicita_grado_a == 0){
-                        return "Estudiante"
+                        return "ESTUDIANTE"
                     }else if(data.solicita_grado_a == 1){
-                        return "Egresado"
+                        return "EGRESADO"
                     }else if(data.solicita_grado_a == 2){
-                        return "Titulado"
+                        return "TITULADO"
                     }
                 }
             },
