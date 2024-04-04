@@ -54,7 +54,18 @@ $(function(){
             // { title: "Horario", data: "horarios.nombre", class: ""},
             //{ title: "Departamento", data: "provincias.nombre", render: function(data){ if(data){ return data} return "-"}},
             { title: "Distrito", data: "distritos.nombre", render: function(data){ if(data){ return data} return "-"}},
-            { title: "Salario", data: "salario"},
+            { title: "Salario", 
+                data: null, 
+                render: function(data){
+                    if (!isNaN(data.salario)) {
+                        return 'S/ '+data.salario
+                    } else {
+                        return data.salario
+                    }
+
+                }
+            
+            },
             {
                 data: null,
                 defaultContent:
