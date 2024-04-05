@@ -23,12 +23,25 @@ $(function(){
         },
         "columns": [
             { title: "ID", data: "id", className: "text-center" },
-            { title: "Fecha de Registro", data: "created_at", render:function(data) 
-            {       
-                /* console.log(data); */
-                if(data != null)return moment(data).format("YYYY-MM-DD");
-                return "-";
-            }},
+            {
+                title: "Año R",
+                data: "created_at",
+                render: function(data) {
+                    return null != data ? moment(data).format("YYYY") : "-";
+                }
+            }, {
+                title: "Mes R",
+                data: "created_at",
+                render: function(data) {
+                    return null != data ? moment(data).format("MM") : "-";
+                }
+            },{
+                title: "Dia R",
+                data: "created_at",
+                render: function(data) {
+                    return null != data ? moment(data).format("DD") : "-";
+                }
+            },
             { title: "Nombre comercial de la empresa", data: "empresas.nombre_comercial"},
             { title: "Puesto de Trabajo", data: "titulo"},
             { 
