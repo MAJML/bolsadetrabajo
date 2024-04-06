@@ -56,6 +56,17 @@ class EmpresaController extends Controller
         if (!$validator->fails()){
             $entity = Empresa::find($request->id);
             $entity->tipo_persona = $request->tipo_persona;
+            $entity->ruc = $request->ruc;
+            $entity->razon_social = $request->razon_social;
+            $entity->nombre_comercial = $request->nombre_empresa;
+            $entity->direccion = $request->direccion;
+            $entity->telefono = $request->telefono;
+            $entity->email = $request->email;
+            $entity->pagina_web = $request->pagina_Web;
+            $entity->nombre_contacto = $request->nombre_contacto;
+            $entity->telefono_contacto = $request->telefono_contacto;
+            $entity->cargo_contacto = $request->cargo_contacto;
+            $entity->email_contacto = $request->email_contacto;
             if($entity->save()) $status = true;            
         }
         return response()->json(['Success' => $status, 'Errors' => $validator->errors()]);

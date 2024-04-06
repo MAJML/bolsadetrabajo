@@ -16,15 +16,15 @@
                             <div class="col-md-4">
                                 <input type="hidden" name="id" value="{{ $Entity != null ? $Entity->id : "" }}" required>
                                 <label for="">RUC</label>
-                                <input type="text" class="form-input" value="{{ $Entity != null ? $Entity->ruc : "" }}" autocomplete="off" disabled>
+                                <input type="text" class="form-input" name="ruc" value="{{ $Entity != null ? $Entity->ruc : "" }}" autocomplete="off" required>
                             </div>
                             <div class="col-md-4">
                                 <label for="">Razón Social</label>
-                                <input type="text" class="form-input" value="{{ $Entity != null ? $Entity->razon_social : "" }}" autocomplete="off" disabled>
+                                <input type="text" class="form-input" name="razon_social" value="{{ $Entity != null ? $Entity->razon_social : "" }}" autocomplete="off" >
                             </div>
                             <div class="col-md-4">
                                 <label for="">Nombre Empresa</label>
-                                <input type="text" class="form-input" value="{{ $Entity != null ? $Entity->nombre_comercial : "" }}" autocomplete="off" disabled>
+                                <input type="text" class="form-input" name="nombre_empresa" value="{{ $Entity != null ? $Entity->nombre_comercial : "" }}" autocomplete="off" >
                             </div>
                         </div>
                     </div>
@@ -44,11 +44,11 @@
                         <div class="row">
                             <div class="col-md-8">
                                 <label for="">Dirección</label>
-                                <input type="text" class="form-input" value="{{ $Entity != null ? $Entity->direccion : "" }}" autocomplete="off" disabled>
+                                <input type="text" class="form-input" name="direccion" value="{{ $Entity != null ? $Entity->direccion : "" }}" autocomplete="off" required>
                             </div>
                             <div class="col-md-4">
                                 <label for="">Teléfono</label>
-                                <input type="text" class="form-input" value="{{ $Entity != null ? $Entity->telefono : "" }}" autocomplete="off" disabled>
+                                <input type="text" class="form-input" name="telefono" value="{{ $Entity != null ? $Entity->telefono : "" }}" autocomplete="off" required>
                             </div>
                         </div>
                     </div>
@@ -74,11 +74,11 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="">E-mail</label>
-                                <input type="text" class="form-input" value="{{ $Entity != null ? $Entity->email : "" }}" autocomplete="off" disabled>
+                                <input type="text" class="form-input" name="email" value="{{ $Entity != null ? $Entity->email : "" }}" autocomplete="off">
                             </div>
                             <div class="col-md-3">
                                 <label for="">Página Web</label>
-                                <input type="text" class="form-input" value="{{ $Entity != null ? $Entity->	pagina_web : "" }}" autocomplete="off" disabled>
+                                <input type="text" class="form-input" name="pagina_Web" value="{{ $Entity != null ? $Entity->	pagina_web : "" }}" autocomplete="off" >
                             </div>
                         </div>
                     </div>
@@ -86,15 +86,15 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <label for="">Nombre Contacto</label>
-                                <input type="text" class="form-input" value="{{ $Entity->nombre_contacto. " " .$Entity->apellido_contacto }}" autocomplete="off" disabled>
+                                <input type="text" class="form-input" name="nombre_contacto" value="{{ $Entity->nombre_contacto. " " .$Entity->apellido_contacto }}" autocomplete="off" >
                             </div>
                             <div class="col-md-4">
                                 <label for="">Teléfono Contacto</label>
-                                <input type="text" class="form-input" value="{{ $Entity != null ? $Entity->telefono_contacto : "" }}" autocomplete="off" disabled>
+                                <input type="text" class="form-input" name="telefono_contacto" value="{{ $Entity != null ? $Entity->telefono_contacto : "" }}" autocomplete="off" >
                             </div>
                             <div class="col-md-4">
                                 <label for="">Cargo Contacto</label>
-                                <input type="text" class="form-input" value="{{ $Entity->cargo_contacto }}" autocomplete="off" disabled>
+                                <input type="text" class="form-input" name="cargo_contacto" value="{{ $Entity->cargo_contacto }}" autocomplete="off" >
                             </div>
                         </div>
                     </div>
@@ -102,7 +102,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <label for="">E-mail Contacto</label>
-                                <input type="email" class="form-input" value="{{ $Entity->email_contacto }}" autocomplete="off" disabled>
+                                <input type="email" class="form-input" name="email_contacto" value="{{ $Entity->email_contacto }}" autocomplete="off">
                             </div>
                             <div class="col-md-6">
                                 {{-- <label for="">.asdasd</label> --}}
@@ -110,15 +110,6 @@
                             </div>
                         </div>
                     </div>
-
-                    {{-- <div class="form-group">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label for="">.</label>
-                                <button tyoe="submit" class="btn btn-primary w-100">Guardar</button>
-                            </div>
-                        </div>
-                    </div> --}}
 
                 </div>
             </div>
