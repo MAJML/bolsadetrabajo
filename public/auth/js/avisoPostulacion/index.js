@@ -18,8 +18,12 @@ $(function(){
             }
         },
         "columns": [
-            { title: "ID", 
-              data : 'id'},
+            { title: "N°", 
+              data : null,
+              render: function(data, type, row, meta){
+                return meta.row + 1;
+              }
+            },
             { title: "Fecha Postulación", data : 'fecha_postulacion'},
             { title: "Nombre", data: "nombres", class: "text-left"},
             { title: "Apellidos", data: "apellidos", class: "text-left"},

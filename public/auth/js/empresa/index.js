@@ -18,7 +18,10 @@ $(function(){
             }
         },
         "columns": [
-            { title: "ID", data: "id", className: "text-center" },
+            { title: "N°", data: null, className: "text-center",
+                render: function(data, type, row, meta){
+                    return meta.row + 1;
+                }},
             { title: "RUC", data: "ruc"},
             { title: "Razón Social", data: null,
                 render: function(data){

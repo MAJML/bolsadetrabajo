@@ -22,7 +22,10 @@ $(function(){
             }
         },
         "columns": [
-            { title: "ID", data: "id", className: "text-center" },
+            { title: "N°", data: null, className: "text-center",
+                render: function(data, type, row, meta){
+                    return meta.row + 1;
+                } },
             {
                 title: "Año R",
                 data: "created_at",
