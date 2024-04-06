@@ -86,7 +86,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <label for="">Nombre Contacto</label>
-                                <input type="text" class="form-input" name="nombre_contacto" value="{{ $Entity->nombre_contacto. " " .$Entity->apellido_contacto }}" autocomplete="off" >
+                                <input type="text" class="form-input" name="nombre_contacto" value="{{ $Entity->nombre_contacto }}" autocomplete="off" >
                             </div>
                             <div class="col-md-4">
                                 <label for="">Teléfono Contacto</label>
