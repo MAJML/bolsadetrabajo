@@ -4,6 +4,7 @@ namespace BolsaTrabajo\Http\Controllers\Auth;
 
 use BolsaTrabajo\Empresa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use BolsaTrabajo\Http\Controllers\Controller;
 
 class EmpresaController extends Controller
@@ -44,6 +45,20 @@ class EmpresaController extends Controller
         if($entity->save()) $status = true;
 
         return response()->json(['Success' => $status]);
+    }
+
+    public function updateData(Request $request)
+    {
+        $status = false;
+        $validator = Validator::make($request->all(), [
+            'tipo_persona' => 'required',
+        ]);
+        if (!$validator->fails()){
+            $entity = Empresa::find($request->id);
+            $entity->tipo_persona = $request->tipo_persona;
+            if($entity->save()) $status = true;            
+        }
+        return response()->json(['Success' => $status, 'Errors' => $validator->errors()]);
     }
 
     public function delete(Request $request)

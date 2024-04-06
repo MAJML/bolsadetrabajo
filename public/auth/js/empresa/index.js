@@ -40,7 +40,7 @@ $(function(){
                 title: "Nombre Contacto", data: null,
                 render: function(data){
                     if(data){
-                        return data.nombre_contacto+" "+ data.apellido_contacto;
+                        return data.nombre_contacto;
                     }
                 },
                 "orderable": false,

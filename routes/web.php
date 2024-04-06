@@ -113,6 +113,7 @@ Route::group(['prefix' => 'auth', 'middleware' => 'auth:web'], function () {
         Route::get('/list_all', 'Auth\EmpresaController@list')->name('auth.empresa.list');
         Route::get('/partialView/{id}', 'Auth\EmpresaController@partialView')->name('auth.empresa.create');
         Route::post('/update', 'Auth\EmpresaController@update')->name('auth.empresa.update');
+        Route::post('/update_data', 'Auth\EmpresaController@updateData')->name('auth.empresa.update_data');
         Route::post('/delete', 'Auth\EmpresaController@delete')->name('auth.empresa.delete');
     });
 
