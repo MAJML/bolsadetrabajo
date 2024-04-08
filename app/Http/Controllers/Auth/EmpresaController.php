@@ -21,11 +21,13 @@ class EmpresaController extends Controller
             ->where('actividad_economica_empresa', $request->actividad_eco_filter_id )
             ->with('distritos')
             ->with('actividad_economicas')
+            ->orderBy('created_at', 'DESC')
             ->get() ]);
         }else{
             return response()->json(['data' => Empresa::with('provincias')
             ->with('distritos')
             ->with('actividad_economicas')
+            ->orderBy('created_at', 'DESC')
             ->get() ]);
         }
 
