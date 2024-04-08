@@ -32,7 +32,9 @@ class AvisoController extends Controller
         ->with('empresas')->with('provincias')->with('areas')
         ->with('modalidades')->with('horarios')->with('provincias')
         /* ->with('distritos')->get() */
-        ->with('distritos')->get()
+        ->with('distritos')
+        ->orderBy('avisos.created_at', 'DESC')
+        ->get()
         ]);
     }
 

@@ -51,6 +51,7 @@ class AvisoPostulacionController extends Controller
         ->where('alumnos.deleted_at', NULL)
         ->where('avisos.deleted_at', NULL)
         ->distinct()
+        ->orderBy('alumno_avisos.created_at', 'DESC')
         ->get();
         return response()->json(['data' => $alumno]);
     }
