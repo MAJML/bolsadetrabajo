@@ -24,8 +24,7 @@ class AlumnoController extends Controller
 
     public function list()
     {
-        return response()->json(['data' => Alumno::with('provincias')->with('distritos')->with('areas')
-            ->with('educaciones')
+        return response()->json(['data' => Alumno::with(['provincias', 'distritos', 'areas', 'educaciones'])
             ->orderBy('created_at', 'DESC')
             ->get() ]);
     }

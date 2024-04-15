@@ -48,10 +48,12 @@ $(function() {
             data: "dni"
         }, {
             title: "Apellidos",
-            data: "apellidos"
+            data: "apellidos",
+            className: "text-left"
         }, {
             title: "Nombres",
-            data: "nombres"
+            data: "nombres",
+            className: "text-left"
         }, {
             title: "Teléfono",
             data: "telefono"

@@ -37,8 +37,5 @@ $(function(){
         ]
         
     });
-    $empresa_filter_id.on("change", function(){
-        $dataTableAviso.ajax.reload();
-    })
 
 });
