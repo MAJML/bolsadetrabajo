@@ -41,7 +41,7 @@ $(function() {
             title: "CV",
             data: "id",
             render: function(data) {
-                return "<a href='/auth/alumno/print_cv_pdf/" + data + "' class='btn btn-primary btn-xs' data-toggle='tooltip' title='CV'><i class='fa fa-address-card'></i></button>";
+                return "<a target='_blank' href='/auth/alumno/print_cv_pdf/" + data + "' class='btn btn-primary btn-xs' data-toggle='tooltip' title='CV'><i class='fa fa-address-card'></i></button>";
             }
         }, {
             title: "DNI",
@@ -64,7 +64,7 @@ $(function() {
             title: "Grado Académico",
             data: "egresado",
             render: function(data) {
-                return data == TIPOS_ALUMNOS.ALUMNO ? "Alumno" : data == TIPOS_ALUMNOS.EGRESADO ? "Egresado" : data == TIPOS_ALUMNOS.TITULADO ? "Titulado" : "-";
+                return data == TIPOS_ALUMNOS.ALUMNO ? "ESTUDIANTE" : data == TIPOS_ALUMNOS.EGRESADO ? "EGRESADO" : data == TIPOS_ALUMNOS.TITULADO ? "TITULADO" : "-";
             }
         }, {
             title: "Carrera",
