@@ -100,6 +100,36 @@
                 align-content: center;
                 align-items: center;
             }
+        }
+        .carousel-control-prev{
+            margin-left:16%;
+        }
+        .carousel-control-next{
+            margin-right:16%;
+        }
+        @media screen and (max-width:1669px){
+            .carousel-control-prev{
+                margin-left:7% !important;
+            }
+            .carousel-control-next{
+                margin-right:7% !important;
+            }
+        }	
+        @media screen and (max-width:1243px){
+            .carousel-control-prev{
+                margin-left:0% !important;
+            }
+            .carousel-control-next{
+                margin-right:0% !important;
+            }
+        }	
+        @media screen and (max-width:679px){
+            .carousel-control-prev{
+                margin-top: 90% !important
+            }
+            .carousel-control-next{
+                margin-top: 90% !important;
+            }
         }	
 
     </style>
@@ -228,43 +258,43 @@
 
     <button hidden type="button" class="btn btn-primary btn-lg btn_evento_bolsa" data-toggle="modal" data-target="#tuto">
     </button>
-    <div class="modal fade" id="tuto" tabindex="-1" role="dialog" aria-labelledby="tuto">
+    <div class="modal fade" style="background: rgba(7, 7, 7, 0.89) !important;" id="tuto" tabindex="-1" role="dialog" aria-labelledby="tuto" data-backdrop="static">
         <div class="modal-dialog modal-lg" role="document" >
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" style="color:red !important; border:none; font-size:30px; font-weight:900;" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="../app/img/talent_26_abril_central.png">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="../app/img/talent_26_abril_mendiola.png">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="../app/img/talent_29_abril.png">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="../app/img/banner_tutorial.png">
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <span style="color:black; font-size:30px !important;" class="" aria-hidden="true"> ◀ </span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <span style="color:black; font-size:30px !important;" class="" aria-hidden="true"> ▶ </span>
-                        <span class="sr-only">Next</span>
-                    </a>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" style="color:red !important; border:none; font-size:40px; font-weight:900;" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><b>&times;</b></span></button>
                 </div>
-                
-                {{-- <a href='https://wa.me/922611913?text=Hola 😁,Deseo que me ayuden con mi CV, vengo de la bolsa de trabajo.' target='_blank'><img src='../app/img/banner_tutorial.png' alt=''></a> --}}
+                <div class="modal-body">
+
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="../app/img/talent_26_abril_central.png">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="../app/img/talent_26_abril_mendiola.png">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="../app/img/talent_29_abril.png">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="../app/img/banner_tutorial.png">
+                            </div>
+                        </div>
+                        
+                    </div>
+                    {{-- <a href='https://wa.me/922611913?text=Hola 😁,Deseo que me ayuden con mi CV, vengo de la bolsa de trabajo.' target='_blank'><img src='../app/img/banner_tutorial.png' alt=''></a> --}}
+                </div>
             </div>
         </div>
-        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span style="color:#fff; font-size:60px !important;" class="" aria-hidden="true"> ◀ </span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span style="color:#fff; font-size:60px !important;" class="" aria-hidden="true"> ▶ </span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
 
     <button hidden type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
