@@ -262,7 +262,7 @@
         <div class="modal-dialog modal-lg" role="document" >
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" style="color:red !important; border:none; font-size:40px; font-weight:900;" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><b>&times;</b></span></button>
+                    <button type="button" style="z-index:999; color:red !important; border:none; font-size:40px; font-weight:900;" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><b>&times;</b></span></button>
                 </div>
                 <div class="modal-body">
 
