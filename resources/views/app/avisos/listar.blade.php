@@ -19,6 +19,10 @@
         table button{
             padding: 0px 5px !important;
         }
+        .content_pNatural p{
+            color: #6b7280;
+            text-align: justify;
+        }
     </style>
 @endsection
 
@@ -46,7 +50,18 @@
                     <div class="filter">
                         <form action="">
                             @if(Auth::guard('empresasw')->check())
-                                <a href="{{ route('empresa.registrar_aviso') }}" class="button" >Nueva oportunidad</a>
+                                @if (Auth::guard('empresasw')->user()->tipo_persona == 2)
+                                    <div class="content_pNatural">
+                                        <p>
+                                            Nuestros asesores están listos para ayudarte a encontrar el talento adecuado. 
+                                            Por favor, contáctanos para obtener asistencia personalizada en la publicación 
+                                            de tu aviso.
+                                        </p>
+                                        <a href="https://wa.link/0q0eyc" target="_blank" class="btn btn-success w-100 p-3" >Contactar a un Asesor</a>
+                                    </div>
+                                @else
+                                    <a href="{{ route('empresa.registrar_aviso') }}" class="button" >Nueva oportunidad</a>
+                                @endif
                             @endif
                         </form>
                     </div>

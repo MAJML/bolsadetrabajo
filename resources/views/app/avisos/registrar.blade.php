@@ -70,7 +70,7 @@
 
                             <div class="form-group row">
                                 <div class="col-md-6 mt-2">
-                                    <input type="text" class="form-input {{ ($errors->has('titulo') || $errors->has('link')) ? ' is-invalid' : '' }}" value="{{ old('titulo') }}" name="titulo" id="titulo" placeholder="Puesto que se ofrece" required>
+                                    <input type="text" style="text-transform: uppercase;" class="form-input {{ ($errors->has('titulo') || $errors->has('link')) ? ' is-invalid' : '' }}" value="{{ old('titulo') }}" name="titulo" id="titulo" placeholder="Puesto que se ofrece" required>
                                     @if ($errors->has('titulo'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('titulo') }}</strong>
