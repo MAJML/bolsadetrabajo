@@ -3,6 +3,7 @@
 @section('styles')
     <link rel="stylesheet" href="{{ asset('app/css/avisos/index.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('auth/plugins/daterangepicker/daterangepicker.css') }}" />
+    {{-- <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet"> --}}
 @endsection
 
 @section('content')
@@ -210,7 +211,7 @@
 
     </div>
  
-    <button hidden type="button" class="btn btn-primary btn-lg btn_evento_bolsa" data-toggle="modal" data-target="#modal3">
+    <button hidden type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal3">
     </button>
     <div class="modal fade" id="modal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog modal-lg" role="document">
@@ -229,12 +230,38 @@
     </button>
     <div class="modal fade" id="tuto" tabindex="-1" role="dialog" aria-labelledby="tuto">
         <div class="modal-dialog modal-lg" role="document" >
-        <div class="modal-content" style="background: #0049af;">
+        <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" style="color:red !important; border:none; font-size:30px; font-weight:900;" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
-                <a href='https://wa.me/922611913?text=Hola 😁,Deseo que me ayuden con mi CV, vengo de la bolsa de trabajo.' target='_blank'><img src='../app/img/banner_tutorial.png' alt=''></a>
+
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="../app/img/talent_26_abril_central.png">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="../app/img/talent_26_abril_mendiola.png">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="../app/img/talent_29_abril.png">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="../app/img/banner_tutorial.png">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span style="color:black; font-size:30px !important;" class="" aria-hidden="true"> ◀ </span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span style="color:black; font-size:30px !important;" class="" aria-hidden="true"> ▶ </span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                
+                {{-- <a href='https://wa.me/922611913?text=Hola 😁,Deseo que me ayuden con mi CV, vengo de la bolsa de trabajo.' target='_blank'><img src='../app/img/banner_tutorial.png' alt=''></a> --}}
             </div>
         </div>
         </div>
@@ -316,6 +343,7 @@
 @endsection
 
 @section('scripts')
+    {{-- <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script> --}}
     <script type="text/javascript" src="{{ asset('auth/plugins/moment/moment.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('auth/plugins/moment/moment-with-locales.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('auth/plugins/daterangepicker/daterangepicker.min.js') }}"></script>
@@ -323,4 +351,3 @@
     <script>const PERFIL = {{ Auth::guard('alumnos')->user() != null ? 2 : 1 }}</script>
     <script type="text/javascript" src="{{ asset('app/js/avisos/index.js') }}"></script>
 @endsection
-
