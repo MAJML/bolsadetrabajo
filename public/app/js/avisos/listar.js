@@ -2,7 +2,7 @@ var $dataTableAviso, $dataTable;
 $(function(){
     console.log('cambiado');
     const $table = $("#tableAviso");
-
+    var hoy = new Date(); var año = hoy.getFullYear(); var mes = ('0' + (hoy.getMonth() + 1)).slice(-2); var dia = ('0' + hoy.getDate()).slice(-2); var fecha_actual = año + '-' + mes + '-' + dia;
     $dataTableAviso = $table.DataTable({
         "stripeClasses": ['odd-row', 'even-row'],
         "lengthChange": true,
@@ -19,10 +19,23 @@ $(function(){
             // { title: "Horario", data: "horarios.nombre", class: ""},
             { title: "Distrito", data: "distritos.nombre", render: function(data){ if(data){ return data} return "-"}},
             { title: "Salario", data: "salario"},
+            { title: "Vigencia", data: null,
+                render: function(data){
+                if (data.periodo_vigencia < fecha_actual){
+                    return "<span style='font-weight:900;'>caducado</span>";
+                }else{
+                    return "<span class='text-success' style='font-weight:900;'>activo</span>";
+                }
+                },
+                "orderable": false,
+                "searchable": false,
+                "width": "26px",
+            },
             {
                 data: null,
-                defaultContent:
-                    "<button type='button' class='btn btn-warning btn-xs btn-update' data-toggle='tooltip' title='Actualizar'><i class='fa fa-pencil'></i></button>",
+                render: function(data){
+                        return "<button type='button' class='btn btn-warning "+ (data.periodo_vigencia < fecha_actual ? '' : 'btn-update') +" btn-xs' data-toggle='tooltip' title='Actualizar'><i class='fa fa-pencil'></i></button>"
+                },
                 "orderable": false,
                 "searchable": false,
                 "width": "26px"
@@ -30,7 +43,7 @@ $(function(){
             {
                 data: null,
                 render: function(data){
-                   return "<a href='/empresa/"+data.empresas.id+"/aviso/"+data.id+"' style='padding: 5px;font-size: 12px;' class='btn btn-primary btn-xs' data-toggle='tooltip' title='Ver Postulantes'><i class='fa fa-users'></i></button>";
+                   return "<a href='/empresa/"+data.empresas.id+"/aviso/"+data.id+"' style='padding: 5px;font-size: 12px;' class='btn btn-primary btn-xs' data-toggle='tooltip' title='Ver Postulantes'><i class='fa fa-users'></i></a>";
                    /* return "<a href='/empresa/"+data.empresas.link+"/aviso/"+data.link+"' style='padding: 5px;font-size: 12px;' class='btn btn-primary btn-xs' data-toggle='tooltip' title='Ver Postulantes'><i class='fa fa-users'></i></button>"; */
                 },
                 "orderable": false,
@@ -46,7 +59,15 @@ $(function(){
                 "searchable": false,
                 "width": "26px"
             } */
-        ]
+        ],
+        "rowCallback": function (row, data, index) {
+            if(data.periodo_vigencia < fecha_actual){
+                $("td", row).css({
+                    "background-color": "#f87171",
+                    "color": "#fff"
+                });
+            }
+        }
     });
 
     $table.on("click", ".btn-update", function () {

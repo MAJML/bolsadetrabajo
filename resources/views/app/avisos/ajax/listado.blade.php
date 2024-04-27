@@ -5,8 +5,8 @@
     }
 </style>
 <div class="row">
-    @foreach($avisos as $q)  
-        <div class="col-md-6">
+    @foreach($avisos as $q) 
+        <div class="col-md-6" style="display:{{ $q->periodo_vigencia < date('Y-m-d') ? 'none' : 'block'}};"> 
             {{-- {{ $q->empresas->link }} <br> --}}
             {{-- <div class="card" data-empresa="{{ $q->empresas != null ? $q->empresas->link : "-" }}" data-info="{{ $q->link }}"> --}}
             <div class="card" data-empresa="{{ $q->empresas != null ? $q->empresas->id : "-" }}" data-info="{{ $q->id }}">
