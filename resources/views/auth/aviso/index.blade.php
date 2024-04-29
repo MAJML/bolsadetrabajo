@@ -25,13 +25,20 @@
 
             <ol class="breadcrumb">
                 <li class="mr-10">
-                    <div class="form-group row">
-                        <div class="col-sm-12">
+                    <div class="form-group row flex justify-content-end">
+                        <div class="col-sm-6">
                             <select name="empresa_filter_id" id="empresa_filter_id" class="form-input">
-                                <option value="">--Todas las empresas--</option>
+                                <option value="">-- Todas las empresas --</option>
                                 @foreach($Empresas as $q)
                                     <option value="{{ $q->id }}">{{ $q->razon_social }}</option>
                                 @endforeach
+                            </select>
+                        </div>
+                        <div class="col-sm-3">
+                            <select name="aviso_estado" id="aviso_estado" class="form-input">
+                                <option value="">-- Todos los Avisos --</option>
+                                <option value="0">Pendiente en Revision</option>
+                                <option value="1">Aceptados</option>
                             </select>
                         </div>
                     </div>

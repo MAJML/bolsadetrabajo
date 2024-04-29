@@ -27,7 +27,8 @@
         <div class="container-fluid mt-3">
             <div class="row">
                 <div class="col-md-3 filter-cont">
-                    <div class="filter"></div>
+                    <div class="filter">
+                    </div>
                 </div>
 
                 <div class="col-md-7">

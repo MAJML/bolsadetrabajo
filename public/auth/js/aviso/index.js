@@ -1,8 +1,8 @@
 $(function(){
     console.log('esto es el actualizado');
     
-    const $table = $("#tableAviso"), $empresa_filter_id = $("#empresa_filter_id");
-
+    const $table = $("#tableAviso"), $empresa_filter_id = $("#empresa_filter_id"), $aviso_estado = $("#aviso_estado");
+    var hoy = new Date(); var año = hoy.getFullYear(); var mes = ('0' + (hoy.getMonth() + 1)).slice(-2); var dia = ('0' + hoy.getDate()).slice(-2); var fecha_actual = año + '-' + mes + '-' + dia;
     const $dataTableAviso = $table.DataTable({
         // esta codigo es para eliminar el alert de datatable
         columnDefs: [{
@@ -19,6 +19,7 @@ $(function(){
             url: "/auth/aviso/list_all",
             data: function(s){
                 if($empresa_filter_id.val() != ""){ s.empresa_filter_id = $empresa_filter_id.val(); }
+                if($aviso_estado.val() != ""){ s.aviso_estado = $aviso_estado.val(); }
             }
         },
         "columns": [
@@ -80,7 +81,20 @@ $(function(){
                     }
 
                 }
-            
+            },
+            {
+                data: null,
+                render: function(data){
+                    if(data.estado_aviso == 0){
+                        return "<button type='button' class='btn btn-warning btn-xs btn-approved' data-toggle='tooltip' title='Aprobar'><i class='fa fa-ban'></i></button>";
+                    }else if(data.estado_aviso == 1){
+                        return "<button type='button' class='btn btn-success btn-xs btn-cancel' data-toggle='tooltip' title='Dar de baja'><i class='fa fa-check'></i></button>";
+                    }
+                    return "";
+                },
+                "orderable": false,
+                "searchable": false,
+                "width": "26px"
             },
             {
                 data: null,
@@ -114,13 +128,46 @@ $(function(){
                 "searchable": false,
                 "width": "26px"
             }
-        ]
-        
+        ],
+        "rowCallback": function (row, data, index) {
+            if(data.periodo_vigencia < fecha_actual){
+                $("td", row).css({
+                    "background-color": "#f87171",
+                    "color": "#fff"
+                });
+            }
+        }   
     });
 
     $empresa_filter_id.on("change", function(){
         $dataTableAviso.ajax.reload();
     })
+    $aviso_estado.on("change", function(){
+        $dataTableAviso.ajax.reload();
+    })
+
+    $table.on("click", ".btn-cancel", function () {
+        const id = $dataTableAviso.row($(this).parents("tr")).data().id;
+        const formData = new FormData();
+        formData.append('_token', $("input[name=_token]").val());
+        formData.append('id', id);
+        formData.append('update_id', 0);
+        confirmAjax(`/auth/aviso/updateAvisoEstado`, formData, "POST", null, null, function () {
+            $dataTableAviso.ajax.reload(null, false);
+        });
+    });
+
+    $table.on("click", ".btn-approved", function () {
+        const id = $dataTableAviso.row($(this).parents("tr")).data().id;
+        const formData = new FormData();
+        formData.append('_token', $("input[name=_token]").val());
+        formData.append('id', id);
+        formData.append('update_id', 1);
+        confirmAjax(`/auth/aviso/updateAvisoEstado`, formData, "POST", null, null, function () {
+            $dataTableAviso.ajax.reload(null, false);
+        });
+    });
+
 
     $table.on("click", ".btn-seguimiento", function () {
         const id = $dataTableAviso.row($(this).parents("tr")).data().id;

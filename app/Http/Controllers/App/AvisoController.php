@@ -41,6 +41,7 @@ class AvisoController extends Controller
                 ->where(function ($q) use ($request){ if($request->fecha_final){ $q->whereDate('created_at', '<=', $request->fecha_final);}})
                 /* ->where(function ($q) use ($request){ if($request->provincia_id){ $q->where('provincia_id', $request->provincia_id);}}) */
                 ->where(function ($q) use ($request){ if($request->distrito_id){ $q->where('distrito_id', $request->distrito_id);}})
+                ->where('estado_aviso', 1)
                 // ->where(function ($q) use ($request){ if($request->horario_id){ $q->where('horario_id', $request->horario_id);}})
                 // ->where(function ($q) use ($request){ if($request->modalidad_id){ $q->where('modalidad_id', $request->modalidad_id);}})
 

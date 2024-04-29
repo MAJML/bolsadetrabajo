@@ -149,6 +149,7 @@ class EmpresaController extends Controller
 
         $request->merge([
             'empresa_id' => Auth::guard('empresasw')->user()->id,
+            'titulo' => strtoupper($request->titulo),
             'link' => Str::slug($request->titulo),
             'area_id' => 1,
             'vacantes' => $request->vacantes,
@@ -162,14 +163,14 @@ class EmpresaController extends Controller
 
         $validator = Validator::make($request->all(), [
             'empresa_id' => 'required',
-            // 'titulo' => 'required',
+            'titulo' => 'required',
             // 'link' => ['required','unique:avisos,link,'.($request->id != 0 ? $request->id : "NULL").',id,empresa_id,'.$request->empresa_id.',deleted_at,NULL'],
             //'area_id' => 'required',
             // 'modalidad_id' => 'required',
             // 'horario_id' => 'required',
             'distrito_id' => 'required',
             'descripcion' => 'required',
-            // 'salario' => 'required',
+            'salario' => 'required',
             'vacantes' => 'required',
             'solicita_carrera' => 'required',
             'solicita_grado_a' => 'required',

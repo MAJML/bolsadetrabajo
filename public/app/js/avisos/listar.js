@@ -19,13 +19,17 @@ $(function(){
             // { title: "Horario", data: "horarios.nombre", class: ""},
             { title: "Distrito", data: "distritos.nombre", render: function(data){ if(data){ return data} return "-"}},
             { title: "Salario", data: "salario"},
-            { title: "Vigencia", data: null,
+            { title: "Estado", data: null,
                 render: function(data){
-                if (data.periodo_vigencia < fecha_actual){
-                    return "<span style='font-weight:900;'>caducado</span>";
-                }else{
-                    return "<span class='text-success' style='font-weight:900;'>activo</span>";
-                }
+                    if(data.estado_aviso == 0){
+                        return "<span style='font-weight:900;'>En Revisión</span>";
+                    }else{
+                        if (data.periodo_vigencia < fecha_actual){
+                            return "<span style='font-weight:900;'>caducado</span>";
+                        }else{
+                            return "<span class='text-success' style='font-weight:900;'>activo</span>";
+                        }
+                    }
                 },
                 "orderable": false,
                 "searchable": false,
@@ -64,6 +68,11 @@ $(function(){
             if(data.periodo_vigencia < fecha_actual){
                 $("td", row).css({
                     "background-color": "#f87171",
+                    "color": "#fff"
+                });
+            }else if(data.estado_aviso == 0){
+                $("td", row).css({
+                    "background-color": "#F8C471",
                     "color": "#fff"
                 });
             }

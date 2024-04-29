@@ -29,9 +29,9 @@ class AvisoController extends Controller
     {
         return response()->json(['data' => Aviso::whereHas('empresas', function ($q) { $q->where('deleted_at',  null);})
         ->whereHas('empresas', function ($q) use ($request) { if($request->empresa_filter_id != null && $request->empresa_filter_id != ""){ $q->where('id', $request->empresa_filter_id ); }})
+        ->whereIn('estado_aviso', ($request->aviso_estado == null || $request->aviso_estado == '') ? [0, 1] : [$request->aviso_estado])
         ->with('empresas')->with('provincias')->with('areas')
         ->with('modalidades')->with('horarios')->with('provincias')
-        /* ->with('distritos')->get() */
         ->with('distritos')
         ->orderBy('avisos.created_at', 'DESC')
         ->get()
@@ -60,6 +60,15 @@ class AvisoController extends Controller
         ->where('avisos.id', $id)
         ->get();
         return view('auth.aviso._Aviso', ['aviso' => $aviso]);
+    }
+    // Actualizacion estado aviso
+    public function updateEstadoAviso(Request $request)
+    {
+        $status = false;
+        $entity = Aviso::find($request->id);
+        $entity->estado_aviso = $request->update_id;
+        if($entity->save()) $status = true;
+        return response()->json(['Success' => $status]);
     }
     // codigo hecho por marco
     public function partialViewEditarAviso($id)
