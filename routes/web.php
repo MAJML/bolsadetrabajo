@@ -3,6 +3,7 @@
 App::setLocale('es');
 
 Route::get('/', 'App\HomeController@index')->name('index');
+Route::get('/loginEmpresa', 'App\HomeController@loginEmpresa')->name('loginEmpresa');
 //Route::get('/actualizar', 'App\HomeController@actualizar')->name('actualizar');
 Route::get('/filtro_distritos/{id}', 'App\HomeController@filtro_distritos')->name('filtro_distritos');
 Route::get('/offline_alumno/{id}', 'App\LoginAlumnoController@offline');

@@ -1,4 +1,10 @@
+$(document).ready(function(){
+    $(".btn_persona_juridica").click();
+});
 $(document).on("click", ".btn_persona_juridica", function(){
+    $(".btn_persona_juridica").addClass('btn_eleccion_empleador_active')
+    $(".btn_persona_natural_empresa").removeClass('btn_eleccion_empleador_active')
+    $(".btn_persona_natural").removeClass('btn_eleccion_empleador_active')
 
     DataSunat()
 
@@ -8,7 +14,9 @@ $(document).on("click", ".btn_persona_juridica", function(){
     $(".primera_data_label").html("Datos de la Empresa")
 
     $("#nombre_comercial").attr("placeholder", "Nombre de la Empresa")
-    $("#ruc").attr("placeholder", "Escriba su RUC para autocompletar los datos")
+    $("#ruc").attr("placeholder", "Escriba su RUC")
+    $("#ruc").attr("required", true)
+    $("#dni").attr("required", false)
 
     $("#name_comercio").attr("hidden", false)
     $("#name_comercio").attr("required", true)
@@ -49,6 +57,9 @@ $(document).on("click", ".btn_persona_juridica", function(){
 })
 
 $(document).on("click", ".btn_persona_natural", function(){
+    $(".btn_persona_juridica").removeClass('btn_eleccion_empleador_active')
+    $(".btn_persona_natural_empresa").removeClass('btn_eleccion_empleador_active')
+    $(".btn_persona_natural").addClass('btn_eleccion_empleador_active')
 
     DataReniec()
     
@@ -58,7 +69,9 @@ $(document).on("click", ".btn_persona_natural", function(){
     $(".primera_data_label").html("Datos Generales")
 
     $("#nombre_comercial").attr("placeholder", "Nombre de la Persona Natural")
-    $("#ruc").attr("placeholder", "Escriba su DNI para autocompletar los datos")
+    $("#ruc").attr("placeholder", "Escriba su DNI")
+    $("#ruc").attr("required", false)
+    $("#dni").attr("required", true)
     $("#direccion").attr("placeholder", "Direccion")
 
     $("#name_comercio").attr("hidden", true)
@@ -103,6 +116,9 @@ $(document).on("click", ".btn_persona_natural", function(){
 })
 
 $(document).on("click", ".btn_persona_natural_empresa", function(){
+    $(".btn_persona_juridica").removeClass('btn_eleccion_empleador_active')
+    $(".btn_persona_natural_empresa").addClass('btn_eleccion_empleador_active')
+    $(".btn_persona_natural").removeClass('btn_eleccion_empleador_active')
 
     DataSunat()
 
@@ -113,7 +129,9 @@ $(document).on("click", ".btn_persona_natural_empresa", function(){
     $(".primera_data_label").html("Datos Generales")
 
     $("#nombre_comercial").attr("placeholder", "Nombre de la Empresa")
-    $("#ruc").attr("placeholder", "Escriba su RUC para autocompletar los datos")
+    $("#ruc").attr("placeholder", "Escriba su RUC")
+    $("#ruc").attr("required", true)
+    $("#dni").attr("required", false)
 
     $("#name_comercio").attr("hidden", false)
     $("#name_comercio").attr("required", true)
@@ -157,12 +175,14 @@ function DataReniec(){
     $("#ruc").attr('hidden', true)
     $("#ruc").attr('required', false)
     $("#dni").attr('name', 'ruc')
+    $("#ruc").attr('name', '')
 
     $("#registro_empresas").trigger("reset")
-    $("#dni").css('border', '1px solid #27AE60')
+    /* $("#dni").css('border', '1px solid #27AE60') */
     $("#nombre_comercial").attr('readonly', true)
     $("#razon_social").attr('readonly', false)
-    $("#dni").keyup(function(){
+
+    $("#buscar_empleador").click(function(){
         if($("#dni").val().length === 8){
             $data = $("#dni").val();
             actionAjax("/buscar_reniec/"+$data, null, "GET", function(data){
@@ -171,13 +191,16 @@ function DataReniec(){
                 if(respuesta.success == true){
                     $("#nombre_comercial").val(respuesta.data['nombre_completo'])    
                 }else{
-                    swal("Error", "No se encontro este documento", "warning");
+                    swal("", "No se encontro este documento", "warning");
                     $("#nombre_comercial").val('')            
                 }
 
             });
         }
     })
+    /* $("#dni").keyup(function(){
+        
+    }) */
 }
 
 function DataSunat(){
@@ -185,13 +208,14 @@ function DataSunat(){
     $("#dni").attr('hidden', true)
     $("#dni").attr('required', false)
     $("#ruc").attr('name', 'ruc')
+    $("#dni").attr('name', '')
 
     $("#registro_empresas").trigger("reset")
-    $("#ruc").css('border', '1px solid #27AE60')
+    /* $("#ruc").css('border', '1px solid #27AE60') */
     $("#nombre_comercial").attr('readonly', false)
     $("#razon_social").attr('readonly', true)
 
-    $("#ruc").keyup(function(){
+    $("#buscar_empleador").click(function(){
         if($("#ruc").val().length === 11){
             $data = $("#ruc").val();
             actionAjax("/buscar_sunat/"+$data, null, "GET", function(data){
@@ -201,11 +225,14 @@ function DataSunat(){
                     $("#razon_social").val(respuesta.data['nombre_o_razon_social'])     
                     $("#direccion").val(respuesta.data['direccion'])   
                 }else{
-                    swal("Error", "No se encontro este documento", "warning"); 
+                    swal("", "No se encontro este documento", "warning"); 
                     $("#razon_social").val('')     
                     $("#direccion").val('')          
                 }
             });
         }
     })
+    /* $("#ruc").keyup(function(){
+        
+    }) */
 }

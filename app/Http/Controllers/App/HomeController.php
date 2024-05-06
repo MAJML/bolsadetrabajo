@@ -53,6 +53,11 @@ class HomeController extends Controller
         return view('app.home.index');
     }
 
+    public function loginEmpresa()
+    {
+        return view('app.home.empresa');
+    }
+
     public function crear_empresa()
     {
         $Areas = Area::all();
@@ -110,7 +115,7 @@ class HomeController extends Controller
             $status = true;
         }
 
-        return $status ? redirect(route('index'))->with(['status' => '']) : redirect(route('empresa.crear_empresa'))->withErrors($validator)->withInput();
+        return $status ? redirect(route('loginEmpresa'))->with(['status' => '']) : redirect(route('empresa.crear_empresa'))->withErrors($validator)->withInput();
     }
 
     public function crear_alumno()

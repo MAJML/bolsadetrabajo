@@ -10,7 +10,7 @@
 
 @section('content')
 
-    <div id="main">
+    {{-- <div id="main">
 
         <div id="loading-avisos">
             <p>Cargando...</p>
@@ -168,7 +168,138 @@
             opacity:  0.3;
             cursor : default
         }
-    </style>
+    </style> --}}
+
+    <script src="https://kit.fontawesome.com/6f8129a9b1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ asset('app/css/home/login.css') }}">
+    <section class="section_login">
+        <div class="content_view_login">
+            {{-- <div class="sect_img"> 
+                <img src="{{ asset('app/img/logo_ial.png') }}" alt="">
+            </div>   --}}
+            <div class="sect_login sect_responsive_login">
+                <div class="content_crear_alumno">
+                    <div class="content_titulo_login">
+                        <img src="{{ asset('app/img/logo_ial.png') }}" alt=""><br><br>
+                        <span>CREAR MI CUENTA</span>
+                        <p class="title_">BOLSA DE TRABAJO IAL</p>
+                    </div>
+                    <div class="section_page_login">
+                        <a href="{{ route('index') }}" class="active-line-bottom" style="padding:22px !important">Alumno</a>
+                    </div>
+                    <form enctype="multipart/form-data" action="{{ route('alumno.registrar_alumno.post') }}" class="form-login" method="post">
+                        @csrf
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <div class="input-group">
+                                    <input type="text" autocomplete="off" style="border:2px solid #0072bf !important;" maxlength="11" class="form-control {{ $errors->has('dni') ? ' is-invalid' : '' }}" value="{{ old('dni') }}" name="dni" id="dni" onkeypress="return isNumberKey(event)" placeholder="Ingrese su DNI" required>
+                                    <div class="input-group-append">
+                                        <a href="javascript:void(0);" class="btn btn-success px-3" id="buscar_dni_alumno">Buscar</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="text" placeholder="Nombres" class="form-control-m {{ $errors->has('nombres') ? ' is-invalid' : '' }}" value="{{ old('nombres') }}" name="nombres" id="nombres" readonly>
+                                @if ($errors->has('nombres'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('nombres') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="text" placeholder="Apellidos" class="form-control-m {{ $errors->has('apellidos') ? ' is-invalid' : '' }}" value="{{ old('apellidos') }}"  name="apellidos" id="apellidos" readonly>
+                                @if ($errors->has('apellidos'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('apellidos') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="text" placeholder="Teléfono" class="form-control-m {{ $errors->has('telefono') ? ' is-invalid' : '' }}"  value="{{ old('telefono') }}"   name="telefono" id="telefono" minlength="9" maxlength="9" onkeypress="return isNumberKey(event)" readonly>
+                                @if ($errors->has('telefono'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('telefono') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="email" placeholder="Correo Electronico" autocomplete="off" class="form-control-m {{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email') }}" name="email" id="email" required>
+                                @if ($errors->has('email'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="text" placeholder="Fecha de Nacimiento" class="form-control-m {{ $errors->has('fecha_nacimiento') ? ' is-invalid' : '' }}" name="fecha_nacimiento" id="fecha_nacimiento" value="{{ old('fecha_nacimiento')}}" autocomplete="off" readonly>
+                                @if ($errors->has('fecha_nacimiento'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('fecha_nacimiento') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <select name="provincia_id" id="provincia_id" class="form-control-m {{ $errors->has('provincia_id') ? ' is-invalid' : '' }}" required>
+                                    <option value="" hidden>-- Departamento --</option>
+                                    @foreach($Provincias as $q)
+                                        <option value="{{ $q->id }}">{{ $q->nombre }}</option>
+                                    @endforeach
+                                </select>
+                                @if ($errors->has('provincia_id'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('provincia_id') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <select name="distrito_id" id="distrito_id" class="form-control-m {{ $errors->has('distrito_id') ? ' is-invalid' : '' }}" required>
+                                    <option value="" hidden>-- Distrito --</option>
+                                </select>
+                                @if ($errors->has('distrito_id'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('distrito_id') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <select name="area_id" id="area_id" class="form-control-m {{ $errors->has('area_id') ? ' is-invalid' : '' }}" required>
+                                    <option value="" hidden>-- Programa de Estudio --</option>
+                                    @foreach($Areas as $q)
+                                        <option value="{{ $q->id }}">{{ $q->nombre }}</option>
+                                    @endforeach
+                                </select>
+                                @if ($errors->has('area_id'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('area_id') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <select name="egresado" id="egresado" class="form-control-m" required>
+                                    <option value="" hidden>-- Grado Académico --</option>
+                                    <option value="0">Estudiante</option>
+                                    <option value="1">Egresado</option>
+                                    <option value="2">Titulado</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="">
+                            <button type="submit" class="btn-m btn-primary-gradient">Crear Cuenta</button>
+                        </div>
+                        <br>
+                        <div class="text-center text-primary">
+                            <a href="{{ route('index') }}" style="color:#00c3f4">Regresar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
 @endsection
 
