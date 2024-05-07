@@ -13,8 +13,9 @@
     <meta property="og:url" content="">
     <meta property="og:site_name" content="Instituto Arzobispo Loayza">
     <meta property="og:type" content="website">
-    <meta name="author" content="WebAltoque" />
+    <meta name="author" content="MAJML" />
     <meta name="Resource-type" content="Document" />
+    <link rel="shortcut icon" href="{{ asset('app/img/logo_ial.png') }}" type="image/x-icon">
     <meta http-equiv="X-UA-Compatible" content="IE=5; IE=6; IE=7; IE=8; IE=9; IE=10">
     <title>Bolsa de Trabajo</title>
     <link rel="stylesheet" href="{{ asset('app/plugins/bootstrap4/css/bootstrap.css') }}">
