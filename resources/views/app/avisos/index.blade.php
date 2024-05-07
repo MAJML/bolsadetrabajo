@@ -269,13 +269,7 @@
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img class="d-block w-100" src="../app/img/talent_26_abril_central.png">
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="../app/img/talent_26_abril_mendiola.png">
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="../app/img/talent_29_abril.png">
+                                <img class="d-block w-100" src="../app/img/talent_mass.jpeg">
                             </div>
                             <div class="carousel-item">
                                 <img class="d-block w-100" src="../app/img/banner_tutorial.png">
