@@ -109,6 +109,7 @@ label{
     }
 }
 .content_titulo_login{
+    position: relative;
     text-align: center;
 }
 .content_titulo_login img{
@@ -128,6 +129,12 @@ label{
 }
 .content_titulo_login p{
     color: rgba(0,195,244,1);
+}
+.access_administrador{
+    position: absolute;
+    top: 0;
+    right: 0;
+    overflow: hidden;
 }
 .form-control-m{
     width: 100% !important;

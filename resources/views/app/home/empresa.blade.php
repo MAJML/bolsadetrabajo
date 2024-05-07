@@ -88,6 +88,9 @@
                     <span>BIENVENIDOS</span>
                     <p class="title_">BOLSA DE TRABAJO IAL</p>
                     <p>Más oportunidades laborales</p>
+                    <div class="access_administrador">
+                        <a href="{{ route('auth.login') }}"><i style="color: #0072bf; font-size:20px;" class="fa-solid fa-users-between-lines"></i></a>
+                    </div>
                 </div>
                 <div class="section_page_login">
                     <a href="{{ route('index') }}">Alumno</a>
