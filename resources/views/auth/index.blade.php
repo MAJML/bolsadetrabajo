@@ -173,7 +173,8 @@ header{
     </footer>
 
 </div>
-<script type="text/javascript" src="{{ asset('auth/plugins/popper.min.js') }}"></script>
+{{-- <script type="text/javascript" src="{{ asset('auth/plugins/popper.min.js') }}"></script> --}}
+{{-- <script type="" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> --}}
 <script type="text/javascript" src="{{ asset('auth/plugins/jquery-3.3.1/jquery-3.3.1.js') }}"></script>
 <script type="text/javascript" src="{{ asset('auth/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('auth/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
