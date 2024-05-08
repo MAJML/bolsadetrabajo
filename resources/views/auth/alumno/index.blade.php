@@ -13,6 +13,21 @@
         background: #79f57f63;
         /* color: #fff; */
     }
+    .label-as-badge {
+        border-radius: 1em;
+        font-size: 12px;
+        cursor: pointer;
+    }
+    table{
+        padding-top:28px !important;
+    }
+    table.dataTable th,
+    table.dataTable td {
+        white-space: nowrap;
+    }
+    .sorting_1{
+        padding-left: 30px !important;
+    }
 </style>
 @section('contenido')
     <div class="content-wrapper">
@@ -24,9 +39,30 @@
             </h1>
         </section>
 
+        <br>
+        <div class="content-header">
+            <div class="form-row">
+                <div class="form-group col-lg-6 col-md-6">
+                  <label for="ruc_dni" class="m-0 label-primary">DNI o Apellidos del Estudiante</label>
+                  <input type="text" class="form-control-m form-control-sm" id="dni_apellido">
+                </div>
+                <div class="form-group col-lg-3 col-md-12 d-flex flex-column">
+                    <label for="" class="m-0 w-100">.</label>
+                    <a href="javascript:void(0)" class="btn-m btn-primary-m" onclick="consultarAlumno()">Consultar</a>
+                </div>
+                <div class="form-group col-lg-3 col-md-12 d-flex flex-column">
+                    <label for="" class="m-0 w-100">.</label>
+                    <a href="javascript:void(0)" id="btn_mostrar" class="btn-m btn-primary-m" mostrar="" onclick="mostrarTodo()">Mostrar toda la Data</a>
+                </div>
+                <div class="form-group col-lg-3 col-md-12 d-flex flex-column">
+                    <a href="javascript:void(0)" class="btn-m btn-success-m" onclick="clickExcelAlumno()">Exportar excel</a>
+                </div>
+              </div>
+        </div>
+        <hr>
         <!-- width="100%" class='display responsive no-wrap table table-bordered table-hover table-condensed' -->
 
-        <section class="content">
+        <section class="content-header">
             @csrf
             <div class="row">
                 <div class="col-md-12">

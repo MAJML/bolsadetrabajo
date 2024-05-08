@@ -27,15 +27,37 @@ class AvisoController extends Controller
 
     public function list(Request $request)
     {
-        return response()->json(['data' => Aviso::whereHas('empresas', function ($q) { $q->where('deleted_at',  null);})
-        ->whereHas('empresas', function ($q) use ($request) { if($request->empresa_filter_id != null && $request->empresa_filter_id != ""){ $q->where('id', $request->empresa_filter_id ); }})
-        ->whereIn('estado_aviso', ($request->aviso_estado == null || $request->aviso_estado == '') ? [0, 1] : [$request->aviso_estado])
-        ->with('empresas')->with('provincias')->with('areas')
-        ->with('modalidades')->with('horarios')->with('provincias')
-        ->with('distritos')
-        ->orderBy('avisos.created_at', 'DESC')
-        ->get()
-        ]);
+        if($request->mostrar == 'mostrarTodo'){
+            return response()->json(['data' => Aviso::whereHas('empresas', function ($q) { $q->where('deleted_at',  null);})
+            ->with('empresas')->with('provincias')->with('areas')
+            ->with('modalidades')->with('horarios')->with('provincias')
+            ->with('distritos')
+            ->orderBy('avisos.created_at', 'DESC')
+            ->get()
+            ]);
+        }else if($request->mostrar == 'mostrarPendientes'){
+            return response()->json(['data' => Aviso::whereHas('empresas', function ($q) { $q->where('deleted_at',  null);})
+            ->where('estado_aviso', false)
+            ->with('empresas')->with('provincias')->with('areas')
+            ->with('modalidades')->with('horarios')->with('provincias')
+            ->with('distritos')
+            ->orderBy('avisos.created_at', 'DESC')
+            ->get()
+            ]);
+        }else if(isset($request->titulo_aviso)){
+            return response()->json(['data' => Aviso::whereHas('empresas', function ($q) { $q->where('deleted_at',  null);})
+            ->whereHas('empresas', function ($q) use ($request) { if($request->empresa_filter_id != null && $request->empresa_filter_id != ""){ $q->where('id', $request->empresa_filter_id ); }})
+            ->where('titulo', 'like', '%'.$request->titulo_aviso.'%')
+            ->with('empresas')->with('provincias')->with('areas')
+            ->with('modalidades')->with('horarios')->with('provincias')
+            ->with('distritos')
+            ->orderBy('avisos.created_at', 'DESC')
+            ->limit(80)
+            ->get()
+            ]);
+        }else{
+            return response()->json(['data' => '' ]);
+        }
     }
 
     public function partialViewPostulantes($id)

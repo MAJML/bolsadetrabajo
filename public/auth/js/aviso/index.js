@@ -1,9 +1,28 @@
+var $dataTableAviso, $dataTable;
+const $table = $("#tableAviso"), $empresa_filter_id = $("#empresa_filter_id"), $titulo_aviso = $("#titulo_aviso");
+var hoy = new Date(); var año = hoy.getFullYear(); var mes = ('0' + (hoy.getMonth() + 1)).slice(-2); var dia = ('0' + hoy.getDate()).slice(-2); var fecha_actual = año + '-' + mes + '-' + dia;
+
+function consultarAvisos(){
+    $('#btn_mostrar').attr('mostrar', '')
+    $dataTableAviso.ajax.reload();
+}
+
+function mostrarTodo(){
+    $('#btn_mostrar').attr('mostrar', 'mostrarTodo')
+    $dataTableAviso.ajax.reload();
+}
+
+function mostrarPendientes(){
+    $('#btn_mostrar').attr('mostrar', 'mostrarPendientes')
+    $dataTableAviso.ajax.reload();
+}
+
+function clickExcelAvisos(){
+    $('.dt-buttons .buttons-excel').click()
+}
+
 $(function(){
-    console.log('esto es el actualizado');
-    
-    const $table = $("#tableAviso"), $empresa_filter_id = $("#empresa_filter_id"), $aviso_estado = $("#aviso_estado");
-    var hoy = new Date(); var año = hoy.getFullYear(); var mes = ('0' + (hoy.getMonth() + 1)).slice(-2); var dia = ('0' + hoy.getDate()).slice(-2); var fecha_actual = año + '-' + mes + '-' + dia;
-    const $dataTableAviso = $table.DataTable({
+    $dataTableAviso = $table.DataTable({
         // esta codigo es para eliminar el alert de datatable
         columnDefs: [{
             "defaultContent": "-",
@@ -12,14 +31,15 @@ $(function(){
 
         "stripeClasses": ['odd-row', 'even-row'],
         "lengthChange": true,
-        "lengthMenu": [[15,75,200,500,-1],[15,75,200,500,"Todo"]],
+        "lengthMenu": [[10,20,50,100,-1],[10,20,50,100,"Todo"]],
         "info": false,
         //"buttons": [],
         "ajax": {
             url: "/auth/aviso/list_all",
             data: function(s){
                 if($empresa_filter_id.val() != ""){ s.empresa_filter_id = $empresa_filter_id.val(); }
-                if($aviso_estado.val() != ""){ s.aviso_estado = $aviso_estado.val(); }
+                if($titulo_aviso.val() != ""){ s.titulo_aviso = $titulo_aviso.val(); }
+                if($('#btn_mostrar').attr('mostrar') != ""){ s.mostrar = $('#btn_mostrar').attr('mostrar') }
             }
         },
         "columns": [
@@ -38,13 +58,15 @@ $(function(){
                 data: "created_at",
                 render: function(data) {
                     return null != data ? moment(data).format("MM") : "-";
-                }
+                },
+                className: "d-none"
             },{
                 title: "Dia R",
                 data: "created_at",
                 render: function(data) {
                     return null != data ? moment(data).format("DD") : "-";
-                }
+                },
+                className: "d-none"
             },
             { title: "Nombre comercial de la empresa", data: "empresas.nombre_comercial"},
             { title: "Puesto de Trabajo", data: "titulo"},
@@ -96,7 +118,7 @@ $(function(){
                 "searchable": false,
                 "width": "26px"
             },
-            {
+            /* {
                 data: null,
                 defaultContent:
                     "<button type='button' class='btn btn-success p-3 btn-xs btn-seguimiento' title='Ver Aviso'><i class='fa fa-eye'></i></button>",
@@ -127,6 +149,24 @@ $(function(){
                 "orderable": false,
                 "searchable": false,
                 "width": "26px"
+            }, */
+            {
+                data: null,
+                render: function(data) {
+                    return `<div class="dropup">
+                        <a class="" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                            <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+                            </svg>
+                        </a>
+                        <div class="dropdown-menu p-0">
+                        <a class="dropdown-item btn-seguimiento" href='#'><i class='fa fa-eye'></i> Ver Aviso</a>
+                        <a class="dropdown-item btn-editar" href='#'><i class='fa fa-edit'></i> Editar</a>
+                        <a class="dropdown-item btn-update" href='#'><i class='fa fa-users'></i> Postulantes</a>
+                        <a class="dropdown-item btn-delete" href="#"><i class='fa fa-trash'></i> Eliminar</a>
+                        </div>
+                    </div>`;
+                }
             }
         ],
         "rowCallback": function (row, data, index) {
@@ -139,12 +179,12 @@ $(function(){
         }   
     });
 
-    $empresa_filter_id.on("change", function(){
+    /* $empresa_filter_id.on("change", function(){
         $dataTableAviso.ajax.reload();
     })
     $aviso_estado.on("change", function(){
         $dataTableAviso.ajax.reload();
-    })
+    }) */
 
     $table.on("click", ".btn-cancel", function () {
         const id = $dataTableAviso.row($(this).parents("tr")).data().id;

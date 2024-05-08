@@ -1,20 +1,36 @@
 var $dataTableEmpresa, $dataTable;
-console.log('2');
+const $table = $("#tableEmpresa");
+const $actividad_eco_filter_id = $("#actividad_eco_filter_id");
+const $ruc_dni = $("#ruc_dni");
+
+function clickExcel(){
+    $('.dt-buttons .buttons-excel').click()
+}
+
+function consultarEmpleador(){
+    $('#btn_mostrar').attr('mostrar', '')
+    $dataTableEmpresa.ajax.reload();
+}
+
+function mostrarTodo(){
+    $('#btn_mostrar').attr('mostrar', 'mostrar')
+    $dataTableEmpresa.ajax.reload();
+}
+
 $(function(){
-
-    const $table = $("#tableEmpresa");
-    const $actividad_eco_filter_id = $("#actividad_eco_filter_id");
-
+    
     $dataTableEmpresa = $table.DataTable({
         "stripeClasses": ['odd-row', 'even-row'],
         "lengthChange": true,
-        "lengthMenu": [[15,50,100,200,-1],[15,50,100,200,"Todo"]],
+        "lengthMenu": [[10,20,50,100,-1],[10,20,50,100,"Todo"]],
         "info": false,
         //"buttons": [],
         "ajax": {
             url: "/auth/empresa/list_all",
             data: function(s){
                 if($actividad_eco_filter_id.val() != ""){ s.actividad_eco_filter_id = $actividad_eco_filter_id.val(); }
+                if($ruc_dni.val() != ""){ s.ruc_dni = $ruc_dni.val(); }
+                if($('#btn_mostrar').attr('mostrar') != ''){s.mostrar = $('#btn_mostrar').attr('mostrar'); }
             }
         },
         "columns": [
@@ -76,30 +92,6 @@ $(function(){
                 return "-";
                 
             }},
-                 
-            {
-                data: null,
-                defaultContent:
-                    "<button type='button' class='btn btn-info btn-xs btn-update' data-toggle='tooltip' title='Ver'><i class='fa fa-eye'></i></button>",
-                "orderable": false,
-                "searchable": false,
-                "width": "26px"
-            },
-            {
-                data: null,
-                render: function(data){
-                    // console.log(data)
-                    if(data.aprobado == ESTADOS.CANCELADO){
-                        return "<button type='button' class='btn btn-warning btn-xs btn-approved' data-toggle='tooltip' title='Aprobar'><i class='fa fa-ban'></i></button>";
-                    }else if(data.aprobado == ESTADOS.APROBADO){
-                        return "<button type='button' class='btn btn-success btn-xs btn-cancel' data-toggle='tooltip' title='Dar de baja'><i class='fa fa-check'></i></button>";
-                    }
-                    return "";
-                },
-                "orderable": false,
-                "searchable": false,
-                "width": "26px"
-            },
             // {
             //     data: null,
             //     render: function(data){
@@ -114,18 +106,43 @@ $(function(){
             // },
             {
                 data: null,
-                defaultContent:
-                    "<button type='button' class='btn btn-danger btn-xs btn-delete' data-toggle='tooltip' title='Eliminar'><i class='fa fa-trash'></i></button>",
+                render: function(data){
+                    if(data.aprobado == ESTADOS.CANCELADO){
+                        estado = '<a class="dropdown-item btn-approved" href="#"><i class="fa fa-check"></i> Activar</a>';
+                    }else if(data.aprobado == ESTADOS.APROBADO){
+                        estado = '<a class="dropdown-item btn-cancel" href="#"><i class="fa fa-ban"></i> Bloquear</a>';
+                    }
+                    return `<div class="dropup">
+                        <a class="" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                            <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+                            </svg>
+                        </a>
+                        <div class="dropdown-menu p-0">
+                        ${estado}
+                        <a class="dropdown-item btn-update" href="#"><i class='fa fa-eye'></i> Más Información</a>
+                        <a class="dropdown-item btn-delete" href="#"><i class='fa fa-trash'></i> Eliminar</a>
+                        </div>
+                    </div>`;
+                },
                 "orderable": false,
                 "searchable": false,
                 "width": "26px"
             }
-        ]
+        ],
+        "rowCallback": function (row, data, index) {
+            if(data.aprobado == ESTADOS.CANCELADO){
+                $("td", row).css({
+                    "background-color": "#f87171",
+                    "color": "#fff"
+                });
+            }
+        }   
     });
 
-    $actividad_eco_filter_id.on("change", function(){
+    /* $actividad_eco_filter_id.on("change", function(){
         $dataTableEmpresa.ajax.reload();
-    })
+    }) */
 
     $table.on("click", ".btn-update", function () {
         const id = $dataTableEmpresa.row($(this).parents("tr")).data().id;
@@ -170,7 +187,6 @@ $(function(){
     });
 
     function invocarModalView(id) {
-        console.log("este es el id: ", id)
         invocarModal(`/auth/empresa/partialView/${id ? id : 0}`, function ($modal) {
             if ($modal.attr("data-reload") === "true") $dataTableEmpresa.ajax.reload(null, false);
         });

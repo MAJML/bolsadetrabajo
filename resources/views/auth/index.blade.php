@@ -5,13 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="WebAltoque">
+    <meta name="author" content="MAJML">
     @yield('titulo')
     <link rel="stylesheet" href="{{ asset('auth/plugins/bootstrap/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('auth/plugins/bootstrap/css/bootstrap-extend.css') }}">
     <link rel="stylesheet" href="{{ asset('auth/plugins/sweetalert/sweetalert.css') }}">
     <link rel="stylesheet" href="{{ asset('auth/plugins/toastr/css/toastr.min.css') }}">
     <link rel="stylesheet" href="{{ asset('auth/css/layout/app.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('auth/css/index.css') }}">
     @yield('styles')
 </head>
 
@@ -20,16 +21,16 @@
 <style>
 /* CAMBIAR THEME DE SISTEMA */
 .content-wrapper:before {
-    background: #1c4c75;
+    background: radial-gradient(circle, rgba(0,114,191,1) 37%, rgba(0,195,244,1) 100%);
 }
 .main-nav {
-    background-color: #1c4c75;
+    background: radial-gradient(circle, rgba(0,114,191,1) 37%, rgba(0,195,244,1) 100%);
 }
 .active-item-here{
-    color: #1c4c75;
+    color: #0072bf;
 }
 .table thead {
-    background-color: #1c4c75;
+    background-color: #0072bf;
 }
 .btn-secondary {
     color: #fff;
@@ -44,8 +45,13 @@
 div.dataTables_wrapper div.dataTables_filter input{
     width: 400px !important;
 }
+@media screen and (max-width:503px){
+    div.dataTables_wrapper div.dataTables_filter input{
+        width: 100% !important;
+}
+}
 .modal.modal-fill .modal-dialog .modal-header{
-    background-color: #1c4c75;
+    background-color: #0072bf;
 }
 .modal.modal-fill{
     background: rgba(135, 189, 236, 0.305); !important;
@@ -167,7 +173,7 @@ header{
     </footer>
 
 </div>
-
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script type="text/javascript" src="{{ asset('auth/plugins/jquery-3.3.1/jquery-3.3.1.js') }}"></script>
 <script type="text/javascript" src="{{ asset('auth/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('auth/plugins/bootstrap/js/bootstrap.min.js') }}"></script>

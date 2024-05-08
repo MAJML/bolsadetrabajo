@@ -16,21 +16,25 @@ class EmpresaController extends Controller
 
     public function list(Request $request)
     {
-        if($request->actividad_eco_filter_id != null && $request->actividad_eco_filter_id != ""){
+        if($request->mostrar == 'mostrar'){
             return response()->json(['data' => Empresa::with('provincias')
-            ->where('actividad_economica_empresa', $request->actividad_eco_filter_id )
             ->with('distritos')
             ->with('actividad_economicas')
             ->orderBy('created_at', 'DESC')
+            ->get() ]);
+        }else if($request->ruc_dni != null && $request->ruc_dni != ""){
+            return response()->json(['data' => Empresa::with('provincias')
+            ->where('tipo_persona', 'like', '%'.$request->actividad_eco_filter_id.'%' )
+            ->where('ruc', 'like', '%'.$request->ruc_dni.'%' )
+            ->orWhere('nombre_comercial', 'like', '%'.$request->ruc_dni.'%')
+            ->with('distritos')
+            ->with('actividad_economicas')
+            ->orderBy('created_at', 'DESC')
+            ->limit(80)
             ->get() ]);
         }else{
-            return response()->json(['data' => Empresa::with('provincias')
-            ->with('distritos')
-            ->with('actividad_economicas')
-            ->orderBy('created_at', 'DESC')
-            ->get() ]);
+            return response()->json(['data' => '' ]);
         }
-
     }
 
     public function partialView($id)

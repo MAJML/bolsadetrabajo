@@ -1,16 +1,36 @@
+var $dataTableAlumno, $dataTable;
+const $dni_apellido = $("#dni_apellido")
+const $table = $("#tableAlumno")
+
+function consultarAlumno(){
+    $('#btn_mostrar').attr('mostrar', '')
+    $dataTableAlumno.ajax.reload();
+}
+
+function clickExcelAlumno(){
+    $('.dt-buttons .buttons-excel').click()
+}
+
+function mostrarTodo(){
+    $('#btn_mostrar').attr('mostrar', 'mostrar')
+    $dataTableAlumno.ajax.reload();
+}
+
 $(function() {
-    console.log('cargado otra vez xdxd');
-    const $table = $("#tableAlumno"), $dataTableAlumno = $table.DataTable({
+    $dataTableAlumno = $table.DataTable({
         stripeClasses: [ "odd-row", "even-row" ],
         lengthChange: !0,
-        lengthMenu: [ [15, 50, 100, 200, 500, -1 ], [ 15, 50, 100, 200, 500, "Todo" ] ],
+        lengthMenu: [ [10, 20, 50, 100, 200, -1 ], [ 10, 20, 50, 100, 200, "Todo" ] ],
         info: !1,
         ajax: {
             url: "/auth/alumno/list_all",
-            dataSrc : function ( res ) { 
-                // console.log(res.data);
-                return res.data;
+            data: function(s){
+                if($dni_apellido.val() != ""){ s.dni_apellido = $dni_apellido.val(); }
+                if($('#btn_mostrar').attr('mostrar') != ''){s.mostrar = $('#btn_mostrar').attr('mostrar'); }
             }
+            /* dataSrc : function ( res ) { 
+                return res.data;
+            } */
         },
         columns: [ {
             title: "N°",
@@ -25,25 +45,23 @@ $(function() {
             render: function(data) {
                 return null != data ? moment(data).format("YYYY") : "-";
             }
-        }, {
+        }, 
+        {
             title: "Mes R",
             data: "created_at",
             render: function(data) {
                 return null != data ? moment(data).format("MM") : "-";
-            }
+            },
+            className: "d-none"
         },{
             title: "Dia R",
             data: "created_at",
             render: function(data) {
                 return null != data ? moment(data).format("DD") : "-";
-            }
-        },{
-            title: "CV",
-            data: "id",
-            render: function(data) {
-                return "<a target='_blank' href='/auth/alumno/print_cv_pdf/" + data + "' class='btn btn-primary btn-xs' data-toggle='tooltip' title='CV'><i class='fa fa-address-card'></i></button>";
-            }
-        }, {
+            },
+            className: "d-none"
+        },
+        {
             title: "DNI",
             data: "dni"
         }, {
@@ -95,56 +113,34 @@ $(function() {
                 /* console.log("contando: ",data) */
                 if( data.perfil_profesional == null || data.perfil_profesional == '' || data.area_id == null || data.area_id == '' || data.provincia_id == null || data.provincia_id == '' || data.distrito_id == null || data.distrito_id == '' || data.dni == null || data.dni == "" || data.telefono == null || data.telefono == "" || data.email == null || data.email == "" || data.fecha_nacimiento == null || data.fecha_nacimiento == "" || data.educaciones.length <1){ /**|| data.hoja_de_vida === null || data.hoja_de_vida === ""**/ 
                     //return "<img src='/auth/image/icon/warning.png' width='25px' title='Falta completar información'>";               
-                    return "<p class='badge bg-danger p-5'>Falta</p>";             
+                    return "<p class='badge bg-danger p-5 m-0'>Falta</p>";             
                 }else{
-                    return "<p class='badge bg-success p-5'>Lleno</p>";
+                    return "<p class='badge bg-success p-5 m-0'>Lleno</p>";
                 }
             }
         },
         {
-            title: "Estado",
+            title: "",
             data: null,
-            render: function(data){
-                // console.log(data)
+            render: function(data) {
                 if(data.aprobado == ESTADOS.CANCELADO){
-                    return "<button type='button' class='btn btn-danger btn-xs btn-approved' data-toggle='tooltip' title='Aprobar'>Inactivo</button>";
+                    estado = '<a class="dropdown-item btn-approved" href="#"><i class="fa fa-check"></i> Activar</a>';
                 }else if(data.aprobado == ESTADOS.APROBADO){
-                    return "<button type='button' class='btn btn-success btn-xs btn-cancel' data-toggle='tooltip' title='Dar de baja'>Activado</button>";
+                    estado = '<a class="dropdown-item btn-cancel" href="#"><i class="fa fa-ban"></i> Bloquear</a>';
                 }
-                return "";
-            },
-            "orderable": false,
-            "searchable": false,
-            "width": "26px"
-        },
-
-
-        //  {
-        //     data: null,
-        //     render: function(data) {
-        //         return data.aprobado == ESTADOS.CANCELADO ? "<button type='button' class='btn btn-success btn-xs btn-approved' data-toggle='tooltip' title='Aprobar'><i class='fa fa-check'></i></button>" : "";
-        //     },
-        //     orderable: !1,
-        //     searchable: !1,
-        //     width: "26px"
-        // },
-        //  {
-        //     data: null,
-        //     render: function(data) {
-        //         return data.aprobado == ESTADOS.APROBADO ? "<button type='button' class='btn btn-warning btn-xs btn-cancel' data-toggle='tooltip' title='Dar de baja'><i class='fa fa-ban'></i></button>" : "";
-        //     },
-        //     orderable: !1,
-        //     searchable: !1,
-        //     width: "26px"
-        // }, 
-
-
-        {
-            data: null,
-            defaultContent: "<button type='button' class='btn btn-danger btn-xs btn-delete' data-toggle='tooltip' title='Eliminar'><i class='fa fa-trash'></i></button>",
-            orderable: !1,
-            searchable: !1,
-            width: "26px"
+                return `<div class="dropup">
+                    <a class="" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                        <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+                        </svg>
+                    </a>
+                    <div class="dropdown-menu p-0">
+                    ${estado}
+                    <a class="dropdown-item" target='_blank' href='/auth/alumno/print_cv_pdf/${data.id}'><i class='fa fa-address-card'></i> Ver CV</a>
+                    <a class="dropdown-item btn-delete" href="#"><i class='fa fa-trash'></i> Eliminar</a>
+                    </div>
+                </div>`;
+            }
         }
             // , {
             //     title: "Aprobado",
@@ -153,7 +149,15 @@ $(function() {
             //         return data || "0";
             //     }
             // }
-        ]
+        ],
+        "rowCallback": function (row, data, index) {
+            if(data.aprobado == ESTADOS.CANCELADO){
+                $("td", row).css({
+                    "background-color": "#f87171",
+                    "color": "#fff"
+                });
+            }
+        }   
     });
     $table.on("click", ".btn-cancel", function() {
         const id = $dataTableAlumno.row($(this).parents("tr")).data().id, formData = new FormData();

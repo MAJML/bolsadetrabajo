@@ -22,11 +22,22 @@ class AlumnoController extends Controller
         return view('auth.alumno.index');
     }
 
-    public function list()
+    public function list(Request $request)
     {
-        return response()->json(['data' => Alumno::with(['provincias', 'distritos', 'areas', 'educaciones'])
+        if($request->mostrar == 'mostrar'){
+            return response()->json(['data' => Alumno::with(['provincias', 'distritos', 'areas', 'educaciones'])
             ->orderBy('created_at', 'DESC')
             ->get() ]);
+        }else if(isset($request->dni_apellido)){
+            return response()->json(['data' => Alumno::with(['provincias', 'distritos', 'areas', 'educaciones'])
+            ->where('dni', 'like', '%'.$request->dni_apellido.'%')
+            ->orWhere('apellidos', 'like', '%'.$request->dni_apellido.'%')
+            ->orderBy('created_at', 'DESC')
+            ->limit(80)
+            ->get() ]);
+        }else{
+            return response()->json(['data' => '']);
+        }
     }
 
     // codigo hecho por marco

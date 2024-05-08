@@ -12,6 +12,21 @@
         background: #79f57f63;
         /* color: #fff; */
     }
+    .label-as-badge {
+        border-radius: 1em;
+        font-size: 12px;
+        cursor: pointer;
+    }
+    table{
+        padding-top:40px !important;
+    }
+    table.dataTable th,
+    table.dataTable td {
+        white-space: nowrap;
+    }
+    .sorting_1{
+        padding-left: 30px !important;
+    }
 </style>
 
 @section('contenido')
@@ -22,35 +37,48 @@
                 Listado Avisos
                 <small>Mantenimiento</small>
             </h1>
-
-            <ol class="breadcrumb">
-                <li class="mr-10">
-                    <div class="form-group row flex justify-content-end">
-                        <div class="col-sm-6">
-                            <select name="empresa_filter_id" id="empresa_filter_id" class="form-input">
-                                <option value="">-- Todas las empresas --</option>
-                                @foreach($Empresas as $q)
-                                    <option value="{{ $q->id }}">{{ $q->razon_social }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="col-sm-3">
-                            <select name="aviso_estado" id="aviso_estado" class="form-input">
-                                <option value="">-- Todos los Avisos --</option>
-                                <option value="0">Pendiente en Revision</option>
-                                <option value="1">Aceptados</option>
-                            </select>
-                        </div>
-                    </div>
-                </li>
-            </ol>
         </section>
-        <section class="content">
+
+
+        <br>
+        <div class="content-header">
+            <div class="form-row">
+                <div class="form-group col-lg-4 col-md-6">
+                  <label for="titulo_aviso" class="m-0 label-primary">Titulo del Aviso</label>
+                  <input type="text" class="form-control-m form-control-sm" id="titulo_aviso">
+                </div>
+                <div class="form-group col-lg-5 col-md-6">
+                    <label for="" class="m-0 label-primary">Nombre de la Empresa</label>
+                    <select name="empresa_filter_id" id="empresa_filter_id" class="form-input">
+                        <option value="">-- TODOS --</option>
+                        @foreach($Empresas as $q)
+                            <option value="{{ $q->id }}">{{ $q->razon_social }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group col-lg-3 col-md-12 d-flex flex-column">
+                    <label for="" class="m-0 w-100">.</label>
+                    <a href="javascript:void(0)" class="btn-m btn-primary-m" onclick="consultarAvisos()">Consultar</a>
+                </div>
+                <div class="form-group col-lg-3 col-md-12 d-flex flex-column">
+                    <a href="javascript:void(0)" id="btn_pendientes" class="btn-m btn-warning-m" onclick="mostrarPendientes()">Pendientes por Activar</a>
+                </div>
+                <div class="form-group col-lg-3 col-md-12 d-flex flex-column">
+                    <a href="javascript:void(0)" id="btn_mostrar" class="btn-m btn-primary-m" mostrar="" onclick="mostrarTodo()">Mostrar toda la Data</a>
+                </div>
+                <div class="form-group col-lg-3 col-md-12 d-flex flex-column">
+                    <a href="javascript:void(0)" class="btn-m btn-success-m" onclick="clickExcelAvisos()">Exportar excel</a>
+                </div>
+              </div>
+        </div>
+        <hr>
+
+        <section class="content-header">
             @csrf
             <!-- width="100%" class='display responsive no-wrap table table-bordered table-hover table-condensed' -->
             <div class="row">
                 <div class="col-md-12">
-                    <table id="tableAviso" width="100%" class='display responsive no-wrap table table-bordered table-hover table-condensed'></table>
+                    <table id="tableAviso" width="100%" class='table dataTables_wrapper container-fluid dt-bootstrap4 no-foote'></table>
                     {{-- <table id="tableAviso" width="100%" class='display responsive no-wrap table table-bordered table-hover table-condensed'></table> --}}
                 </div>
             </div>
