@@ -1,5 +1,8 @@
 var $dataTableAviso, $dataTable;
-const $table = $("#tableAviso"), $empresa_filter_id = $("#empresa_filter_id"), $titulo_aviso = $("#titulo_aviso");
+const $table = $("#tableAviso"), 
+        /* $empresa_filter_id = $("#empresa_filter_id"), 
+        $titulo_aviso = $("#titulo_aviso"), */
+        $ruc_dni = $("#ruc_dni");
 var hoy = new Date(); var año = hoy.getFullYear(); var mes = ('0' + (hoy.getMonth() + 1)).slice(-2); var dia = ('0' + hoy.getDate()).slice(-2); var fecha_actual = año + '-' + mes + '-' + dia;
 
 function consultarAvisos(){
@@ -37,8 +40,9 @@ $(function(){
         "ajax": {
             url: "/auth/aviso/list_all",
             data: function(s){
-                if($empresa_filter_id.val() != ""){ s.empresa_filter_id = $empresa_filter_id.val(); }
-                if($titulo_aviso.val() != ""){ s.titulo_aviso = $titulo_aviso.val(); }
+                /* if($empresa_filter_id.val() != ""){ s.empresa_filter_id = $empresa_filter_id.val(); }
+                if($titulo_aviso.val() != ""){ s.titulo_aviso = $titulo_aviso.val(); } */
+                if($ruc_dni.val() != ''){ s.ruc_dni = $ruc_dni.val(); }
                 if($('#btn_mostrar').attr('mostrar') != ""){ s.mostrar = $('#btn_mostrar').attr('mostrar') }
             }
         },

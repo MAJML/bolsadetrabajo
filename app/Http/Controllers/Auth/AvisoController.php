@@ -44,10 +44,11 @@ class AvisoController extends Controller
             ->orderBy('avisos.created_at', 'DESC')
             ->get()
             ]);
-        }else if(isset($request->titulo_aviso)){
+        }else if(isset($request->ruc_dni)){
             return response()->json(['data' => Aviso::whereHas('empresas', function ($q) { $q->where('deleted_at',  null);})
-            ->whereHas('empresas', function ($q) use ($request) { if($request->empresa_filter_id != null && $request->empresa_filter_id != ""){ $q->where('id', $request->empresa_filter_id ); }})
-            ->where('titulo', 'like', '%'.$request->titulo_aviso.'%')
+            /* ->whereHas('empresas', function ($q) use ($request) { if($request->empresa_filter_id != null && $request->empresa_filter_id != ""){ $q->where('id', $request->empresa_filter_id ); }})
+            ->where('titulo', 'like', '%'.$request->titulo_aviso.'%') */
+            ->whereHas('empresas', function ($q) use ($request) { $q->where('ruc', 'like', '%'.$request->ruc_dni.'%' ); })
             ->with('empresas')->with('provincias')->with('areas')
             ->with('modalidades')->with('horarios')->with('provincias')
             ->with('distritos')

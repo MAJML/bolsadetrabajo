@@ -43,11 +43,15 @@
         <br>
         <div class="content-header">
             <div class="form-row">
-                <div class="form-group col-lg-4 col-md-6">
+                <div class="form-group col-lg-6 col-md-6">
+                    <label for="ruc_dni" class="m-0 label-primary">Ruc/DNI del Empleador</label>
+                    <input type="text" class="form-control-m form-control-sm" id="ruc_dni">
+                  </div>
+                {{-- <div class="form-group col-lg-4 col-md-6">
                   <label for="titulo_aviso" class="m-0 label-primary">Titulo del Aviso</label>
                   <input type="text" class="form-control-m form-control-sm" id="titulo_aviso">
-                </div>
-                <div class="form-group col-lg-5 col-md-6">
+                </div> --}}
+                {{-- <div class="form-group col-lg-3 col-md-6">
                     <label for="" class="m-0 label-primary">Nombre de la Empresa</label>
                     <select name="empresa_filter_id" id="empresa_filter_id" class="form-input">
                         <option value="">-- TODOS --</option>
@@ -55,12 +59,13 @@
                             <option value="{{ $q->id }}">{{ $q->razon_social }}</option>
                         @endforeach
                     </select>
-                </div>
+                </div> --}}
                 <div class="form-group col-lg-3 col-md-12 d-flex flex-column">
                     <label for="" class="m-0 w-100">.</label>
                     <a href="javascript:void(0)" class="btn-m btn-primary-m" onclick="consultarAvisos()">Consultar</a>
                 </div>
                 <div class="form-group col-lg-3 col-md-12 d-flex flex-column">
+                    <label for="" class="m-0 w-100">.</label>
                     <a href="javascript:void(0)" id="btn_pendientes" class="btn-m btn-warning-m" onclick="mostrarPendientes()">Pendientes por Activar</a>
                 </div>
                 <div class="form-group col-lg-3 col-md-12 d-flex flex-column">
