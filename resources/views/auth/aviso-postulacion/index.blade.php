@@ -36,6 +36,58 @@
                 <small>Mantenimiento</small>
             </h1>
         </section>
+
+        <br>
+        <div class="content-header">
+            <div class="form-row">
+                <div class="form-group col-lg-2 col-md-6">
+                    <label for="desde" class="m-0 label-primary">Desde</label>
+                    <input type="date" class="form-control-m form-control-sm" id="desde" value="{{ Date('Y-m-d') }}">
+                </div>
+                <div class="form-group col-lg-2 col-md-6">
+                    <label for="hasta" class="m-0 label-primary">Hasta</label>
+                    <input type="date" class="form-control-m form-control-sm" id="hasta" value="{{ Date('Y-m-d') }}">
+                </div>
+                <div class="form-group col-lg-3 col-md-6">
+                    <label for="carrera" class="m-0 label-primary">Carrera del Estudiante</label>
+                    <select name="carrera" id="carrera" class="form-control-m form-control-sm">
+                        <option value="">-- TODOS --</option>
+                        @foreach($Areas as $q)
+                            <option value="{{ $q->id }}">{{ $q->nombre }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group col-lg-3 col-md-6">
+                    <label for="provincia" class="m-0 label-primary">Provincia del Estudiante</label>
+                    <select name="provincia" id="provincia" class="form-control-m form-control-sm">
+                        <option value="">-- TODOS --</option>
+                        @foreach($Provincias as $q)
+                            <option value="{{ $q->id }}">{{ $q->nombre }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group col-lg-2 col-md-6">
+                    <label for="tipo_estudiante" class="m-0 label-primary">Tipo de Estudiante</label>
+                    <select name="tipo_estudiante" id="tipo_estudiante" class="form-control-m form-control-sm">
+                        <option value="">-- TODOS --</option>
+                        @foreach($GradoAcademico as $q)
+                            <option value="{{ $q->id }}">{{ $q->grado_estado }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group col-lg-3 col-md-12 d-flex flex-column">
+                    <a href="javascript:void(0)" class="btn-m btn-primary-m" onclick="consultarAvisosPostulantes()">Consultar</a>
+                </div>
+                <div class="form-group col-lg-3 col-md-12 d-flex flex-column">
+                    <a href="javascript:void(0)" id="btn_mostrar" class="btn-m btn-primary-m" mostrar="" onclick="mostrarTodo()">Mostrar toda la Data</a>
+                </div>
+                <div class="form-group col-lg-3 col-md-12 d-flex flex-column">
+                    <a href="javascript:void(0)" class="btn-m btn-success-m" onclick="clickExcelAvisosPostulantes()">Exportar excel</a>
+                </div>
+            </div>
+        </div>
+        <hr>
+
         <section class="content">
             @csrf
             <div class="row">

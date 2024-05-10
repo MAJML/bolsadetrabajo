@@ -131,17 +131,17 @@ header{
         <nav class="navbar navbar-expand-lg">
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
-                    <li class="nav-item active">
+                    <li class="nav-item {{ Route::currentRouteName() == 'auth.index' ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('auth.index') }}"><span class="active-item-here"></span>
                             <i class="fa fa-home mr-5"></i> <span>Empleador</span>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item {{ Route::currentRouteName() == 'auth.alumno' ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('auth.alumno') }}"><span class="active-item-here"></span>
                             <i class="fa fa-users mr-5"></i> <span>Estudiantes</span>
                         </a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown {{ Route::currentRouteName() == 'auth.aviso' || Route::currentRouteName() == 'auth.avisoPostulacion'  ? 'active' : '' }}">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="active-item-here"></span><i class="fa fa-photo mr-5"></i> <span>Avisos</span></a>
                         <ul class="dropdown-menu multilevel scale-up-left">

@@ -1,20 +1,40 @@
 console.log("esto es nuevo js")
-$(function(){
-    const $table = $("#tableAvisoPostulantes"), $empresa_filter_id = $("#empresa_filter_id");
+var $dataTableAviso;
+const $table = $("#tableAvisoPostulantes"), $desde = $("#desde"), $hasta = $("#hasta"), $carrera = $("#carrera"), $provincia = $("#provincia"), $tipo_estudiante = $("#tipo_estudiante");
 
-    const $dataTableAviso = $table.DataTable({
+function consultarAvisosPostulantes(){
+    $('#btn_mostrar').attr('mostrar', '')
+    $dataTableAviso.ajax.reload();
+}
+
+function mostrarTodo(){
+    $('#btn_mostrar').attr('mostrar', 'todo')
+    $dataTableAviso.ajax.reload();
+}
+
+function clickExcelAvisosPostulantes(){
+    $('.dt-buttons .buttons-excel').click()
+} 
+
+$(function(){
+    $dataTableAviso = $table.DataTable({
         columnDefs: [{
             "defaultContent": "-",
             "targets": "_all"
         }],
         "stripeClasses": ['odd-row', 'even-row'],
         "lengthChange": true,
-        "lengthMenu": [[15,75,200,500,-1],[15,75,200,500,"Todo"]],
+        "lengthMenu": [[10,20,50,100,-1],[10,20,50,100,"Todo"]],
         "info": false,
         "ajax": {
             url: "/auth/avisoPostulacion/list_all",
             data: function(s){
-                if($empresa_filter_id.val() != ""){ s.empresa_filter_id = $empresa_filter_id.val(); }
+                if($('#btn_mostrar').attr('mostrar') != ''){ s.mostrar = $('#btn_mostrar').attr('mostrar') }
+                s.desde = $desde.val()
+                s.hasta = $hasta.val()
+                s.carrera = $carrera.val()
+                s.provincia = $provincia.val()
+                s.tipo_estudiante = $tipo_estudiante.val() 
             }
         },
         "columns": [
