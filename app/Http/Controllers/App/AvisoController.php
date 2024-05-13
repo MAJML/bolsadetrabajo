@@ -3,6 +3,7 @@
 namespace BolsaTrabajo\Http\Controllers\App;
 
 use BolsaTrabajo\Alumno;
+use BolsaTrabajo\Anuncio;
 use BolsaTrabajo\AlumnoAviso;
 use BolsaTrabajo\App;
 use BolsaTrabajo\Area;
@@ -64,8 +65,9 @@ class AvisoController extends Controller
         $Provincias = Provincia::orderby('nombre', 'asc')->get();
         $Horarios = Horario::orderby('nombre', 'asc')->get();
         $Modalidades = Modalidad::orderby('nombre', 'asc')->get();
+        $Anuncio = Anuncio::where('vigencia', '>', now())->orderby('created_at', 'desc')->get();        
 
-        return view('app.avisos.index', ['areas' => $Areas, 'provincias' => $Provincias, 'horarios' => $Horarios, 'modalidades' => $Modalidades]);
+        return view('app.avisos.index', ['areas' => $Areas, 'provincias' => $Provincias, 'horarios' => $Horarios, 'modalidades' => $Modalidades, 'anuncio' => $Anuncio]);
     }
 
     public function informacion($empresa, $slug)

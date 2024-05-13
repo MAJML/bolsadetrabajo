@@ -240,25 +240,10 @@
         </div>
 
     </div>
- 
-    <button hidden type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal3">
-    </button>
-    <div class="modal fade" id="modal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-                <a href='javascript:void(0);'><img src='../app/img/pop de semipresencial.png' alt=''></a>
-            </div>
-        </div>
-        </div>
-    </div>
 
     <button hidden type="button" class="btn btn-primary btn-lg btn_evento_bolsa" data-toggle="modal" data-target="#tuto">
     </button>
-    <div class="modal fade" style="background: rgba(7, 7, 7, 0.89) !important;" id="tuto" tabindex="-1" role="dialog" aria-labelledby="tuto" data-backdrop="static">
+    <div class="modal fade" style="background: rgba(7, 7, 7, 0.89) !important;" id="{{ $anuncio->isEmpty() ? '' : 'tuto' }}" tabindex="-1" role="dialog" aria-labelledby="tuto" data-backdrop="static">
         <div class="modal-dialog modal-lg" role="document" >
             <div class="modal-content">
                 <div class="modal-header">
@@ -268,16 +253,13 @@
 
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000">
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img class="d-block w-100" src="../app/img/talent_mass.jpeg">
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="../app/img/banner_tutorial.png">
-                            </div>
+                            @foreach($anuncio as $key => $a)
+                                <a href="{{ $a->enlace != null ? $a->enlace : 'javascript:void(0)' }}" target="{{ $a->enlace != null ? '_blank' : '' }}" class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                                    <img class="d-block w-100" src="{{ asset($a->banner) }}">
+                                </a>
+                            @endforeach
                         </div>
-                        
                     </div>
-                    {{-- <a href='https://wa.me/922611913?text=Hola 😁,Deseo que me ayuden con mi CV, vengo de la bolsa de trabajo.' target='_blank'><img src='../app/img/banner_tutorial.png' alt=''></a> --}}
                 </div>
             </div>
         </div>
@@ -291,79 +273,8 @@
         </a>
     </div>
 
-    <button hidden type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-    </button>
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-                <div class="content_cuadros_banner">
-                    <div class="content_img_banner_va">
-                        <img src="../app/img/banner_valeria_xd.jpeg" alt="">
-                    </div>
-                    <div class="content_divs_banner_va">
-                        <img class="cabezera_vale" src="../app/img/banner_valeria_header.jpeg" alt="">
+    
 
-                        <div class="container_btn_banne" onclick="window.open('https://forms.gle/rSYqfdrMEiQwq3526', '_blank');return false;">
-                            <div class="content_btn_azul"></div>
-                            <div class="content_btn_celeste">
-                                <span>Empresa: BOTICAS Y SALUD</span><br>
-                                <span>SÁBADO 24  de Febrero 1pm</span><br>
-                                <span>Sede Belisario</span>
-                            </div>
-                        </div>
-
-                        <div class="container_btn_banne" onclick="window.open('https://forms.gle/5DiqZfGEPbVM8Sb47', '_blank');return false;">
-                            <div class="content_btn_azul"></div>
-                            <div class="content_btn_celeste">
-                                <span>Empresa: KONECTA</span><br>
-                                <span>MARTES 27 de Febrero 12pm</span><br>
-                                <span>Sede Mendiola</span>
-                            </div>
-                        </div>
-
-                        <div class="container_btn_banne" onclick="window.open('https://forms.gle/HAAEm8XZGow8qsyw6', '_blank');return false;">
-                            <div class="content_btn_azul"></div>
-                            <div class="content_btn_celeste">
-                                <span>Empresa: InkaFarma y Mifarma</span><br>
-                                <span>MARTES 27 de Febrero 12pm</span><br>
-                                <span>Sede SJL 22</span>
-                            </div>
-                        </div>
-
-                        <div class="container_btn_banne" onclick="window.open('https://forms.gle/NbWdPxpACf7L14wV8', '_blank');return false;">
-                            <div class="content_btn_azul"></div>
-                            <div class="content_btn_celeste">
-                                <span>Empresa: Clinica Angloamericana</span><br>
-                                <span>MARTES 27 de Febrero 11:30pm</span><br>
-                                <span>Sede Central</span>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-    </div>
-
-
-
-
-    <script>
-        /* Swal.fire({
-            title: "<a href='' target='blank'><img src='../app/img/new_evento_vale.jpeg' alt=''></a>",
-            width: "800px",
-            padding: "0px",
-            background: "#ffffff00",
-            imageWidth: 700,
-            imageAlt: 'Custom image',
-            showConfirmButton: false
-        }) */
-    </script>
 @endsection
 
 @section('scripts')

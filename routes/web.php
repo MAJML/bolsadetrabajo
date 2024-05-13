@@ -147,6 +147,13 @@ Route::group(['prefix' => 'auth', 'middleware' => 'auth:web'], function () {
         Route::get('/list_all', 'Auth\AvisoPostulacionController@list')->name('auth.avisoPostulacion.list');
     });
 
+    Route::group(['prefix' => 'anuncio'], function () {
+        Route::get('/', 'Auth\AnuncioController@index')->name('auth.anuncio');
+        Route::post('/store', 'Auth\AnuncioController@store')->name('auth.anuncio.store');
+        Route::get('/list_all', 'Auth\AnuncioController@list')->name('auth.anuncio.list');
+        /* Route::get('/list_all', 'Auth\AvisoPostulacionController@list')->name('auth.avisoPostulacion.list'); */
+    });
+
     Route::post('store_estudiante_aviso', 'Auth\AvisoController@store_estudiante_aviso')->name('auth.aviso.store_estudiante_aviso');
 
     Route::post('store_seguimiento', 'Auth\AvisoController@store_seguimiento')->name('auth.aviso.store_seguimiento');

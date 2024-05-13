@@ -143,11 +143,16 @@ header{
                     </li>
                     <li class="nav-item dropdown {{ Route::currentRouteName() == 'auth.aviso' || Route::currentRouteName() == 'auth.avisoPostulacion'  ? 'active' : '' }}">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="active-item-here"></span><i class="fa fa-photo mr-5"></i> <span>Avisos</span></a>
+                            <span class="active-item-here"></span><i class="fa fa-archive mr-5"></i> <span>Avisos</span></a>
                         <ul class="dropdown-menu multilevel scale-up-left">
                             <li class="nav-item"><a class="nav-link" href="{{ route('auth.aviso') }}">Listado Avisos</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ route('auth.avisoPostulacion') }}">Avisos por Alumno Postulado</a></li>
                         </ul>
+                    </li>
+                    <li class="nav-item {{ Route::currentRouteName() == 'auth.anuncio' ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('auth.anuncio') }}"><span class="active-item-here"></span>
+                            <i class="fa fa-photo mr-5"></i> <span>Anuncios</span>
+                        </a>
                     </li>
 {{--                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
