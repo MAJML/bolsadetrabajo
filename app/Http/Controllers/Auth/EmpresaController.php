@@ -3,6 +3,7 @@
 namespace BolsaTrabajo\Http\Controllers\Auth;
 
 use BolsaTrabajo\Empresa;
+use BolsaTrabajo\Aviso;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use BolsaTrabajo\Http\Controllers\Controller;
@@ -35,6 +36,19 @@ class EmpresaController extends Controller
         }else{
             return response()->json(['data' => '' ]);
         }
+    }
+
+    public function notification()
+    {
+        $countAviso = Aviso::whereNull('deleted_at')->where('estado_aviso', 0)->count();
+        $detailsAviso = Aviso::whereHas('empresas', function ($q) { $q->where('deleted_at',  null);})
+        ->where('estado_aviso', false)
+        ->with('empresas')->with('provincias')->with('areas')
+        ->with('modalidades')->with('horarios')->with('provincias')
+        ->with('distritos')
+        ->orderBy('avisos.created_at', 'DESC')
+        ->get();
+        return response()->json(['countaviso' => $countAviso, 'detailsaviso' => $detailsAviso]);
     }
 
     public function partialView($id)

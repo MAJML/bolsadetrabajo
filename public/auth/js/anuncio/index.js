@@ -1,4 +1,3 @@
-console.log('te extraño amor');
 var hoy = new Date(); var año = hoy.getFullYear(); var mes = ('0' + (hoy.getMonth() + 1)).slice(-2); var dia = ('0' + hoy.getDate()).slice(-2); var fecha_actual = año + '-' + mes + '-' + dia;
 $(function(){
     const $table = $("#tableAnuncio");

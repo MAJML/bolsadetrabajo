@@ -168,6 +168,31 @@ $(function () {
     $.ajaxSetup({ cache: false });
 
 });
+notification()
+setInterval(notification, 60000);
+function notification(){
+    $.ajax({
+        url: '/home/notification',
+        type: "GET",
+        cache: false,
+        processData: false,
+        contentType: false,
+        beforeSend: function () {
+            $('#list_notification li').remove()
+        },
+        success: function (data) {
+            $("#number_notify").html(data.countaviso)
+            for (let i = 0; i < data.detailsaviso.length; i++) {
+                $('#list_notification').append('<li class="li_notifi" onclick="redirectFunction()"><b style="font-weight:900">'+data.detailsaviso[i].titulo+'</b> aviso por activar de la empresa '+data.detailsaviso[i].empresas.ruc+'</li>');
+            }
+        }
+    });
+}
+
+function redirectFunction(){
+    window.location.href = 'aviso';
+}
+
 
 function invocarVista(url, onHiddenView){
     $.ajax({

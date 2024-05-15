@@ -59,6 +59,15 @@ div.dataTables_wrapper div.dataTables_filter input{
 header{
     padding-top: 5px;
 }
+.li_notifi{
+    background: rgb(215, 215, 215);
+    cursor: pointer;
+    padding: 5px 10px !important;
+    border: 0px 0px 2px 0px solid rgb(104, 104, 104) !important;
+}
+.li_notifi:hover{
+    background: rgb(231, 229, 229) !important;
+}
 </style>
 <div class="wrapper">
 
@@ -79,18 +88,16 @@ header{
                     <span class="sr-only">Toggle navigation</span>
                 </a>
                 <div class="navbar-custom-menu">
-                    <ul class="nav navbar-nav">
-                        <!--<li id="notifications" class="dropdown notifications-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <ul class="nav navbar-nav mt-5">
+                        <li id="notifications" class="dropdown notifications-menu">
+                            <button type="button" class="mt-3 dropdown-toggle btn btn-light" data-toggle="dropdown">
                                 <i class="mdi mdi-bell faa-ring animated"></i>
-                            </a>
-                            <ul class="dropdown-menu scale-up">
+                                <span class="badge badge-danger pt-3 pb-0" id="number_notify"></span>
+                            </button>
+                            <ul class="dropdown-menu scale-up" id="list_notification">
                                 <li class="header">Tienes <span id="counNotificacion"></span> notificaciones</li>
-                                <li>
-                                    <ul class="menu inner-content-div"></ul>
-                                </li>
                             </ul>
-                        </li>-->
+                        </li>
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <img src="{{ asset('auth/image/icon/usuario.jpg') }}" class="user-image" alt="User Image">
@@ -190,7 +197,7 @@ header{
 <script type="text/javascript" src="{{ asset('auth/plugins/datatable/dataTables.config.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('auth/plugins/moment/moment.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('auth/plugins/moment/es.js') }}"></script>
-<script type="text/javascript" src="{{ asset('auth/js/_Layout.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('auth/js/_Layout.js') }}"></script>
 <script type="text/javascript">
     const usuarioLoggin = {
         user_id: {{ \Illuminate\Support\Facades\Auth::guard('web')->user()->id  }},

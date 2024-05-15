@@ -198,6 +198,7 @@ $(function(){
         formData.append('update_id', 0);
         confirmAjax(`/auth/aviso/updateAvisoEstado`, formData, "POST", null, null, function () {
             $dataTableAviso.ajax.reload(null, false);
+            notification()
         });
     });
 
@@ -209,6 +210,7 @@ $(function(){
         formData.append('update_id', 1);
         confirmAjax(`/auth/aviso/updateAvisoEstado`, formData, "POST", null, null, function () {
             $dataTableAviso.ajax.reload(null, false);
+            notification()
         });
     });
 
