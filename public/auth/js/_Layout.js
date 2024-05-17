@@ -193,7 +193,6 @@ function redirectFunction(){
     window.location.href = 'aviso';
 }
 
-
 function invocarVista(url, onHiddenView){
     $.ajax({
         url: url,
