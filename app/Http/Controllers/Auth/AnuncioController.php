@@ -32,6 +32,7 @@ class AnuncioController extends Controller
         }
         $validator = Validator::make($request->all(), [
             'titulo' => 'required',
+            'fecha_desde' => 'required',
             'vigencia' => 'required',
             'banner' => 'required|mimes:jpeg,png'
         ]);
@@ -39,6 +40,7 @@ class AnuncioController extends Controller
             $data = [
                 'titulo' => $request->titulo,
                 'enlace' => $request->enlace,
+                'mostrar' => $request->fecha_desde,
                 'vigencia' => $request->vigencia,
                 'banner' => 'uploads/anuncios/'.$foto
             ];

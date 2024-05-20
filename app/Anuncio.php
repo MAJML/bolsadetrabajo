@@ -10,6 +10,6 @@ class Anuncio extends Model
     use SoftDeletes;
 
     protected $fillable = [
-      'titulo','enlace','vigencia','banner'
+      'titulo','enlace','mostrar','vigencia','banner'
     ];
 }

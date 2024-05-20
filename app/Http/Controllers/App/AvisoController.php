@@ -65,7 +65,7 @@ class AvisoController extends Controller
         $Provincias = Provincia::orderby('nombre', 'asc')->get();
         $Horarios = Horario::orderby('nombre', 'asc')->get();
         $Modalidades = Modalidad::orderby('nombre', 'asc')->get();
-        $Anuncio = Anuncio::where('vigencia', '>', now())->orderby('created_at', 'desc')->get();        
+        $Anuncio = Anuncio::where('vigencia', '>=', date('Y-m-d'))->where('mostrar', '<=', date('Y-m-d'))->orderby('created_at', 'desc')->get();        
 
         return view('app.avisos.index', ['areas' => $Areas, 'provincias' => $Provincias, 'horarios' => $Horarios, 'modalidades' => $Modalidades, 'anuncio' => $Anuncio]);
     }

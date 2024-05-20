@@ -32,6 +32,7 @@ $(function(){
             },
             { title: "Titulo", data : 'titulo'},
             { title: "Enlace de Redirección", data: "enlace", class: "text-left"},
+            { title: "Mostrar desde", data: "mostrar", class: "text-left"},
             { title: "Vigencia", data: "vigencia", class: "text-left"},
             {
                 title: "Banner",
@@ -48,7 +49,7 @@ $(function(){
             }
         ],
         "rowCallback": function (row, data, index) {
-            if(data.vigencia <= fecha_actual){
+            if(data.vigencia < fecha_actual){
                 $("td", row).css({
                     "background-color": "#f87171",
                     "color": "#fff"

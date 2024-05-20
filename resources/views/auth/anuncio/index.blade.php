@@ -54,6 +54,13 @@
                         <input autocomplete="off" type="text" class="form-control-m form-control-sm" id="enlace" name="enlace">
                     </div>
                     <div class="form-group col-lg-12">
+                        <label for="fecha_desde" class="m-0 label-primary">Mostrar desde</label>
+                        <input type="date" class="form-control-m form-control-sm" min="<?php echo date('Y-m-d'); ?>" id="fecha_desde" name="fecha_desde" value="<?php echo date('Y-m-d'); ?>">
+                        @error('fecha_desde')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="form-group col-lg-12">
                         <label for="fecha_vigencia" class="m-0 label-primary">Fecha de Vigencia</label>
                         <input type="date" class="form-control-m form-control-sm" min="<?php echo date('Y-m-d'); ?>" id="fecha_vigencia" name="vigencia" value="{{ old('vigencia') }}">
                         @error('vigencia')
