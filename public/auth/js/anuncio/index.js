@@ -44,7 +44,7 @@ $(function(){
             {
                 data : null,
                 render: function(data){ 
-                    return '<a href="javascript:(0)" class="btn-delete btn btn-danger"><i class="fa fa-trash"></i></a>'
+                    return '<a href="javascript:(0)" class="btn-delete btn btn-danger" idDato="'+data.id+'"><i class="fa fa-trash"></i></a>'
                 }
             }
         ],
@@ -59,7 +59,8 @@ $(function(){
     });
 
     $table.on("click", ".btn-delete", function () {
-        const id = $dataTableAviso.row($(this).parents("tr")).data().id;
+        /* const id = $dataTableAviso.row($(this).parents("tr")).data().id; */
+        const id = $('.btn-delete').attr('idDato')
         const formData = new FormData();
         formData.append('_token', $("input[name=_token]").val());
         formData.append('id', id);
