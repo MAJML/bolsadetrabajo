@@ -52,4 +52,12 @@ class AnuncioController extends Controller
         return $status ? redirect(route('auth.anuncio')) : redirect(route('auth.anuncio'))->withErrors($validator)->withInput();
     }
   
+    public function delete(Request $request)
+    {
+        $status = false;
+        $entity = Anuncio::find($request->id);
+        if($entity->delete()) $status = true;
+
+        return response()->json(['Success' => $status]);
+    }
 }

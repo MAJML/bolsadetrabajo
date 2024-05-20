@@ -95,5 +95,4 @@
     <script type="text/javascript" src="{{ asset('auth/plugins/datatable/datatables.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('auth/plugins/datatable/dataTables.config.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('auth/js/anuncio/index.js') }}"></script>
-    {{-- <script type="text/javascript" src="{{ asset('auth/js/avisoPostulacion/index.js') }}"></script> --}}
 @endsection

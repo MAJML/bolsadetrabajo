@@ -162,6 +162,7 @@
                     <div class="card aviso mt-2">
                         {{-- <a href="{{ route('empresa.postulantes', ['empresa' => $aviso->empresas->link, 'slug' => $aviso->link]) }}" class="text-uppercase">Regresar</a> --}}
                         <a href="{{ route('empresa.postulantes', ['empresa' => $aviso->empresas->id, 'slug' => $aviso->id]) }}" class="text-uppercase">Regresar</a>
+                        
                     </div>
                 </div>
                 <div class="col-md-2">

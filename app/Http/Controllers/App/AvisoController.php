@@ -143,17 +143,13 @@ class AvisoController extends Controller
     {
         /* $Aviso = Aviso::where('link', $slug)
             ->whereHas('empresas', function ($q) use ($empresa){ $q->where('link',  $empresa);})->first(); */
-        $Aviso = Aviso::where('id', $slug)
-            ->whereHas('empresas', function ($q) use ($empresa){ $q->where('id',  $empresa);})->first();
-        
+        $Aviso = Aviso::where('id', $slug)->whereHas('empresas', function ($q) use ($empresa){ $q->where('id',  $empresa);})->first();
         $Alumno = Alumno::where('usuario_alumno', $alumno)->first();
-        $Estados = Estado::all();
-
+        $updateEstado = AlumnoAviso::where('alumno_id', $Alumno->id)->where('aviso_id', $slug)->update(['estado_id' => 2]);
+        $Estados = Estado::whereIn('id', [2,4,5])->get();
         $AlumnosAvisos = AlumnoAviso::with('alumnos')->where('aviso_id', $Aviso->id);
-
         $Postulante = $AlumnosAvisos->where('alumno_id', $Alumno->id)->first();
         $Educaciones = Educacion::where('alumno_id', $Alumno->id)->get();
-
         $Area = Area::all();
 
         if(!Auth::guard('alumnos')->user() && $Postulante){

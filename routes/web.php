@@ -152,6 +152,7 @@ Route::group(['prefix' => 'auth', 'middleware' => 'auth:web'], function () {
         Route::get('/', 'Auth\AnuncioController@index')->name('auth.anuncio');
         Route::post('/store', 'Auth\AnuncioController@store')->name('auth.anuncio.store');
         Route::get('/list_all', 'Auth\AnuncioController@list')->name('auth.anuncio.list');
+        Route::post('/delete', 'Auth\AnuncioController@delete')->name('auth.anuncio.delete');
         /* Route::get('/list_all', 'Auth\AvisoPostulacionController@list')->name('auth.avisoPostulacion.list'); */
     });
 

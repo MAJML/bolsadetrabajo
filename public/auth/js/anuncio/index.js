@@ -39,6 +39,12 @@ $(function(){
                 render: function(data){ 
                     return '<img width="60%" src="../../../'+data.banner+'" alt="">'
                 }
+            },
+            {
+                data : null,
+                render: function(data){ 
+                    return '<a href="javascript:(0)" class="btn-delete btn btn-danger"><i class="fa fa-trash"></i></a>'
+                }
             }
         ],
         "rowCallback": function (row, data, index) {
@@ -49,6 +55,16 @@ $(function(){
                 });
             }
         }
+    });
+
+    $table.on("click", ".btn-delete", function () {
+        const id = $dataTableAviso.row($(this).parents("tr")).data().id;
+        const formData = new FormData();
+        formData.append('_token', $("input[name=_token]").val());
+        formData.append('id', id);
+        confirmAjax(`/auth/anuncio/delete`, formData, "POST", null, null, function () {
+            $dataTableAviso.ajax.reload(null, false);
+        });
     });
 
 });

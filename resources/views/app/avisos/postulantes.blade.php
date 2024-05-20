@@ -35,13 +35,6 @@
                     </div>
                 </div>
                 <div class="col-md-5">
-                    {{-- @foreach ($postulantes as $q)  
-                        @foreach ($Grado_academico as $item)
-                            @if($q->alumnos->egresado == $item->id)
-                                {{ $item->grado_estado }}
-                            @endif
-                        @endforeach
-                    @endforeach --}}
 
                     <div id="postulantes">
                         <div id="cards-list" class="content avisos endless-pagination" data-next-page>
@@ -84,7 +77,7 @@
                     </div>
 
                     <div class="card aviso mt-2">
-                        <a href="{{ route('empresa.avisos') }}" class="text-uppercase">Regresar</a>
+                        <a href="{{ route('empresa.avisos') }}" class="text-uppercase">Regresara</a>
                     </div>
                 </div>
                 <div class="col-md-2">
