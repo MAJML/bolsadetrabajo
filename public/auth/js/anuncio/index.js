@@ -60,7 +60,7 @@ $(function(){
 
     $table.on("click", ".btn-delete", function () {
         /* const id = $dataTableAviso.row($(this).parents("tr")).data().id; */
-        const id = $('.btn-delete').attr('idDato')
+        const id = $(this).attr('idDato')
         const formData = new FormData();
         formData.append('_token', $("input[name=_token]").val());
         formData.append('id', id);
