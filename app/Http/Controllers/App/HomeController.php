@@ -142,7 +142,7 @@ class HomeController extends Controller
         $validator = Validator::make($request->all(), [
             'nombres' => 'required',
             'apellidos' => 'required',
-            'telefono' => 'required|digits:9',
+            'telefono' => 'required',
             'dni' => 'required|min:8|max:12|unique:alumnos',
             'email' => 'required|email',
             'fecha_nacimiento' => 'required|date',
