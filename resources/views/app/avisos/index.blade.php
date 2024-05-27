@@ -174,7 +174,7 @@
                                 </div>
                                 <div class="form-group" hidden>
                                     <select name="area_filter_id" id="area_filter_id" class="form-input" required>
-                                        <option value=""></option>
+                                        <option value="" hidden></option>
                                     @foreach($areas as $a)
                                         <option value="{{ $a->id }}">{{ $a->nombre }}</option>
                                     @endforeach
@@ -183,7 +183,7 @@
                                 </div>
                                 <div class="form-group">
                                     <select name="provincia_filter_idd" id="provincia_filter_idd" class="form-input" required>
-                                        <option value=""></option>
+                                        <option value="" hidden></option>
                                         @foreach($provincias as $a)
                                             <option value="{{ $a->id }}">{{ $a->nombre }}</option>
                                         @endforeach
@@ -192,12 +192,21 @@
                                 </div>
                                 <div class="form-group">
                                     <select name="distrito_filter_id" id="distrito_filter_id" class="form-input" required>
-                                        <option value=""></option>
+                                        <option value="" hidden></option>
                                     </select>
                                     <label for="distrito_filter_id">Distrito</label>
                                 </div>
 
-                                
+                                <div class="form-group">
+                                    <select name="tipo_estudiante" id="tipo_estudiante" class="form-input" required>
+                                        <option value="" hidden></option>
+                                        @foreach ($grado_academico as $value)
+                                            <option value="{{ $value->id }}">{{ $value->grado_estado }}</option>
+                                        @endforeach
+                                    </select>
+                                    <label for="tipo_estudiante">Tipo de Estudiante</label>
+                                </div>
+
                                 <div class="form-group" hidden>
                                     <select name="horario_filter_id" id="horario_filter_id" class="form-input" required>
                                         <option value=""></option>
@@ -216,10 +225,6 @@
                                     </select>
                                     <label for="modalidad_filter_id">Modalidad</label>
                                 </div>
-                                <!--<div class="form-group">
-                                    <input type="text" class="form-input decimal" required>
-                                    <label for="sueldo">Sueldo</label>
-                                </div>-->
                             </div>
                         </form>
                     </div>

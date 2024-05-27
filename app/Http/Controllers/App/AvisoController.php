@@ -43,6 +43,7 @@ class AvisoController extends Controller
                 /* ->where(function ($q) use ($request){ if($request->provincia_id){ $q->where('provincia_id', $request->provincia_id);}}) */
                 ->where(function ($q) use ($request){ if($request->distrito_id){ $q->where('distrito_id', $request->distrito_id);}})
                 ->where('estado_aviso', 1)
+                ->where('solicita_grado_a', 'like', '%'.$request->tipo_estudiante.'%')
                 // ->where(function ($q) use ($request){ if($request->horario_id){ $q->where('horario_id', $request->horario_id);}})
                 // ->where(function ($q) use ($request){ if($request->modalidad_id){ $q->where('modalidad_id', $request->modalidad_id);}})
 
@@ -66,8 +67,9 @@ class AvisoController extends Controller
         $Horarios = Horario::orderby('nombre', 'asc')->get();
         $Modalidades = Modalidad::orderby('nombre', 'asc')->get();
         $Anuncio = Anuncio::where('vigencia', '>=', date('Y-m-d'))->where('mostrar', '<=', date('Y-m-d'))->orderby('created_at', 'desc')->get();        
+        $Grado_academico = Grado_academico::all();
 
-        return view('app.avisos.index', ['areas' => $Areas, 'provincias' => $Provincias, 'horarios' => $Horarios, 'modalidades' => $Modalidades, 'anuncio' => $Anuncio]);
+        return view('app.avisos.index', ['areas' => $Areas, 'provincias' => $Provincias, 'horarios' => $Horarios, 'modalidades' => $Modalidades, 'anuncio' => $Anuncio, 'grado_academico'=> $Grado_academico]);
     }
 
     public function informacion($empresa, $slug)

@@ -2,7 +2,7 @@ $(function(){
     $('.btn_evento_bolsa').click();
     const $name = $("#name"), $filterSearch = $(".filterSearch");
 
-    var $area_id = $("#area_filter_id"), $provincia_id = $("#provincia_filter_idd"), $distrito_id = $("#distrito_filter_id"),
+    var $area_id = $("#area_filter_id"), $provincia_id = $("#provincia_filter_idd"), $distrito_id = $("#distrito_filter_id"), $tipo_estudiante = $("#tipo_estudiante")
     $horario_id = $("#horario_filter_id"), $modalidad_id = $("#modalidad_filter_id"), $startDate = moment().startOf('month').format("YYYY-MM-DD"),
     $endDate = moment().endOf('month').format("YYYY-MM-DD");
 
@@ -10,7 +10,7 @@ $(function(){
         if (e.keyCode == 13) $filterSearch.click();
     });
 
-    $(document).on("change", "#area_filter_id, #provincia_filter_id, #distrito_filter_id, #horario_filter_id, #modalidad_filter_id", function(){
+    $(document).on("change", "#area_filter_id, #provincia_filter_id, #distrito_filter_id, #horario_filter_id, #modalidad_filter_id, #tipo_estudiante", function(){
         $filterSearch.click();
     });
 
@@ -40,8 +40,7 @@ $(function(){
         function listPagination(reset){
 
             const $Page = reset ? window.location.origin + (PERFIL == 2 ? "/alumno/" : "/empresa/") + "avisos/?page=1" : $('.endless-pagination').data('next-page');
-            const $Filters = "name="+$name.val()+"&area_id="+$area_id.val()+"&provincia_id="+$provincia_id.val()+"&distrito_id="+$distrito_id.val()+"&horario_id="+$horario_id.val()+"&modalidad_id="+$modalidad_id.val()+"&fecha_inicio="+$startDate+"&fecha_final="+$endDate;
-
+            const $Filters = "name="+$name.val()+"&area_id="+$area_id.val()+"&provincia_id="+$provincia_id.val()+"&distrito_id="+$distrito_id.val()+"&horario_id="+$horario_id.val()+"&modalidad_id="+$modalidad_id.val()+"&fecha_inicio="+$startDate+"&fecha_final="+$endDate+"&tipo_estudiante="+$tipo_estudiante.val();
             if($Page !== null){
 
                 if(reset){
